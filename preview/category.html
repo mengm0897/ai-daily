@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>板块 · AI Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="status-strip">原型审阅 · 原线框 + Vibe 配色 · 不影响线上站点</div>
+  <div class="wrap">
+    <a class="back" href="index.html">← 返回首页</a>
+    <div class="site-top">
+      <span class="orbit" aria-hidden="true"></span>
+      <h1 id="t"></h1>
+    </div>
+    <div id="m"></div>
+  </div>
+  <script>
+  const q = new URLSearchParams(location.search);
+  const c = AI_DAILY.categories.find(x => x.id == q.get("c")) || AI_DAILY.categories[0];
+  t.textContent = c.name;
+  document.title = c.name + " · AI Daily";
+  const L = (a, e) => a.length
+    ? `<ul>${a.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a> <span class="muted">${i.date || ""}</span></li>`).join("")}</ul>`
+    : `<p class="muted">${e}</p>`;
+  m.innerHTML =
+    `<div class="card"><h2>今日更新</h2>${L(c.today, "今日无高质量更新")}</div>` +
+    `<div class="card"><h2>历史动态</h2>${L(c.history, "暂无历史动态")}</div>`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="status-strip">原型审阅 · 原线框 + Vibe 配色 · 不影响线上站点</div>
+  <div class="wrap">
+    <div class="site-top">
+      <span class="orbit" aria-hidden="true"></span>
+      <h1>AI Daily</h1>
+    </div>
+    <div class="sub" id="d"></div>
+    <div id="m"></div>
+    <p class="footer-note">结构与线上一致：四板块列表 → 板块页 → 详情。首页四卡用学习卡封面色轮换。</p>
+  </div>
+  <script>
+  const D = AI_DAILY;
+  d.textContent = D.date + " · 今日精选";
+  m.innerHTML = D.categories.map(c =>
+    `<div class="card card--${c.id}"><h2><a href="category.html?c=${c.id}">${c.name}</a></h2>` +
+    (c.today.length
+      ? `<ul>${c.today.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a></li>`).join("")}</ul>`
+      : `<ul><li class="muted">今日无高质量更新</li></ul>`) +
+    `</div>`
+  ).join("");
+  </script>
+</body>
+</html>
