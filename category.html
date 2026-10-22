@@ -25,7 +25,7 @@
     const c = AI_DAILY.categories.find(x => x.id == q.get("c")) || AI_DAILY.categories[0];
     const band = {official:"purple",vibe:"cyan",agent:"coral",growth:"gold"};
     t.textContent = c.name;
-    document.title = c.name + " · AI Daily · 方案C";
+    document.title = c.name + " · AI Daily";
     const L = (arr, empty) => arr.length
       ? `<ul class="item-list">${arr.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a><span class="meta">${i.date||""}</span></li>`).join("")}</ul>`
       : `<p class="muted">${empty}</p>`;
