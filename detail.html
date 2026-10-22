@@ -1,3 +1,44 @@
-<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>详情 · AI Daily</title><link rel="stylesheet" href="style.css"><script src="data.js"></script></head><body><div class="wrap"><a id="b" href="index.html">← 返回</a><div class="card" id="m" style="margin-top:16px"></div></div><script>
-const q=new URLSearchParams(location.search),c=AI_DAILY.categories.find(x=>x.id==q.get("c")),i=c&&[...c.today,...c.history].find(x=>x.id==q.get("i"));
-if(c)b.href="category.html?c="+c.id;m.innerHTML=i?`<span class="tag">${c.name}</span><span class="tag">${i.date}</span><h1 style="font-size:28px;margin-top:12px">${i.title}</h1><p>${i.summary}</p>${i.source?`<p><a href="${i.source}" target="_blank">查看原文 →</a></p>`:""}`:"<p>未找到该条目。</p>";document.title=(i?i.title:"详情")+" · AI Daily";</script></body></html>
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>详情 · AI Daily · 方案C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <span class="badge">AI Daily</span>
+        <a class="back" id="b" href="index.html">← 返回</a>
+      </div>
+      <a class="hub" href="../index.html">← 概念入口</a>
+    </header>
+    <article class="card detail band-purple" id="m"></article>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const c = AI_DAILY.categories.find(x => x.id == q.get("c"));
+    const i = c && [...c.today, ...c.history].find(x => x.id == q.get("i"));
+    const band = {official:"purple",vibe:"cyan",agent:"coral",growth:"gold"};
+    if (c) {
+      b.href = "category.html?c=" + c.id;
+      m.className = "card detail band-" + (band[c.id] || "purple");
+    }
+    m.innerHTML = i
+      ? `<div class="band"></div><div class="body">
+           <div class="tags"><span class="pill">${c.name}</span><span class="pill">${i.date}</span></div>
+           <h1>${i.title}</h1>
+           <p class="summary">${i.summary}</p>
+           ${i.source ? `<p><a class="ghost" href="${i.source}" target="_blank" rel="noopener">查看原文</a></p>` : ""}
+         </div>`
+      : `<div class="body"><p class="muted">未找到该条目。</p></div>`;
+    document.title = (i ? i.title : "详情") + " · AI Daily · 方案C";
+  </script>
+</body>
+</html>

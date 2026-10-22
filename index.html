@@ -1,2 +1,44 @@
-<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Daily</title><link rel="stylesheet" href="style.css"><script src="data.js"></script></head><body><div class="wrap"><h1>AI Daily</h1><div class="sub" id="d"></div><div id="m"></div></div><script>
-const D=AI_DAILY;d.textContent=D.date+" · 今日精选";m.innerHTML=D.categories.map(c=>`<div class="card"><h2><a href="category.html?c=${c.id}">${c.name}</a></h2>${c.today.length?`<ul>${c.today.map(i=>`<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a></li>`).join("")}</ul>`:`<ul><li class="muted">今日无高质量更新</li></ul>`}</div>`).join("");</script></body></html>
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Daily · 方案C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <span class="badge">AI Daily</span>
+        <h1>AI Daily</h1>
+        <p class="sub" id="d"></p>
+      </div>
+      <a class="hub" href="../index.html">← 概念入口</a>
+    </header>
+    <main id="m" class="cat-list"></main>
+  </div>
+  <script>
+    const D = AI_DAILY;
+    const band = {official:"purple",vibe:"cyan",agent:"coral",growth:"gold"};
+    d.textContent = D.date + " · 今日精选";
+    m.innerHTML = D.categories.map(c => {
+      const items = c.today.length
+        ? `<ul>${c.today.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a></li>`).join("")}</ul>`
+        : `<ul><li class="muted">今日无高质量更新</li></ul>`;
+      return `<article class="card band-${band[c.id]||"purple"}">
+        <div class="band"></div>
+        <div class="body">
+          <h2><a href="category.html?c=${c.id}">${c.name}</a></h2>
+          ${items}
+          <a class="ghost" href="category.html?c=${c.id}">进入板块</a>
+        </div>
+      </article>`;
+    }).join("");
+  </script>
+</body>
+</html>
