@@ -1,0 +1,4 @@
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#2d2340;min-height:100vh;background:linear-gradient(135deg,#ff9ad5 0%,#c79bff 25%,#8ec5ff 50%,#8ff0c4 75%,#ffe48a 100%);background-attachment:fixed}
+.wrap{max-width:880px;margin:0 auto;padding:40px 20px}h1{font-size:40px;margin:0 0 4px}.sub{opacity:.75;margin-bottom:28px}
+.card{background:rgba(255,255,255,.62);backdrop-filter:blur(12px);border-radius:22px;padding:22px 26px;margin-bottom:18px;box-shadow:0 8px 30px rgba(120,60,180,.12)}
+.card h2{margin:0 0 10px;font-size:20px}ul{margin:0;padding-left:20px}li{margin:8px 0}a{color:#6b2fd6;text-decoration:none}a:hover{text-decoration:underline}.muted{opacity:.6}.tag{display:inline-block;background:rgba(255,255,255,.7);border-radius:999px;padding:3px 12px;font-size:13px;margin-right:6px}
