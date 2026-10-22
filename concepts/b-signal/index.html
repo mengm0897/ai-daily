@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Daily · 方案B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <span class="badge">方案B · 原型</span>
+        <div class="status"><span class="dot"></span>信源获取正常</div>
+        <h1>AI Daily</h1>
+        <p class="sub" id="d"></p>
+      </div>
+      <a class="hub" href="../index.html">← 概念入口</a>
+    </header>
+    <main id="m" class="cat-list"></main>
+  </div>
+  <script>
+    const D = AI_DAILY;
+    const num = {official:"01",vibe:"02",agent:"03",growth:"04"};
+    d.textContent = D.date + " · 今日精选";
+    m.innerHTML = D.categories.map(c => {
+      const items = c.today.length
+        ? `<ul>${c.today.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a></li>`).join("")}</ul>`
+        : `<ul><li class="muted">今日无高质量更新</li></ul>`;
+      return `<article class="card">
+        <div class="num">${num[c.id]||"--"}</div>
+        <h2><a href="category.html?c=${c.id}">${c.name}</a></h2>
+        ${items}
+        <a class="cta" href="category.html?c=${c.id}">进入板块</a>
+      </article>`;
+    }).join("");
+  </script>
+</body>
+</html>

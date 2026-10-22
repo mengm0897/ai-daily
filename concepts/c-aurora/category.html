@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>板块 · AI Daily · 方案C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <span class="badge">方案C · 原型</span>
+        <a class="back" href="index.html">← 返回首页</a>
+        <h1 id="t"></h1>
+      </div>
+      <a class="hub" href="../index.html">← 概念入口</a>
+    </header>
+    <main id="m"></main>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const c = AI_DAILY.categories.find(x => x.id == q.get("c")) || AI_DAILY.categories[0];
+    const band = {official:"purple",vibe:"cyan",agent:"coral",growth:"gold"};
+    t.textContent = c.name;
+    document.title = c.name + " · AI Daily · 方案C";
+    const L = (arr, empty) => arr.length
+      ? `<ul class="item-list">${arr.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a><span class="meta">${i.date||""}</span></li>`).join("")}</ul>`
+      : `<p class="muted">${empty}</p>`;
+    m.innerHTML = `
+      <section class="card band-${band[c.id]||"purple"}">
+        <div class="band"></div>
+        <div class="body">
+          <h2>今日更新</h2>
+          ${L(c.today,"今日无高质量更新")}
+        </div>
+      </section>
+      <section class="card band-${band[c.id]||"purple"} quiet">
+        <div class="band"></div>
+        <div class="body">
+          <h2>历史动态</h2>
+          ${L(c.history,"暂无历史动态")}
+        </div>
+      </section>`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>详情 · AI Daily · 方案B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <span class="badge">方案B · 原型</span>
+        <a class="back" id="b" href="index.html">← 返回</a>
+      </div>
+      <a class="hub" href="../index.html">← 概念入口</a>
+    </header>
+    <article class="card detail" id="m"></article>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const c = AI_DAILY.categories.find(x => x.id == q.get("c"));
+    const i = c && [...c.today, ...c.history].find(x => x.id == q.get("i"));
+    if (c) b.href = "category.html?c=" + c.id;
+    m.innerHTML = i
+      ? `<div class="tags"><span class="tag">${c.name}</span><span class="tag mono">${i.date}</span></div>
+         <h1>${i.title}</h1>
+         <p class="summary">${i.summary}</p>
+         ${i.source ? `<p><a class="cta" href="${i.source}" target="_blank" rel="noopener">查看原文</a></p>` : ""}`
+      : `<p class="muted">未找到该条目。</p>`;
+    document.title = (i ? i.title : "详情") + " · AI Daily · 方案B";
+  </script>
+</body>
+</html>

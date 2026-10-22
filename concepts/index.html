@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Daily · 视觉方案对比</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Manrope,system-ui,sans-serif;background:#F4F5F7;color:#0F172A;
+      -webkit-font-smoothing:antialiased}
+    .wrap{max-width:860px;margin:0 auto;padding:40px 20px 72px}
+    h1{font-size:32px;margin:0 0 8px;letter-spacing:-.02em}
+    .lead{color:#64748B;margin:0 0 28px;line-height:1.6;max-width:52ch}
+    .note{font-size:13px;color:#64748B;background:#fff;border:1px solid #E6EAF0;border-radius:12px;
+      padding:12px 14px;margin-bottom:24px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr 1fr}}
+    .card{background:#fff;border:1px solid #E6EAF0;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;
+      box-shadow:0 8px 24px rgba(15,23,42,.04)}
+    .swatch{height:56px;border-radius:10px;margin-bottom:4px}
+    .a .swatch{background:linear-gradient(90deg,#F5F7FA,#2F6BFF 55%,#14B8A6)}
+    .b .swatch{background:linear-gradient(90deg,#FAFBFC,#00A3A3 50%,#F5A524)}
+    .c .swatch{background:linear-gradient(90deg,#F7F4EF,#6B4C9A 45%,#C4A574)}
+    .label{font-size:12px;font-weight:700;letter-spacing:.04em;color:#64748B}
+    h2{margin:0;font-size:18px}
+    p{margin:0;color:#475569;font-size:14px;line-height:1.55;flex:1}
+    a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:13px;
+      color:#fff;background:#0F172A;border-radius:999px;padding:10px 14px;margin-top:6px}
+    a.btn:hover{opacity:.9}
+    .links{font-size:12px;color:#64748B}
+    .links a{color:#2F6BFF;text-decoration:none;margin-right:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>AI Daily · 三套视觉原型</h1>
+    <p class="lead">信息架构与线上一致：首页四板块列表 → 板块「今日 / 历史」→ 详情（标签 + 标题 + 摘要 + 来源）。以下仅为隔离视觉方案，不影响正式站点。</p>
+    <div class="note">本地打开：直接用浏览器打开本页或各方案的 <code>index.html</code>。正式站根目录文件未改动。</div>
+    <div class="grid">
+      <article class="card a">
+        <div class="swatch"></div>
+        <div class="label">方案 A</div>
+        <h2>Cirrus Soft Tech</h2>
+        <p>轻科技云雾感。冷灰白底、白卡片大圆角、左侧色条区分板块、科技蓝主按钮，偏产品落地页气质。</p>
+        <a class="btn" href="a-cirrus/index.html">打开一级页</a>
+        <div class="links">
+          <a href="a-cirrus/category.html?c=official">二级示例</a>
+          <a href="a-cirrus/detail.html?c=official&i=o1">三级示例</a>
+        </div>
+      </article>
+      <article class="card b">
+        <div class="swatch"></div>
+        <div class="label">方案 B</div>
+        <h2>Signal Precision</h2>
+        <p>精密浅色工程美学。淡网格、墨线细边框、01–04 编号、信号青 + 琥珀 CTA，高级感来自秩序而非装饰。</p>
+        <a class="btn" href="b-signal/index.html">打开一级页</a>
+        <div class="links">
+          <a href="b-signal/category.html?c=official">二级示例</a>
+          <a href="b-signal/detail.html?c=official&i=o1">三级示例</a>
+        </div>
+      </article>
+      <article class="card c">
+        <div class="swatch"></div>
+        <div class="label">方案 C</div>
+        <h2>Aurora Luxe Light</h2>
+        <p>浅色奢编辑。暖米白纸面、低饱和顶色带、衬线大标题 + 香槟金幽灵按钮，安静贵气、科技感克制。</p>
+        <a class="btn" href="c-aurora/index.html">打开一级页</a>
+        <div class="links">
+          <a href="c-aurora/category.html?c=official">二级示例</a>
+          <a href="c-aurora/detail.html?c=official&i=o1">三级示例</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+</html>
