@@ -4,8 +4,8 @@ import SplitText from "./components/SplitText";
 
 const TITLE = "AI Daily";
 const FOG_PURPLE = "#6B4C9A";
-/** cream / fog-purple family — no indigo */
-const FLUX_COLORS = ["#FFFFFF", "#6B4C9A", "#C9B8E0", "#F7F4EF"];
+/** Soft lavender / fog-purple tints only — no white/gray that reads as ash */
+const FLUX_COLORS = ["#F3ECF8", "#E0D2EE", "#C4B0DC", "#D8C6E8"];
 
 function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return false;
@@ -21,7 +21,7 @@ function isHeroShot(): boolean {
   }
 }
 
-/** Flux Lines only — Soft Aurora removed */
+/** Flux Lines only — softened so SplitText leads */
 export function HeroBgMount() {
   const [calm, setCalm] = useState(false);
 
@@ -36,24 +36,26 @@ export function HeroBgMount() {
         colors={FLUX_COLORS}
         lightMode
         transparent
-        speed={0.34}
-        scale={1.4}
-        turbulence={0.75}
-        fluidity={0.14}
-        rimWidth={0.22}
-        sharpness={1.85}
-        shimmer={0.6}
-        glow={1}
-        lineWidth={1.05}
+        speed={0.28}
+        scale={1.35}
+        turbulence={0.55}
+        fluidity={0.16}
+        rimWidth={0.28}
+        sharpness={1.15}
+        shimmer={0.2}
+        glow={0.35}
+        lineWidth={0.7}
         flowDirection="down"
-        opacity={0.62}
+        opacity={0.34}
         mouseInteraction={false}
         clickSwirl={false}
         intro={!calm}
         paused={calm}
-        mixBlendMode="soft-light"
+        mixBlendMode="normal"
         style={{ position: "absolute", inset: 0 }}
       />
+      {/* Soft cream veil — keeps lines from competing with title */}
+      <div className="hero-flux-veil" aria-hidden="true" />
     </div>
   );
 }

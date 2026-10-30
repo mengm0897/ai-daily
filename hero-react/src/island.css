@@ -1,4 +1,4 @@
-/* Island chrome — Flux Lines + splash SplitText (no Soft Aurora) */
+/* Island chrome — soft Flux Lines + splash SplitText */
 .hero-aurora {
   position: absolute;
   inset: 0;
@@ -25,6 +25,28 @@
   height: 100%;
 }
 
+/* Cream veil over flux — stronger at center so SplitText reads first */
+.hero-flux-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 82% 72% at 50% 42%,
+      rgba(247, 244, 239, 0.92) 0%,
+      rgba(247, 244, 239, 0.62) 38%,
+      rgba(247, 244, 239, 0.28) 62%,
+      rgba(247, 244, 239, 0.1) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(247, 244, 239, 0.45) 0%,
+      rgba(247, 244, 239, 0.15) 40%,
+      rgba(247, 244, 239, 0.48) 100%
+    );
+}
+
 .hero-title-mount {
   display: flex;
   justify-content: center;
@@ -34,7 +56,6 @@
   width: 100%;
 }
 
-/* Splash / 开屏 — dominate the hero band */
 .hero-split-title {
   font-family: "Instrument Serif", Georgia, serif !important;
   font-size: clamp(140px, 26vw, 300px) !important;
