@@ -11,32 +11,79 @@
   <script src="data.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <header class="top">
-      <div>
-        <a class="back" id="b" href="index.html">← 返回</a>
-      </div>
-      </header>
+  <header class="site-chrome" role="banner">
+    <div class="site-chrome__inner">
+      <a class="wordmark" href="index.html">AI Daily</a>
+      <nav class="site-nav" aria-label="板块导航">
+        <a href="category.html?c=official" data-nav="official">官方 AI 动态</a>
+        <a href="category.html?c=vibe" data-nav="vibe">Vibe Coding</a>
+        <a href="category.html?c=agent" data-nav="agent">效率与 Agent</a>
+        <a href="category.html?c=growth" data-nav="growth">知识与成长</a>
+      </nav>
+      <span class="chrome-date" id="chrome-date"></span>
+    </div>
+  </header>
+
+  <div class="shell shell--detail">
+    <header class="page-head">
+      <a class="back" id="b" href="index.html">← 返回</a>
+    </header>
     <article class="card detail band-purple" id="m"></article>
   </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__tag">面向非技术读者的 AI 日报 · Aurora Luxe Light</p>
+      <nav class="site-footer__nav" aria-label="页脚板块">
+        <a href="category.html?c=official">官方 AI 动态</a>
+        <a href="category.html?c=vibe">Vibe Coding</a>
+        <a href="category.html?c=agent">效率与 Agent</a>
+        <a href="category.html?c=growth">知识与成长</a>
+      </nav>
+    </div>
+  </footer>
+
   <script>
     const q = new URLSearchParams(location.search);
     const c = AI_DAILY.categories.find(x => x.id == q.get("c"));
     const i = c && [...c.today, ...c.history].find(x => x.id == q.get("i"));
     const band = {official:"purple",vibe:"cyan",agent:"coral",growth:"gold"};
+    document.getElementById("chrome-date").textContent = AI_DAILY.date;
     if (c) {
       b.href = "category.html?c=" + c.id;
       m.className = "card detail band-" + (band[c.id] || "purple");
+      document.querySelectorAll(".site-nav [data-nav]").forEach(a => {
+        if (a.getAttribute("data-nav") === c.id) a.setAttribute("aria-current", "page");
+      });
     }
     m.innerHTML = i
       ? `<div class="band"></div><div class="body">
            <div class="tags"><span class="pill">${c.name}</span><span class="pill">${i.date}</span></div>
            <h1>${i.title}</h1>
            <p class="summary">${i.summary}</p>
-           ${i.source ? `<p><a class="ghost" href="${i.source}" target="_blank" rel="noopener">查看原文</a></p>` : ""}
+           ${i.source ? `<p class="detail-cta"><a class="btn btn--primary" href="${i.source}" target="_blank" rel="noopener">查看原文</a></p>` : ""}
          </div>`
       : `<div class="body"><p class="muted">未找到该条目。</p></div>`;
     document.title = (i ? i.title : "详情") + " · AI Daily";
-  </script>
+  
+    /* phase ④ preview: ?force=hover|focus|active pins .is-* for screenshots */
+    (function(){
+      var f = new URLSearchParams(location.search).get("force");
+      if (!f) return;
+      var map = {hover:"is-hover", focus:"is-focus", active:"is-active"};
+      var cls = map[f];
+      if (!cls) return;
+      var pick = function(sel, n){
+        document.querySelectorAll(sel).forEach(function(el, i){ if (i < n) el.classList.add(cls); });
+      };
+      pick(".btn--primary", 1);
+      pick(".btn--ghost, .ghost", 1);
+      pick(".back", 1);
+      pick(".site-nav a", 1);
+      pick(".cat-card", 1);
+      pick(".story-card", 2);
+      pick(".hub, .text-link", 1);
+    })();
+</script>
 </body>
 </html>

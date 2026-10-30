@@ -11,32 +11,135 @@
   <script src="data.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <header class="top">
-      <div>
-        <h1>AI Daily</h1>
-        <p class="sub" id="d"></p>
+  <header class="site-chrome" role="banner">
+    <div class="site-chrome__inner">
+      <a class="wordmark" href="index.html">AI Daily</a>
+      <nav class="site-nav" aria-label="板块导航">
+        <a href="#cat-official">官方 AI 动态</a>
+        <a href="#cat-vibe">Vibe Coding</a>
+        <a href="#cat-agent">效率与 Agent</a>
+        <a href="#cat-growth">知识与成长</a>
+      </nav>
+      <span class="chrome-date" id="chrome-date"></span>
+    </div>
+  </header>
+
+  <div class="shell">
+    <header class="hero">
+      <div class="hero-orbs" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+      </div>
+      <div id="hero-aurora" class="hero-aurora" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <span class="badge">每日精选</span>
+        <div id="hero-title" class="hero-title-mount" data-text="AI Daily" role="heading" aria-level="1">
+          <h1 class="hero-title-fallback">AI Daily</h1>
+        </div>
+        <p class="lead">面向非技术读者的 AI 日报</p>
       </div>
     </header>
-    <main id="m" class="cat-list"></main>
+
+    <section class="site-section" aria-labelledby="sec-cats">
+      <div class="section-head">
+        <h2 class="section-label" id="sec-cats">今日板块</h2>
+        <p class="section-hint">四个主题入口 · 点进看今日与历史</p>
+      </div>
+      <div id="m" class="cat-list"></div>
+    </section>
+
+    <section class="site-section site-section--band" aria-labelledby="sec-flash">
+      <div class="section-head">
+        <h2 class="section-label" id="sec-flash">今日速览</h2>
+        <p class="section-hint">跨板块抽几条，快速扫一眼</p>
+      </div>
+      <div id="flash" class="story-grid story-grid--flash"></div>
+    </section>
   </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__tag">面向非技术读者的 AI 日报 · Aurora Luxe Light</p>
+      <nav class="site-footer__nav" aria-label="页脚板块">
+        <a href="category.html?c=official">官方 AI 动态</a>
+        <a href="category.html?c=vibe">Vibe Coding</a>
+        <a href="category.html?c=agent">效率与 Agent</a>
+        <a href="category.html?c=growth">知识与成长</a>
+      </nav>
+    </div>
+  </footer>
+
   <script>
     const D = AI_DAILY;
     const band = {official:"purple",vibe:"cyan",agent:"coral",growth:"gold"};
-    d.textContent = D.date + " · 今日精选";
+    document.getElementById("chrome-date").textContent = D.date;
+
     m.innerHTML = D.categories.map(c => {
-      const items = c.today.length
-        ? `<ul>${c.today.map(i => `<li><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a></li>`).join("")}</ul>`
-        : `<ul><li class="muted">今日无高质量更新</li></ul>`;
-      return `<article class="card band-${band[c.id]||"purple"}">
-        <div class="band"></div>
-        <div class="body">
+      const n = c.today ? c.today.length : 0;
+      const preview = (c.today || []).slice(0, 3);
+      const rows = preview.length
+        ? `<ul class="story-rows">${preview.map(i =>
+            `<li class="story-row"><a href="detail.html?c=${c.id}&i=${i.id}">${i.title}</a></li>`
+          ).join("")}</ul>`
+        : `<ul class="story-rows"><li class="story-row muted">今日无高质量更新</li></ul>`;
+      return `<article class="cat-card band-${band[c.id]||"purple"}" id="cat-${c.id}">
+        <div class="cat-card__atm" aria-hidden="true">
+          <span class="cat-card__count">${n ? "今日 " + n : "暂无更新"}</span>
+        </div>
+        <div class="cat-card__body">
           <h2><a href="category.html?c=${c.id}">${c.name}</a></h2>
-          ${items}
-          <a class="ghost" href="category.html?c=${c.id}">进入板块</a>
+          ${rows}
+          <a class="btn btn--ghost cat-card__cta" href="category.html?c=${c.id}">进入板块</a>
         </div>
       </article>`;
     }).join("");
-  </script>
+
+    /* 今日速览：各板块今日第一条，凑满 4 条；不足再从后续补 */
+    const flashItems = [];
+    D.categories.forEach(c => {
+      const first = (c.today || [])[0];
+      if (first) flashItems.push({c, i: first});
+    });
+    if (flashItems.length < 4) {
+      D.categories.forEach(c => {
+        (c.today || []).slice(1).forEach(i => {
+          if (flashItems.length < 4) flashItems.push({c, i});
+        });
+      });
+    }
+    const flashEl = document.getElementById("flash");
+    if (!flashItems.length) {
+      flashEl.innerHTML = `<p class="muted empty-note">今日暂无速览条目</p>`;
+    } else {
+      flashEl.innerHTML = flashItems.map(({c, i}) =>
+        `<a class="story-card" href="detail.html?c=${c.id}&i=${i.id}">
+          <span class="story-card__meta">${c.name} · ${i.date || ""}</span>
+          <span class="story-card__title">${i.title}</span>
+        </a>`
+      ).join("");
+    }
+  
+    /* phase ④ preview: ?force=hover|focus|active pins .is-* for screenshots */
+    (function(){
+      var f = new URLSearchParams(location.search).get("force");
+      if (!f) return;
+      var map = {hover:"is-hover", focus:"is-focus", active:"is-active"};
+      var cls = map[f];
+      if (!cls) return;
+      var pick = function(sel, n){
+        document.querySelectorAll(sel).forEach(function(el, i){ if (i < n) el.classList.add(cls); });
+      };
+      pick(".btn--primary", 1);
+      pick(".btn--ghost, .ghost", 1);
+      pick(".back", 1);
+      pick(".site-nav a", 1);
+      pick(".cat-card", 1);
+      pick(".story-card", 2);
+      pick(".hub, .text-link", 1);
+    })();
+</script>
+  <link rel="stylesheet" href="hero-react/dist/hero.css">
+  <script type="module" src="hero-react/dist/hero.js"></script>
 </body>
 </html>

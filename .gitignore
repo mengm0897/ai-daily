@@ -1,0 +1,5 @@
+hero-react/node_modules/
+preview-shots/
+prototype/
+*.log
+.DS_Store

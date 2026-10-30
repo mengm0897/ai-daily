@@ -1,0 +1,45 @@
+:root {
+  --bg: #F7F4EF;
+  --ink: #1C1917;
+  --muted: #78716C;
+  --primary: #6B4C9A;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+  font-family: "Manrope", system-ui, sans-serif; }
+.demo-page { min-height: 100vh; }
+.demo-chrome {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 24px; border-bottom: 1px solid rgba(28,25,23,.06);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(12px);
+}
+.demo-wordmark {
+  font-family: "Instrument Serif", Georgia, serif; font-size: 22px;
+}
+.demo-note {
+  font-family: "DM Mono", monospace; font-size: 11px; color: var(--muted);
+}
+.demo-shell { padding: 28px 40px 56px; max-width: 1100px; margin: 0 auto; }
+.demo-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: 32px 28px 28px; min-height: 280px;
+  border-radius: 18px;
+  background: rgba(255,253,249,.35);
+}
+.hero-inner { position: relative; z-index: 1; max-width: 720px; }
+.badge {
+  display: inline-block; font-family: "DM Mono", monospace; font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--primary);
+  border: 1px solid rgba(107,76,154,.28); border-radius: 999px;
+  padding: 4px 10px; margin-bottom: 14px; background: rgba(255,253,249,.7);
+}
+.lead {
+  font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+  font-size: 18px; color: #57534E; margin: 0 0 16px; font-weight: 400;
+}
+.sub, .hero-stats {
+  font-family: "DM Mono", monospace; font-size: 11px; color: var(--muted);
+  margin: 0 0 8px;
+}
+.hero-stats { margin: 0; }
