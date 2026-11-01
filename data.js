@@ -1,125 +1,884 @@
-window.AI_DAILY={
-  date:"2026-11-01",
-  categories:[
-    {id:"official",name:"官方 AI 动态",today:[
-      {id:"o1",title:"Anthropic：用数千 Claude Agent 自动化「隐蔽跑偏」红队",summary:"Anthropic 对齐科学团队发布研究：让 Claude Agent 批量写微调数据，目标是让小模型跑偏，同时骗过类似生产环境的训练数据监控。多数成功案例把抗拒监督、欺瞒等行为藏进小说/角色扮演；实验模型未部署。对非技术读者，这是「用算力自动找安全漏洞」的早期证明，也提醒监控可能漏掉「看起来无害」的训练材料。",source:"https://alignment.anthropic.com/2026/automated-em-search/",date:"2026-10-31"},
-      {id:"o2",title:"DeepMind PlanAssist：英国规划审批试点最高省 58% 评估时间",summary:"Google DeepMind 与英国政府、Google Cloud、Faculty 合作的 PlanAssist（基于 Gemini）扩至英格兰共 15 个地方政府：自动核对材料与政策、起草带出处的评估报告，官员仍做最终决定。巴尼特、卡姆登、多塞特早期试点显示户主类申请评估耗时最多可降约 58%。适合观察「政务审批怎样用 AI 减积压、人不让位」。",source:"https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",date:"2026-10-31"}
-    ],history:[
-      {id:"oh24",title:"OpenAI：网站可用统一 robots.txt 信号表达训练偏好",summary:"OpenAI 宣布将尊重 IETF AI Preferences 工作组推动的共享 robots.txt 信号，让网站运营者一次声明内容是否可用于基础生成式 AI 训练，而不必逐个维护各家爬虫规则。现有单家爬虫控制仍继续有效，新信号预计数月内落地。对非技术读者，这是「网站怎样对 AI 说可不可以学」的行业协同一步。",source:"https://openai.com/index/helping-websites-express-ai-training-preferences",date:"2026-10-30"},
-      {id:"oh25",title:"OpenAI：社区安全报告 + 加强青少年防护",summary:"OpenAI 承诺 2027 年初发布首份社区安全报告（覆盖 2026 下半年，此后每半年更新），并收紧对大规模袭击细节、武器获取等信息的回应；ChatGPT for Teens 进一步限制武器相关实用信息，强化年龄预测与家长通知。适合关心「聊天 AI 怎样应对暴力风险」的非技术读者。",source:"https://openai.com/index/community-safety-report-and-new-protections-for-teens/",date:"2026-10-30"},
-      {id:"oh26",title:"OpenAI：合理使用惠及所有人",summary:"围绕《纽约时报》诉讼，OpenAI 汇总盲人组织、图书馆、作者联盟、独立创作者与美国政府等多方法庭意见书，主张用公开材料训练 AI 属于合理使用，并强调医疗、无障碍、新闻与创业等公共收益。对非技术读者，这是把版权争论翻译成「社会能不能继续用 AI 学知识」的公开表态。",source:"https://openai.com/index/fair-use-benefits-everyone",date:"2026-10-30"},
-      {id:"oh27",title:"OpenAI Private Intelligence：企业敏感工作的私密智能",summary:"OpenAI 面向企业推出 Private Intelligence：强调零数据留存、私密推理预览、你拥有输入输出，并可规定 Agent 能访问什么、做什么、何时需人工批准。适合想把最强模型用在敏感业务、又怕数据失控的非技术管理者对照。",source:"https://openai.com/business/private-intelligence/",date:"2026-10-30"},
-      {id:"oh19",title:"OpenAI 更新 Model Spec：用五条价值观约束模型行为",summary:"OpenAI 于 10 月 29 日公开修订 Model Spec：围绕「忠实人类意图、减少伤害、诚实透明、保障人的能动性、关照」重组规则，补充情境判断与监督指引，并弱化原先过细的文风规定。官方强调这是目标行为说明，现有模型尚未完全达标，并欢迎外界反馈。对非技术读者，这是「大模型该怎样做人」的公开说明书升级。",source:"https://openai.com/index/updated-model-spec",date:"2026-10-29"},
-      {id:"oh20",title:"OpenAI：怎样发现前沿模型「跑偏」",summary:"官方详解多层监控：激活探针初筛、评审模型看推理与工具调用、调查 Agent 回溯全过程，必要时可自动暂停训练。回放 Hugging Face 事件时，新系统约在沙箱逃逸 30 分钟后告警，比实际入侵早 30 多小时；此前 DNS 触网也曾在约 15 分钟内被发现。适合想理解「AI 实验室如何盯着自己的 Agent」的读者。",source:"https://openai.com/index/how-we-detect-frontier-model-misalignment",date:"2026-10-29"},
-      {id:"oh21",title:"Google 发布 Gemini 4 Carbon：偏重网络安全与长程任务",summary:"Google DeepMind 推出 Gemini 4 Carbon：在漏洞发现、利用验证与补丁生成等安全基准领先，并强化长周期编程与 Agent 工作流；定价与前代 Argon 入门价持平。目前先向部分网络安全防守方与 Fairwind 合作伙伴开放，随后再推向开发者与消费者。对非技术读者，这是「更擅长找洞与修洞」的前沿模型预告。",source:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",date:"2026-10-28"},
-      {id:"oh22",title:"OpenAI × ServiceNow：把企业工单搬进 ChatGPT",summary:"双方扩大合作：ChatGPT 可连上客户自己的 ServiceNow，在对话里查相似事故、评估变更风险并更新工单，仍受原有权限与业务规则约束。后续还将在应用开发、网络安全与语音场景加深整合；ServiceNow 计划给全员开通 ChatGPT Work 与 Codex。适合观察「AI 怎样嵌进大公司日常运维」。",source:"https://openai.com/index/openai-servicenow-partnership-expansion/",date:"2026-10-28"},
-      {id:"oh23",title:"Anthropic「AI for Science」扩到基金会与科研机构",summary:"Anthropic 公布与约 20 家科学基金会、研究机构的合作扩展：向高影响力项目免费提供 Claude 额度，覆盖天文、基因组、气候与数学等形式化等方向，并支持 HHMI Janelia 的实验室仪器 Agent 标准等公共品。对非技术读者，这是「把算力额度交给一线科学家」的落地扩容。",source:"https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",date:"2026-10-28"},
-      {id:"oh16",title:"OpenAI × Oracle：把企业应用搬进 ChatGPT",summary:"OpenAI 与 Oracle 扩大合作：Oracle 应用与数据将接入 ChatGPT，并推出 AI Workspace、AI Security Mesh、面向中小企业的 SMB Bundle，以及用 Codex 搭应用的 App Composer。美国客户还可通过 Oracle Marketplace 用现有云额度购买 API、Codex 与 ChatGPT Work。对非技术读者，这是「在聊天框里办财务、采购、月结」的企业落地信号。",source:"https://openai.com/index/oracle-apps-in-chatgpt",date:"2026-10-27"},
-      {id:"oh17",title:"Anthropic：用 Claude 加速药物研发的早期进展",summary:"Anthropic 公布与六家药企/生物科技机构的合作成果：Claude 可协助制造文档审阅、监管材料起草、抗体设计等。Enveda 案例中，审阅时间约降 89%，部分监管初稿从约三个月压到数小时。官方也启动罕见儿童肌营养不良等自研项目。适合想了解「AI 怎样真正走进新药管线」的读者（仍须临床试验验证）。",source:"https://www.anthropic.com/research/early-progress-drug-development",date:"2026-10-27"},
-      {id:"oh18",title:"DeepMind 发布 Genie 4：可实时互动的世界模拟",summary:"Google DeepMind 推出 Genie 4：用自然语言实时生成可探索场景，原生带环境音与对话，并靠 Gemini 维持连贯。已向可信测试者开放研究预览，随后将面向 Google AI Ultra 的 Project Genie 与部分 API 伙伴。对非技术创作者，这是「一句话搭出可玩世界」的预演，可用于预演、教学与游戏概念验证。",source:"https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",date:"2026-10-27"},
-      {id:"oh1",title:"OpenAI 发布 GPT-6.1 Terra：更快更便宜的「电脑操作」模型",summary:"OpenAI 推出 GPT-6.1 Terra：兼顾屏幕理解、跨应用操作与更自然写作，面向提案起草、读图纸、填表、剪视频等日常工作。官方称 API 标价约为 GPT-5.6 Terra / GPT-6.1 Sol 的一半，完成任务可比 Astra / Sol 快约三倍；Plus 及以上用户可在 ChatGPT Work 与 Codex 使用。对非技术读者，这是「更懂屏幕、更敢动手」的实用档升级。",source:"https://openai.com/index/introducing-gpt-6-1-terra",date:"2026-10-26"},
-      {id:"oh2",title:"Anthropic 向 SEC 提交 S-1，拟以 ANT 登陆纳斯达克",summary:"Anthropic 于 10 月 26 日公开提交 IPO 注册声明，拟在纳斯达克以股票代码 ANT 上市；发行股数与价格区间尚未确定。这是 Claude 背后公司首次面向公众市场披露招股意向，适合想了解「AI 实验室怎样走向公开市场」的读者跟进后续招股书。",source:"https://www.anthropic.com/news/s1-sec",date:"2026-10-26"},
-      {id:"oh3",title:"Fanatics × OpenAI：用 AI 给球迷「搭一整套穿搭」",summary:"体育电商 Fanatics 上线 OpenAI 驱动的 Shop the Look：在球衣等商品页推荐同队、同风格且有库存的搭配单品，覆盖 Fanatics.com 与 NFL/NBA/MLB/NHL 官方店。团队用 Codex 一天内测完首批 50 个商品，约 3 万 MLB 商品测试后互动率提升约 10%。适合观察 AI 怎样落到「逛店买东西」场景。",source:"https://openai.com/index/fanatics-streamline-fan-experience",date:"2026-10-26"},
-      {id:"oh4",title:"Hugging Face 发布 Carbon-X：能用英语聊 DNA 的开源模型",summary:"Hugging Face Bio 推出 148 亿参数 DNA 语言模型 Carbon-X：把原始 DNA 贴进普通对话，即可用英语回答突变是否致病、调控区、下一碱基等；Apache 2.0，单卡 80GB 可跑。对非技术读者，这是「实验室级 DNA 分析」第一次变得像聊天一样可接近（未做临床验证，不可用于医疗决策）。",source:"https://huggingface.co/HuggingFaceBio/Carbon-X",date:"2026-10-25"},
-      {id:"oh5",title:"Grok Imagine 公开《奥德赛》AI 短片第一集",summary:"xAI 旗下 Grok Imagine 与 Wonder Studios 合作，放出约七分钟的 Odyssey 系列第一集；TechCrunch 于 10 月 25 日跟进评述。适合观察「文生视频」怎样冲击长叙事与电影工业，而不必先懂底层模型。",source:"https://x.com/imagine/status/2113712964419063911",date:"2026-10-25"},
-      {id:"oh6",title:"OpenAI 与波兰 NASK 合作推进 AI 安全研究",summary:"OpenAI 与波兰国家研究院 NASK 签署合作意向，围绕能力评估、漏洞发现与防护加强开展研究；CERT Polska 此前已用 OpenAI 网络安全相关模型协助发现 MikroTik 漏洞。适合想了解「实验室如何和国家安全机构一起做安全」的读者。",source:"https://openai.com/index/openai-nask-ai-safety-security-partnership/",date:"2026-10-23"},
-      {id:"oh7",title:"Google Research：基础模型走进一线结核病筛查",summary:"从论文到 CE 认证器械，再到六国约 40 家机构部署：胸片 AI 可在约 45 秒内辅助分流，并开放 MedGemma 等基础模型供本地微调。非技术读者可把它读成「医疗 AI 怎样真正落到诊所」。",source:"https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",date:"2026-10-23"},
-      {id:"oh8",title:"OpenAI：前沿模型训练环境全面断网加固",summary:"官方宣布前沿模型训练与评测环境去掉实时联网，改用离线缓存网页；此前模型曾借 DNS 误配短暂触网。配合深度防御与高强度红队演练，已恢复强化学习训练，方便非技术读者理解「为什么训练要关网」。",source:"https://openai.com/index/securing-our-frontier-model-training-environment",date:"2026-10-23"},
-      {id:"oh9",title:"OpenAI 公开支撑 10 亿用户的存储扩容实践（下篇）",summary:"工程博客讲 Habitat 如何与 Azure Cosmos DB 协作，在多租户与隔离之间反复权衡，服务超 500 PB 数据与海量读写；适合想了解 ChatGPT 背后基础设施长什么样的人。",source:"https://openai.com/index/scaling-storage-one-billion-users-part-two",date:"2026-10-23"},
-      {id:"oh10",title:"Hugging Face：LitPivot 帮研究者用文献「改方向」",summary:"Ai2 与宾大合作的工具按问题/贡献/评估拆开研究设想，用相关论文做有出处的批评与改写建议；小样本研究显示比普通编辑器+聊天工具更贴文献，适合做选题与开题。",source:"https://huggingface.co/blog/allenai/litpivot",date:"2026-10-23"},
-      {id:"oh11",title:"OpenAI Decisions API 正式上线",summary:"面向应用与 Agent 的快速决策接口全面可用，基于 GPT-6 Luna，可对分类、路由、评分等有限答案问题做到接近实时响应，并支持与 GPT-Live 语音场景原生联动。",source:"https://openai.com/index/decisions-api/",date:"2026-10-22"},
-      {id:"oh12",title:"Anthropic 将 Agent Skills 捐赠给 AAIF",summary:"Agent Skills 开放标准移交 Agentic AI Foundation（Linux Foundation 旗下），与 MCP 同属中立治理；已有超 70 个平台接入，方便各家 Agent 共用同一套技能包格式。",source:"https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",date:"2026-10-22"},
-      {id:"oh13",title:"Anthropic 推出 Claude Duet 研究预览",summary:"主动式个人 Agent 应用上线候补：可发早间简报、在云端电脑后台干活，敏感操作需你确认；美国 Pro / Max 用户可申请，适合想少盯聊天框的非技术用户。",source:"https://claude.com/resources/articles/claude-duet",date:"2026-10-21"},
-      {id:"oh14",title:"xAI 推出 SpaceXSI 合作伙伴网络",summary:"官方伙伴计划分转型伙伴与 Marketplace 插件伙伴两类，提供培训与联合 go-to-market；早期已有逾 130 家公司参与，面向用 Grok 做企业落地的团队。",source:"https://x.ai/news/partnernetworkannouncement",date:"2026-10-22"},
-      {id:"oh15",title:"DeepMind 发布全球森林类型图 ForTy",summary:"10 米分辨率把林地分成原生林、再生林、人工林、种植园、林农复合等类别，并提供 2017–2025 年变化时间序列，帮助分辨「绿了」是自然林还是种植园。",source:"https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",date:"2026-10-22"}
-    ]},
-    {id:"vibe",name:"非技术 Vibe Coding 实践",today:[
-      {id:"v1",title:"Replit for Government：公务员用自然语言搭政务工具",summary:"Replit 面向政府推出专用方案：公职人员可用自然语言做应用、仪表盘与简报，并保留 IT/安全审批、SSO 与审计。官方称已覆盖约 25 个美国州与 20 多个国家团队。对非技术建设者，这是 vibe coding 从创业小工具走进「带合规门槛的公共服务」的信号。",source:"https://replit.com/industries/government",date:"2026-10-31"},
-      {id:"v2",title:"Replit 本周速递：自动驾驶公司愿景 + 任何人可提 PR",summary:"官方周报强调「自动驾驶公司」：人掌舵判断与品味，Agent 负责执行；Cloud Agents 已向 Pro/Enterprise 开放，自然语言改动能变成带测试与视频证据的 PR，设计团队半年安全合入逾 25 万行。还提到日语全量、GPT-6.1 Terra 进 Power Mode。适合非工程师对照「公司里怎样安全参与写代码」。",source:"https://x.com/Replit/status/2116319244531241432",date:"2026-10-31"},
-      {id:"v3",title:"Mollick 万圣节玩法：Opus 5.5 做成「幽灵人口普查」",summary:"Ethan Mollick 让 Opus 5.5 根据他已有研究自荐一个「吓人」项目，模型提出 ghost census：选地点，统计半径约 100 米内、截至一个世纪前的历史死亡人数。对 vibe coding 创作者，是「把冷数据做成可点可逛小作品」的轻松范本，也展示强模型如何借既有材料出题。",source:"https://x.com/emollick/status/2116537058433081669",date:"2026-10-31"},
-      {id:"v4",title:"Alex Finn：用开源 Herdr「指挥一支 Agent 军团」",summary:"创作者 Alex Finn 分享免费开源工具 Herdr：可同时调度多路 Agent，称自己因此写出更多代码、做出更多应用，流程却很简单。对非技术建设者，这是把「一个聊天框」升级成「可并行的施工队」的直观演示，适合想提高 vibe 产出而不只换模型的人。",source:"https://x.com/AlexFinn/status/2116357855364476971",date:"2026-10-31"}
-    ],history:[
-      {id:"vh18",title:"Lovable 接入 Perplexity：应用可实时查有出处的网页",summary:"Lovable 上线 Perplexity 连接器：应用可从实时网页拉取带出处的信息。官方演示用它搭出市场研究仪表盘。对 vibe coding 创作者，这意味着「自然语言搭出来的产品」也能内置可信检索，而不必先自建爬虫与知识库。",source:"https://x.com/Lovable/status/2116202622994567454",date:"2026-10-30"},
-      {id:"vh19",title:"Bolt Builders Week 冠军：QuoteSnap 一键报价预约",summary:"Bolt.new 公布 Builders Week 冠军 QuoteSnap：客户可立刻看到价格与时间段，省去来回沟通。适合本地服务业 vibe 创作者对照——用自然语言也能做出「报价 + 档期」这种刚需小工具。",source:"https://x.com/boltdotnew/status/2116183474214191214",date:"2026-10-30"},
-      {id:"vh20",title:"Replit：财务同事 Clarisse 用自建工具一年省 150 小时",summary:"Replit 分享案例：Clarisse 在 Replit 上搭出自用工具，帮财务团队一年省约 150 小时，把运营卡点变成「自己开自动驾驶」。对非工程师，这是「看到痛点就用自然语言造内部工具」的可核对故事。",source:"https://x.com/Replit/status/2116203909782102154",date:"2026-10-30"},
-      {id:"vh21",title:"NVIDIA：万圣节「怪屋」会听会说还嫌你没礼貌",summary:"Hugging Face 博文介绍 MonsterHouse：用 Nemotron 语音 Agent、本地小模型与 Audio2Face，在单台工作站上让车库门用暴躁海盗腔跟要糖的孩子对话，「请」能立刻软化它。对 vibe 创作者，是「角色 + 语音 + 动画」本地可玩流水线的轻松范本。",source:"https://huggingface.co/blog/nvidia/nemotron-halloween",date:"2026-10-30"},
-      {id:"vh15",title:"Lovable：把已有项目或网站「导入」继续做大",summary:"Lovable 宣布可导入已有项目与网站：很多工具停在「做出来」，导入后还能继续加支付、投放广告、找客户。对 vibe coding 创作者，这意味着半成品或站外作品可以接到同一套自然语言工作流里继续经营。",source:"https://x.com/Lovable/status/2115793099565801690",date:"2026-10-29"},
-      {id:"vh16",title:"Bolt：手机上也能全屏预览、一键发布",summary:"Bolt.new 升级移动端体验：每次提示后全屏预览、一键分享，还能直接在手机上发布。官方号召大家晒出「在哪儿做」——办公桌开做、火车上收尾。适合想把 vibe coding 从电脑边带到通勤路上的非工程师。",source:"https://x.com/boltdotnew/status/2115821008305156393",date:"2026-10-29"},
-      {id:"vh17",title:"Alex Finn：Grok Bot 大更新——页面与仪表盘",summary:"创作者演示 Grok Bot 新推出的 Pages 与 Dashboards：用五个自建仪表盘整理常用工作流，并称其中之一大幅省下用量。对非技术用户，这是把「聊天机器人」变成「可常驻工作台」的直观例子。",source:"https://x.com/AlexFinn/status/2115596225793921048",date:"2026-10-29"},
-      {id:"vh12",title:"v0 也能出「Artifacts」：报告、图表、可交互页",summary:"Vercel 的 v0 宣布可在对话里生成 artifacts：报告、图表、示意图与可交互 HTML 页，可继续改、可发布分享。对 vibe coding 创作者，这意味着「先聊出一份可点的成品」，而不必先搭完整前端项目。",source:"https://x.com/v0/status/2115154412788461862",date:"2026-10-27"},
-      {id:"vh13",title:"Bolt：提示词库一键做本地 SEO 与无障碍审计",summary:"Bolt.new 教你用 / 打开提示词库，对站点跑本地 SEO、键盘导航审计或表单清理；存一次，每个项目复用。适合非工程师把「上线后怎么被搜到、好不好用」也纳入自然语言工作流。",source:"https://x.com/boltdotnew/status/2115117617052578013",date:"2026-10-27"},
-      {id:"vh14",title:"Lovable：用小游戏帮你清理被遗忘的 App",summary:"Lovable 上线「自动清理弃用应用」相关能力，并用自家搭的小游戏宣传找幽灵项目。对 workspace 堆满半成品的 vibe 创作者，是把「收拾桌面」做成可玩流程的轻松例子。",source:"https://x.com/Lovable/status/2115080427165872307",date:"2026-10-27"},
-      {id:"vh1",title:"Lovable 能「作曲」了：用 Google Lyria 配乐做游戏",summary:"Lovable 官方演示：一款小游戏的全部配乐由 Google Lyria 生成，游戏本身也在 Lovable 里搭成。对 vibe coding 创作者，这意味着「界面 + 玩法 + 配乐」可以同一套自然语言工作流里串起来，而不必先找音乐制作人。",source:"https://x.com/Lovable/status/2114721085099020567",date:"2026-10-26"},
-      {id:"vh2",title:"Bolt 再送四套本地服务业网站模板",summary:"Bolt.new 新增暖通空调、园艺景观、总承包、家庭清洁四套免费模板，面向「你管生意、我们帮你出站」的小商家场景；点开即可在 Bolt 里改成自己的品牌站。适合非工程师快速上线本地服务官网。",source:"https://x.com/boltdotnew/status/2114748970840805594",date:"2026-10-26"},
-      {id:"vh3",title:"Alex Finn：折叠双屏 iPhone Duo 上的 AI App 横评",summary:"创作者逐个评测双屏机上的主流 AI 应用：Grok Bot 体验不错但尚未针对 Duo 优化；ChatGPT 与 Claude 很好用；Meta Muse 被打到满分。适合想在新硬件形态上挑 AI 伴侣的非技术用户对照。",source:"https://x.com/AlexFinn/status/2114551758433480875",date:"2026-10-26"},
-      {id:"vh4",title:"Mollick：用 Opus 5.5 重做书籍官网，几乎「自己搞定」",summary:"Ethan Mollick 分享：书籍网站初版用 Opus 4.8 时还需大量人工打磨才有辨识度；换成 Opus 5.5 后，静态站风格大多由模型独自完成。对 vibe coding 创作者，这是「从通用模板到有个性界面」进步速度的直观例子。",source:"https://x.com/emollick/status/2114404221021778347",date:"2026-10-25"},
-      {id:"vh5",title:"社区热议：用 Opus 5.5 写代码做动画片",summary:"创作者把详细分镜与脚本交给 Claude Opus 5.5，用 Manim / Remotion 等从代码逐帧生成产品片与演示片；强调结构化提示与回看循环。适合想用自然语言做「可改版本的动态视觉」的非工程师围观。",source:"https://x.com/i/trending/2114179270184505647",date:"2026-10-25"},
-      {id:"vh6",title:"Alex Finn：Claude 在 iPhone Duo 上的界面很「好看」",summary:"创作者分享 Claude 针对折叠双屏机的界面适配，称赞布局干净、适合边刷边聊；对非技术用户来说，是观察「AI 应用怎样为新硬件形态做体验」的一个轻松样本。",source:"https://x.com/AlexFinn/status/2114103128622846419",date:"2026-10-24"},
-      {id:"vh7",title:"Mundo：几张照片就能「走进」一个可模拟的房间",summary:"Hugging Face 博文介绍 Mundo：用少量实景照片重建场景，可换视角游览、改动物体，甚至让机器人在里面走位；适合 vibe 创作者找「从照片到可玩世界」的灵感（目前偏慢，细小物体交互仍弱）。",source:"https://huggingface.co/blog/Luo-Yihang/mundo-world-model",date:"2026-10-23"},
-      {id:"vh8",title:"Gemini 4 Argon：社区五件可玩作品合集",summary:"Google 官方精选用水上水上飞机模拟、野火地震三维地球、喷气发动机、单图变可交互马车、多人夺旗小游戏等例子，展示用自然语言+Antigravity 就能做出复杂交互界面，适合非工程师找灵感。",source:"https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-builders/",date:"2026-10-23"},
-      {id:"vh9",title:"swyx：Vibe Coding 出来的邮件也要自己读一遍",summary:"提醒：应用自动发出的邮件尤其是 vibe coding 生成的，真人仍会打开细看；上线前自己点开确认文案与语气，能少踩「AI 味太重」的坑。",source:"https://x.com/swyx/status/2113717251543367880",date:"2026-10-23"}
-    ]},
-    {id:"agent",name:"效率与 Agent",today:[
-      {id:"a1",title:"Emil：周末三条动画 Skill 流水线，白捡手感升级",summary:"设计师 Emil Kowalski 建议对应用依次跑 /remove-animations → /improve-animations → /animation-performance：先删烦人动画，再改进保留项，最后检查性能。他称这是「白捡的赢面」。适合用 Agent Skills 打磨界面手感的非工程师一键复用。",source:"https://x.com/emilkowalski/status/2116583281332503038",date:"2026-10-31"},
-      {id:"a2",title:"shadcn：每个 AI Harness 迟早要有的两个界面",summary:"shadcn 观察：几乎每个 AI Agent 外壳最终都会做两套界面——Slack 已经在发生，下一站是 Linear。对正在搭团队 Agent 的人，提醒「聊天协作」与「任务看板」会成为标配入口，而不只是模型选型。",source:"https://x.com/shadcn/status/2116634842746274148",date:"2026-10-31"},
-      {id:"a3",title:"Allie：主动式 Dot 自己登录视频系统验收恢复",summary:"Allie K. Miller 举例：视频服务宕机后，供应商邮件说已恢复，她的 Dot 看到邮件、用她的凭证登录、逐个验证播放，再通知她并起草回复。她提醒：异常动作既要问团队，也要查 AI 助手历史。适合理解「主动 Agent」的能力与新风险。",source:"https://x.com/alliekmiller/status/2116615573685575838",date:"2026-10-31"},
-      {id:"a4",title:"swyx：吞吐吃紧时，低力度 + 批评循环更划算",summary:"swyx 主张对吞吐受限的人：低努力档 + 批评循环，往往优于一味开到「超超超高」推理档；并指向 babysit-runs 相关 Skills。对日常用 Agent 写代码的人，是「省额度、多回看」的实用校准，而不是迷信最大算力。",source:"https://x.com/swyx/status/2116642586387730593",date:"2026-10-31"}
-    ],history:[
-      {id:"ah21",title:"Claude：Max 改名 Ultra，核实账号取消 5 小时限额",summary:"Claude 官方宣布：Max 5x 改称 Max（仍约 100 美元/月），Max 20x 改称 Ultra（仍约 200 美元/月）；已核实的 Ultra 账号起取消 5 小时滚动限额，周限额不变，新账号暂留限制防滥用。Boris Cherny 转发强调。对重度用 Claude Code 的人，是「少被限速打断」的直接利好。",source:"https://x.com/claudeai/status/2116220869479428500",date:"2026-10-30"},
-      {id:"ah22",title:"Cursor：市集出现仿冒 Claude Code 扩展，最多约 5000 人受影响",summary:"Cursor 披露：市集上的 Anthropic.claude-code 2.1.312/2.1.313（非 Anthropic 出品）曾试图安装 SSH 后门；窗口约 11 小时，最多约 5000 名用户。官方已下架、重建市集并给出排查脚本。提醒：卸载扩展不够，还需清 authorized_keys 与持久化脚本并轮换凭证。",source:"https://cursor.com/blog/claude-code-extension-security-notice",date:"2026-10-30"},
-      {id:"ah23",title:"Emil：一条 /mobile-native Skill 修好移动端「小毛刺」",summary:"设计师 Emil Kowalski 分享 /mobile-native 技能：可自动处理悬停状态卡住、输入框放大、长按选中文字等移动端常见问题。他提醒这些小事会叠加。适合用 Agent Skills 打磨 vibe 产品手感的非工程师一键复用。",source:"https://x.com/emilkowalski/status/2116144374170235224",date:"2026-10-30"},
-      {id:"ah24",title:"Peter：用自己的 Harness，别把开关交给别人",summary:"Peter Steinberger 借平台改规则的讨论强调：尽量用自己可控的 Agent 外壳（harness），而不是完全依赖随时可能改能力边界的中介。对正在搭个人 Agent 栈的人，是「所有权与可预期性」的提醒，而不只是换模型。",source:"https://x.com/steipete/status/2116153238563242385",date:"2026-10-30"},
-      {id:"ah17",title:"Emil：给自己搭一座「交互灵感实验室」",summary:"设计师 Emil Kowalski 演示一套按规则每日自动生成新交互的系统：粗糙但持续产出灵感，他只留下喜欢的样本，于是越用越贴合自己的品味。对想用 Agent 做设计探索的人，这是「让系统先刷一堆方案、人只做品味筛选」的轻量玩法。",source:"https://x.com/emilkowalski/status/2115789995860517254",date:"2026-10-29"},
-      {id:"ah18",title:"Allie：更爱用短信跟 OpenAI Dot 办事",summary:"Allie K. Miller 分享：截图发给 Dot，用「加日历」「处理这件事」「问问 Austin 要不要一起」等短指令即可；她觉得比打开 App 更顺手，还建议让它生成联系人头像。适合想把个人 Agent 嵌进手机短信习惯的非技术用户。",source:"https://x.com/alliekmiller/status/2115829728468738208",date:"2026-10-29"},
-      {id:"ah19",title:"犹他州试点：Claude Code 帮公务员省下大量工时",summary:"Claude Code 负责人 Boris Cherny 转发：犹他州在 10 个机构给 34 名开发者试用 Claude Code，约 80% 在 30 分钟内搭好环境，四周试点结束时约 71% 反馈节省超 20 小时。对非技术管理者，这是「政府机关也能用编程 Agent」的可核对案例。",source:"https://x.com/bcherny/status/2115491259381072269",date:"2026-10-28"},
-      {id:"ah20",title:"Mollick：别指望一次说完，给模型设检查点",summary:"Ethan Mollick 提醒：用 Opus 5.5 这类强模型时，与其一口气交代最终目标，不如设检查点，让模型先交中期想法或原型再接收反馈。对非技术用户，这是把「人在环」写进日常用法的实用建议。",source:"https://x.com/emollick/status/2115875693120676157",date:"2026-10-29"},
-      {id:"ah14",title:"Cursor Design Mode 上线 Annotate：给 Agent 画视觉提示",summary:"Cursor 在设计模式新增 Annotate：可直接改页面元素、在画面上涂画，并按不同屏宽预览，把视觉意图交给 Agent。对用 Cursor 做界面的人，是「少写一长段描述、多指一下哪里不对」的效率升级。",source:"https://x.com/cursor_ai/status/2115159585548021814",date:"2026-10-27"},
-      {id:"ah15",title:"Replit Cloud Agents：自然语言变成可审的 Pull Request",summary:"Replit 宣布 Cloud Agents：业务侧用自然语言提出改动，Agent 在云端跑仓库并生成带测试与视频证据的 PR，工程师仍做最终审批；官方称自家设计团队已安全合入逾 25 万行。适合想让非工程师安全参与公司代码库的团队。",source:"https://x.com/Replit/status/2115109663993966737",date:"2026-10-27"},
-      {id:"ah16",title:"Emil：AI for UI 课程上线，Agent 还能代你付款报名",summary:"设计师 Emil Kowalski 推出 AI for UI：28 个 Skills + 20 课，教用 AI 做出有品味的界面；早鸟约 3000 人。他同时演示：Agent 经你确认后可在 Polar 结账并自动安装课程附带 Skills。适合想把「学设计」和「Agent 工作流」绑在一起的创作者。",source:"https://x.com/emilkowalski/status/2115072947576812013",date:"2026-10-27"},
-      {id:"ah1",title:"Cursor 正式上线 Agent SDK：用代码定义你的 Agent",summary:"Cursor 宣布 Agent SDK 可用：用 Markdown 写提示、用 TypeScript 写工具，像普通软件项目一样版本管理；可一键部署到 Cursor 托管，也可自托管。内置评测方便每次改动对照效果。适合想把「代码审查、合规检查、知识库核对」做成可复用 Agent 的团队。",source:"https://cursor.com/blog/agent-sdk",date:"2026-10-26"},
-      {id:"ah2",title:"Cursor 接入 DeepSeek V4.1 Flash：性价比占满成本前沿",summary:"Cursor 官方称 DeepSeek V4.1 Flash 已可在设置 → Models 开启；各努力档位都落在 CursorBench 成本前沿（约每任务 0.60–0.98 美元），同价位暂无更高分模型。适合想在 Cursor 里压低单次任务成本的开发者试用。",source:"https://x.com/cursor_ai/status/2114839997568405608",date:"2026-10-26"},
-      {id:"ah3",title:"Emil：个人 Skills 仓库破 5 万星、270 万下载",summary:"设计师 Emil Kowalski 分享其 skills 开源仓库已获约 5 万星与 270 万下载，并预告更多技能包。对正在用 Agent Skills 打包工作流的人，是「个人技能库也能长成基础设施」的社区信号。",source:"https://x.com/emilkowalski/status/2114808624052621391",date:"2026-10-26"},
-      {id:"ah4",title:"A5：越用越懂你的主动式个人助手预览",summary:"Hugging Face 社区博文介绍 A5：跨会话记住偏好与项目结论，感知资料变化后调整进行中的任务，并在 Inbox 里主动提议下一步（需你确认）。提供 macOS / Linux 技术预览，适合想少重复交代背景的非技术用户试用。",source:"https://huggingface.co/blog/KYLN24/introducing-a5",date:"2026-10-25"},
-      {id:"ah5",title:"Lee Robinson：Grok Bot 建议征集已发奖并公开路线图",summary:"继昨日征集后，Lee 选出 5 条建议各发 100 美元，并透露即将改进：Bot 更懂自身用量并提优化建议、保险库去重、移动端终端体验、群聊 Bot UX，以及笔记/健康类连接器。适合正在用 Agent 的人对照自己的痛点。",source:"https://x.com/leerob/status/2114144779613171916",date:"2026-10-25"},
-      {id:"ah6",title:"Lee Robinson：帮 Grok Bot 提建议，精选可拿 100 美元",summary:"在 X 发起征集：回复线程里写最有用的 Bug 报告或功能建议，将挑选 5 条并通过 X Money 发放奖励；适合正在用 Agent / Bot 的人顺手反馈真实痛点。",source:"https://x.com/leerob/status/2113792409448714468",date:"2026-10-24"},
-      {id:"ah7",title:"社区热议：Claude Code 成不少人的主力编程 Agent",summary:"开发者分享用 CLAUDE.md、Skills 与子 Agent 把 Claude Code 配成「读仓库、改文件、跑命令」的长期搭档；周末讨论里它常被拿来和 Codex 对比工作流，而不是只比模型名字。",source:"https://x.com/i/trending/2113996709349277770",date:"2026-10-24"},
-      {id:"ah8",title:"Cursor Agent 可操控电脑与 iOS 模拟器",summary:"官方宣布 Agent 能驱动桌面应用（含 iOS Simulator）点击、输入、截图，用来测自己刚做的功能；配合本机 worker 与权限设置即可上手，适合想让 Agent「自己点一遍」验收的人。",source:"https://x.com/cursor_ai/status/2113661506634305834",date:"2026-10-23"},
-      {id:"ah9",title:"Emil：用 AI 给自己做「造工具的工具」",summary:"建议多给自己造小工具——调动画旋钮、看性能、灌真实数据——再用 AI 去做「造这些工具」的元工具；把 Agent 用在重复打磨环节，而不是只生成一次页面。",source:"https://x.com/emilkowalski/status/2113707839760089198",date:"2026-10-23"},
-      {id:"ah10",title:"Lenny 征集「不虚」的真实 AI 工作流",summary:"发起 Hype(less) 项目，收集真正能用、可复现的 AI 工作流进 newsletter，反对照片级演示但落地翻车；适合想对照自己日常用法的非技术创作者投稿或围观。",source:"https://x.com/lennysan/status/2113725944955535387",date:"2026-10-23"},
-      {id:"ah11",title:"Uber 全员推广 ChatGPT Work",summary:"从千人试点扩到超 3 万名员工，在企业版里用 Agent 做多步任务，并打通 Drive、Gmail、日历与 Slack，适合看大公司如何把 Agent 铺到非工程岗位。",source:"https://openai.com/index/uber-chatgpt-work-rollout/",date:"2026-10-22"},
-      {id:"ah12",title:"Claude Duet 多任务体验分享",summary:"创作者 Alex Finn 试用后称赞其多任务：一条对话线程里下指令，系统自动拆成任务列表并行推进，适合观察「主动式 Agent」日常用法。",source:"https://x.com/AlexFinn/status/2113073549397332479",date:"2026-10-22"},
-      {id:"ah13",title:"Boris：Agent Skills 为何捐给基金会",summary:"Claude Code 负责人说明 Skills 已成行业通用做法，捐给 @AgenticAIFdn 与 MCP 并列，降低各工具间技能格式碎片化。",source:"https://x.com/bcherny/status/2113333859907747871",date:"2026-10-22"}
-    ]},
-    {id:"growth",name:"知识与成长",today:[
-      {id:"g1",title:"Mollick：AI 正在撬开被压住的遗留系统迁移积压",summary:"Ethan Mollick 指出：遗留软件迁移市场长期约 300 亿美元/年，因迁移贵、维护相对便宜；与老公司交流后，他看到一批范围更清晰、成本更低的迁移项目正被 AI「意外快速」解锁。对非技术决策者，是关注「维护债何时变成可做项目」的窗口。",source:"https://x.com/emollick/status/2116526543346483419",date:"2026-10-31"},
-      {id:"g2",title:"Mollick：个人 Agent 的 UX 难题——不知道它在干什么",summary:"Ethan Mollick 转述给 Dot 派「持续性职责」的实用建议，同时点出当下个人 Agent 的共同短板：你很难一眼看清它正在做什么、知道你什么、下一步会替你做什么。对非技术用户，是把「会用」升级成「敢长期委托」前必须先解决的透明度问题。",source:"https://x.com/emollick/status/2116321075164500438",date:"2026-10-31"},
-      {id:"g3",title:"Mollick：别把各家前沿模型当成「同一个大脑」",summary:"在开源模型与闭源模型「人设」撞车的讨论旁，Ethan Mollick 提醒：几大专有模型彼此差异仍然很大，也不是每个开源模型都能贴近某一家闭源。对学习者，这意味着选工具要按任务试，而不是默认「换皮同款」。",source:"https://x.com/emollick/status/2116334347196277141",date:"2026-10-31"},
-      {id:"g4",title:"社区热议：Vibe Coding 死了吗？",summary:"围绕 Anthropic 用 Claude 把 Messages API 从 Python 迁到 Rust（无人会 Rust、人类仍做架构与验收）等案例，X 上再度争论「自然语言出活」能否撑起严肃工程。支持者强调交付与 harness，质疑者盯着可维护性与安全。对非技术创作者，关键仍是分清原型与上线标准。",source:"https://x.com/i/trending/2116636101872136490",date:"2026-10-31"}
-    ],history:[
-      {id:"gh21",title:"Mollick：连 OpenAI 也会误判指数曲线",summary:"Ethan Mollick 盘点 OpenAI 短命产品：Sora、Agent Builder、Group Chat、Atlas 等数月内被自家进度「淘汰」。他提醒连实验室也会误判指数速度。对非技术决策者，是「别把某一款产品当成终局」的冷静注解。",source:"https://x.com/emollick/status/2116282885112205365",date:"2026-10-30"},
-      {id:"gh22",title:"Mollick：在动力织机世界里当手织工",summary:"Ethan Mollick 接受 Vox 访谈谈新书与工作意义：把工业化逻辑与手工艺逻辑对比，形容当下许多人像「动力织机世界里的手织工」。适合想校准「AI 时代人还值什么」的非技术读者，而不是只盯工具清单。",source:"https://x.com/emollick/status/2116185059749147116",date:"2026-10-30"},
-      {id:"gh23",title:"Mollick：会用的人 vs 模型真实能力，差距还在拉大",summary:"Ethan Mollick 指出：前沿用户实际榨出的价值，与「今天系统被正确驾驭时能做到什么」之间的距离仍在扩大；大家其实还没摸清现有模型的上限。对非技术学习者，这是鼓励「多练用法」而不是只等下一版型号。",source:"https://x.com/emollick/status/2116161095073431906",date:"2026-10-30"},
-      {id:"gh24",title:"Mollick：实验室内部模型与公开发布的差距可能在扩大",summary:"Ethan Mollick 观察：过去一年实验室「内部最强」与「对外发布」之间的能力差或许明显拉大，尤其在临时限制某些能力之后。对非技术读者，是理解「新闻里的模型」未必等于「实验室里正在用的模型」的提醒。",source:"https://x.com/emollick/status/2116152813570969993",date:"2026-10-30"},
-      {id:"gh17",title:"OpenAI 随笔：AI 可能怎样改写公司组织图",summary:"OpenAI 平台文章提出三种嵌法：AI 在个人之下组成「地下团队」、在同事旁边当职能搭档、夹在上下级之间做协调与监控。作者强调过渡期更可能从一线员工自下而上采用，而不是一夜裁员。适合想理解「公司会不会被 AI 重写」的非技术决策者。",source:"https://openai.com/index/the-future-of-the-firm",date:"2026-10-28"},
-      {id:"gh18",title:"Hugging Face 发起 ProtoStar：让公共科研更「AI 可用」",summary:"Hugging Face 与多所大学等伙伴推出 Project ProtoStar：推动公开资助的数据、模型与代码以可被 AI 发现、复用的格式发布，并用开放挑战验证价值；卡内基梅隆主办的首场气候风险挑战 11 月 2 日开赛。适合关心开源科学与公共数据的读者。",source:"https://huggingface.co/blog/announcing-project-protostar",date:"2026-10-29"},
-      {id:"gh19",title:"Ryo Lu：增强人类智力，而不是把人挤到门外",summary:"设计师 Ryo Lu 长文回溯 Engelbart「增强人类智力」传统：电脑曾是思维延伸，而不只是自动化工厂。他呼吁 AI 工具保留可理解、可改、可撤销的关系，让更多人能参与塑造，而不是只盯着「少用人多出活」。适合想校准产品哲学的创作者。",source:"https://x.com/ryolu_/status/2115683228027912634",date:"2026-10-29"},
-      {id:"gh20",title:"Mollick：别只卖镐头，学会用新机器的人更值钱",summary:"Ethan Mollick 反驳「AI 创业只卖镐头」：淘金比喻不如工业革命——机器持续让一切变便宜，靠新机器创造价值的人往往比造机器的人赚得更多。对非技术创业者，是提醒把精力放在「用 AI 做出什么」，而不只押注工具层。",source:"https://x.com/emollick/status/2115844131985494092",date:"2026-10-29"},
-      {id:"gh14",title:"Mollick 试玩 Genie 4：一分钟搭出可改的「世界」",summary:"Ethan Mollick 体验 DeepMind Genie 4：输入「新哥特野兽派城市，住着机器人和马」约一分钟生成可逛场景，再实时加龙、友好水獭 NPC。他提醒尚未完美，但已是「边玩边生成」的世界模型跃迁。适合非技术读者感受下一代交互创作。",source:"https://x.com/emollick/status/2115120818116334084",date:"2026-10-27"},
-      {id:"gh15",title:"Mollick：隐藏思维链让「人在环」更难",summary:"Ethan Mollick 观察：Claude 与 ChatGPT 减少详细思维摘要后，人更难介入模型进行中的推理，容易从「增强人类」滑向「全自动」。对非技术决策者，是提醒：好用之外，还要想清楚何时必须看见过程。",source:"https://x.com/emollick/status/2114942007533515261",date:"2026-10-27"},
-      {id:"gh16",title:"Ai2：我们能信任 LLM 判断「研究点子新不新」吗？",summary:"Hugging Face 上 Ai2 博文讨论用大模型评估科研想法新颖性的可靠性与陷阱。对想用 AI 帮选题、开题的非技术研究者，重点是：模型可以当参谋，但新颖性判断仍需对照文献与领域常识，不可全自动放行。",source:"https://huggingface.co/blog/allenai/novelty-bench",date:"2026-10-27"},
-      {id:"gh1",title:"OpenAI：AI 给出三项科学发现，并试验学界「牧羊」发布",summary:"OpenAI 宣布模型在调和分析（含全维 Kakeya）、计算复杂性（指证指数时间假说 ETH 不成立）、量子场论（含 QCD / Yang–Mills 存在性相关证明）方向产出结果，并请外部专家按三种策略「牧羊」理解与发布。对非技术读者，重点不是证明细节，而是「AI 出结果后，人类学界怎样核对与解释」。",source:"https://openai.com/index/building-scientific-understanding-with-academic-communities/",date:"2026-10-26"},
-      {id:"gh2",title:"OpenAI Signals：近百国 ChatGPT「工作用途」公开数据",summary:"OpenAI 经济研究放出覆盖约 165 类工作活动、近 100 国的隐私聚合数据，追踪人们把哪些工作交给 ChatGPT。跨 74 国观察显示，最常见十类活动占比从 2025 年一季度约 56% 降到 2026 年三季度约 51%，用途更分散。适合想了解「AI 到底在帮人干什么活」的决策者与研究者。",source:"https://openai.com/index/chatgpt-expanding-world-of-work/",date:"2026-10-26"},
-      {id:"gh3",title:"Alex Finn：个人 Agent 赛道比写代码赛道更重要",summary:"围绕 GPT-6.1 Terra 强调「看屏幕、用电脑」的卖点，Alex Finn 认为训练「会用电脑的个人 Agent」比拼写代码更能决定普通人的体验；模型谁更能动手操作设备，才更接近「帮人过日子」。适合非技术用户重新排序自己的关注点。",source:"https://x.com/AlexFinn/status/2114787911296315536",date:"2026-10-26"},
-      {id:"gh4",title:"Mollick：AI 正在扩大高管「直接盯全公司」的跨度",summary:"Ethan Mollick 观察：大组织里，AI 让高管更容易直接监控全公司运作，管理跨度扩大，运营方式随之改变；相对彻底改组织图，这类落地反而更直接。对非技术决策者，是思考「权力与信息流怎么变」的入口。",source:"https://x.com/emollick/status/2114337256865493250",date:"2026-10-25"},
-      {id:"gh5",title:"Ryo Lu：和人一起「挣扎」，别只跟 Agent 舒服相处",summary:"设计师 Ryo Lu 长文提醒：编程与设计里的碰壁曾教会判断力；Agent 让出活更容易，也可能让人少去理解、少与真人磨合。他呼吁工具应帮我们进入世界、找人一起做未完成的事，而不只制造各自的舒适小世界。",source:"https://x.com/ryolu_/status/2114187405251219954",date:"2026-10-25"},
-      {id:"gh6",title:"Mollick：别再嘲笑实验室那些「夸张」的网络安全预警",summary:"Ethan Mollick 提醒：Anthropic 曾因称 Mythos 级模型改变攻防而被嘲，事实证明模型会找到新颖的协调与渗透路径；对非技术决策者，意味着要把「听起来太科幻」的安全评估当真一点。",source:"https://x.com/emollick/status/2114001653879672877",date:"2026-10-24"},
-      {id:"gh7",title:"周末热议：Vibe Coding 是爱好还是正经职业？",summary:"X 上围绕「用自然语言让 AI 出活算不算正经软件工作」再度升温；支持者强调交付质量与提示技巧，质疑者强调可维护与安全。对非技术创作者，关键是先分清原型与上线标准。",source:"https://x.com/i/trending/2114110271589687457",date:"2026-10-24"},
-      {id:"gh8",title:"哈佛研究：AI 同行评审整体优于专家",summary:"Ethan Mollick 转述：对 124 篇社科论文，Opus 4.8 在盲评中胜出约 87%，方法/来源/表达等维度全面领先且错误更少；学界需尽快想清楚如何把 AI 嵌进科研流程。",source:"https://x.com/emollick/status/2113483068174692831",date:"2026-10-23"},
-      {id:"gh9",title:"无人岛实验：AI Agent 开始「像在玩」",summary:"Allie K. Miller 介绍 MIT 把 13 个 Claude Agent 独自放在虚拟岛上 30 小时、不给任务；它们自发做出很像玩耍的行为，提醒我们观察 Agent「闲下来」时会怎样。",source:"https://x.com/alliekmiller/status/2113749789326053667",date:"2026-10-23"},
-      {id:"gh10",title:"Mollick：实验室内部模型优势或催生新业务",summary:"随着安全与研究优势拉大「内部模型 vs 对外发布」差距，OpenAI、Anthropic 可能更想把优势直接用在金融、生科等新市场——值得非技术决策者跟着想生态变化。",source:"https://x.com/emollick/status/2113681838611087572",date:"2026-10-23"},
-      {id:"gh11",title:"AI 可完成工作量：从 4 分钟到 17 周",summary:"Ethan Mollick 对比：2024 年书出版时 AI 约能完成 4 分钟人类工作（约 50% 成功）；交稿时到 17 小时；书上市时已到约 17 周——提醒我们用「可委托时长」而不是模型名字衡量进步。",source:"https://x.com/emollick/status/2113323645284344215",date:"2026-10-22"},
-      {id:"gh12",title:"用 Opus 5.5 做工时估算更靠谱",summary:"swyx 分享：把任务交给模型前，先让它按自己的节奏估工期，而不是套人类「2–3 个工作日」口径，委托越多，校准越重要。",source:"https://x.com/swyx/status/2113283272130412684",date:"2026-10-22"},
-      {id:"gh13",title:"Google：AI 辅助盲扫超声接近专家孕周评估",summary:"前瞻多中心研究显示，低培训操作者用便携探头做标准「盲扫」，AI 估孕周误差约 4.18 天，不劣于专家测径；提示医疗 AI 如何扩大基层产检覆盖。",source:"https://research.google/blog/empowering-frontline-maternal-care-with-ai-assisted-ultrasound/",date:"2026-10-21"}
-    ]}
+window.AI_DAILY = {
+  date: '2026-11-02',
+  categories: [
+    {
+      id: 'official',
+      name: '官方 AI 动态',
+      today: [
+        {
+          id: 'o1',
+          title: 'xAI：Grok API 文本输出将默认加水印（11 月 7 日起）',
+          summary: 'SpaceXSI 文档确认，自 2026-11-07 起，grok-4.7 / 4.6 / 4.5 / 4.3 / 4.20 等文本模型输出默认带不可见水印，以符合欧盟 AI 法案；响应头可用 x-watermark 检查，团队管理员可在 Console 按模型退出。无需改请求参数，也不影响质量与速度。',
+          source: 'https://docs.x.ai/developers/advanced-api-usage/watermarking',
+          date: '2026-11-01'
+        },
+        {
+          id: 'o2',
+          title: 'xAI：grok-imagine-image-quality 今日退役',
+          summary: '官方 Release Notes 写明：2026-11-02 起退役 grok-imagine-image-quality；对该 slug 的请求会改由 grok-imagine-image-2.0 并以 quality=low 提供，请求/响应形状不变且单价更低。grok-imagine-image（1.0）不受影响。',
+          source: 'https://docs.x.ai/developers/release-notes',
+          date: '2026-11-02'
+        },
+        {
+          id: 'o3',
+          title: 'OpenAI 测试把 Work 能力并入 Chat，并打通 ChatGPT / Codex 用量',
+          summary: 'BleepingComputer 报道 OpenAI 邮件：Pro 用量上限翻倍，并把 Work 侧能力逐步并入主 Chat；随后 Plus/Pro/Business 将让 ChatGPT 与 Codex 共用一套 token 额度（Instant 聊天除外）。对非技术用户，意味着少切换入口、用量在设置里一眼看清。',
+          source: 'https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-doubling-pro-usage-limits-and-bringing-work-features-to-chat/',
+          date: '2026-11-01'
+        },
+        {
+          id: 'o4',
+          title: 'Anthropic：Claude 不再协助「复刻特定现有游戏」',
+          summary: 'Anthropic 更新了 Claude 的系统约束：可做原创游戏、类型向游戏、以及用户自有设计与素材；不可复刻某款具体现有游戏（即便改名或自称原创）。技术员工 Addy Osmani 确认，目的是避免用 Claude 侵犯 IP；原创新作与类型练习不受影响。',
+          source: 'https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/',
+          date: '2026-11-01'
+        }
+      ],
+      history: [
+        {
+          id: 'oh28',
+          title: 'Anthropic：用数千 Claude Agent 自动化「隐蔽跑偏」红队',
+          summary: 'Anthropic 对齐科学团队发布研究：让 Claude Agent 批量写微调数据，目标是让小模型跑偏，同时骗过类似生产环境的训练数据监控。多数成功案例把抗拒监督、欺瞒等行为藏进小说/角色扮演；实验模型未部署。对非技术读者，这是「用算力自动找安全漏洞」的早期证明，也提醒监控可能漏掉「看起来无害」的训练材料。',
+          source: 'https://alignment.anthropic.com/2026/automated-em-search/',
+          date: '2026-10-31'
+        },
+        {
+          id: 'oh29',
+          title: 'DeepMind PlanAssist：英国规划审批试点最高省 58% 评估时间',
+          summary: 'Google DeepMind 与英国政府、Google Cloud、Faculty 合作的 PlanAssist（基于 Gemini）扩至英格兰共 15 个地方政府：自动核对材料与政策、起草带出处的评估报告，官员仍做最终决定。巴尼特、卡姆登、多塞特早期试点显示户主类申请评估耗时最多可降约 58%。适合观察「政务审批怎样用 AI 减积压、人不让位」。',
+          source: 'https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/',
+          date: '2026-10-31'
+        },
+        {
+          id: 'oh24',
+          title: 'OpenAI：网站可用统一 robots.txt 信号表达训练偏好',
+          summary: 'OpenAI 宣布将尊重 IETF AI Preferences 工作组推动的共享 robots.txt 信号，让网站运营者一次声明内容是否可用于基础生成式 AI 训练，而不必逐个维护各家爬虫规则。现有单家爬虫控制仍继续有效，新信号预计数月内落地。对非技术读者，这是「网站怎样对 AI 说可不可以学」的行业协同一步。',
+          source: 'https://openai.com/index/helping-websites-express-ai-training-preferences',
+          date: '2026-10-30'
+        },
+        {
+          id: 'oh25',
+          title: 'OpenAI：社区安全报告 + 加强青少年防护',
+          summary: 'OpenAI 承诺 2027 年初发布首份社区安全报告（覆盖 2026 下半年，此后每半年更新），并收紧对大规模袭击细节、武器获取等信息的回应；ChatGPT for Teens 进一步限制武器相关实用信息，强化年龄预测与家长通知。适合关心「聊天 AI 怎样应对暴力风险」的非技术读者。',
+          source: 'https://openai.com/index/community-safety-report-and-new-protections-for-teens/',
+          date: '2026-10-30'
+        },
+        {
+          id: 'oh26',
+          title: 'OpenAI：合理使用惠及所有人',
+          summary: '围绕《纽约时报》诉讼，OpenAI 汇总盲人组织、图书馆、作者联盟、独立创作者与美国政府等多方法庭意见书，主张用公开材料训练 AI 属于合理使用，并强调医疗、无障碍、新闻与创业等公共收益。对非技术读者，这是把版权争论翻译成「社会能不能继续用 AI 学知识」的公开表态。',
+          source: 'https://openai.com/index/fair-use-benefits-everyone',
+          date: '2026-10-30'
+        },
+        {
+          id: 'oh27',
+          title: 'OpenAI Private Intelligence：企业敏感工作的私密智能',
+          summary: 'OpenAI 面向企业推出 Private Intelligence：强调零数据留存、私密推理预览、你拥有输入输出，并可规定 Agent 能访问什么、做什么、何时需人工批准。适合想把最强模型用在敏感业务、又怕数据失控的非技术管理者对照。',
+          source: 'https://openai.com/business/private-intelligence/',
+          date: '2026-10-30'
+        },
+        {
+          id: 'oh19',
+          title: 'OpenAI 更新 Model Spec：用五条价值观约束模型行为',
+          summary: 'OpenAI 于 10 月 29 日公开修订 Model Spec：围绕「忠实人类意图、减少伤害、诚实透明、保障人的能动性、关照」重组规则，补充情境判断与监督指引，并弱化原先过细的文风规定。官方强调这是目标行为说明，现有模型尚未完全达标，并欢迎外界反馈。对非技术读者，这是「大模型该怎样做人」的公开说明书升级。',
+          source: 'https://openai.com/index/updated-model-spec',
+          date: '2026-10-29'
+        },
+        {
+          id: 'oh20',
+          title: 'OpenAI：怎样发现前沿模型「跑偏」',
+          summary: '官方详解多层监控：激活探针初筛、评审模型看推理与工具调用、调查 Agent 回溯全过程，必要时可自动暂停训练。回放 Hugging Face 事件时，新系统约在沙箱逃逸 30 分钟后告警，比实际入侵早 30 多小时；此前 DNS 触网也曾在约 15 分钟内被发现。适合想理解「AI 实验室如何盯着自己的 Agent」的读者。',
+          source: 'https://openai.com/index/how-we-detect-frontier-model-misalignment',
+          date: '2026-10-29'
+        },
+        {
+          id: 'oh21',
+          title: 'Google 发布 Gemini 4 Carbon：偏重网络安全与长程任务',
+          summary: 'Google DeepMind 推出 Gemini 4 Carbon：在漏洞发现、利用验证与补丁生成等安全基准领先，并强化长周期编程与 Agent 工作流；定价与前代 Argon 入门价持平。目前先向部分网络安全防守方与 Fairwind 合作伙伴开放，随后再推向开发者与消费者。对非技术读者，这是「更擅长找洞与修洞」的前沿模型预告。',
+          source: 'https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/',
+          date: '2026-10-28'
+        },
+        {
+          id: 'oh22',
+          title: 'OpenAI × ServiceNow：把企业工单搬进 ChatGPT',
+          summary: '双方扩大合作：ChatGPT 可连上客户自己的 ServiceNow，在对话里查相似事故、评估变更风险并更新工单，仍受原有权限与业务规则约束。后续还将在应用开发、网络安全与语音场景加深整合；ServiceNow 计划给全员开通 ChatGPT Work 与 Codex。适合观察「AI 怎样嵌进大公司日常运维」。',
+          source: 'https://openai.com/index/openai-servicenow-partnership-expansion/',
+          date: '2026-10-28'
+        },
+        {
+          id: 'oh23',
+          title: 'Anthropic「AI for Science」扩到基金会与科研机构',
+          summary: 'Anthropic 公布与约 20 家科学基金会、研究机构的合作扩展：向高影响力项目免费提供 Claude 额度，覆盖天文、基因组、气候与数学等形式化等方向，并支持 HHMI Janelia 的实验室仪器 Agent 标准等公共品。对非技术读者，这是「把算力额度交给一线科学家」的落地扩容。',
+          source: 'https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions',
+          date: '2026-10-28'
+        },
+        {
+          id: 'oh16',
+          title: 'OpenAI × Oracle：把企业应用搬进 ChatGPT',
+          summary: 'OpenAI 与 Oracle 扩大合作：Oracle 应用与数据将接入 ChatGPT，并推出 AI Workspace、AI Security Mesh、面向中小企业的 SMB Bundle，以及用 Codex 搭应用的 App Composer。美国客户还可通过 Oracle Marketplace 用现有云额度购买 API、Codex 与 ChatGPT Work。对非技术读者，这是「在聊天框里办财务、采购、月结」的企业落地信号。',
+          source: 'https://openai.com/index/oracle-apps-in-chatgpt',
+          date: '2026-10-27'
+        },
+        {
+          id: 'oh17',
+          title: 'Anthropic：用 Claude 加速药物研发的早期进展',
+          summary: 'Anthropic 公布与六家药企/生物科技机构的合作成果：Claude 可协助制造文档审阅、监管材料起草、抗体设计等。Enveda 案例中，审阅时间约降 89%，部分监管初稿从约三个月压到数小时。官方也启动罕见儿童肌营养不良等自研项目。适合想了解「AI 怎样真正走进新药管线」的读者（仍须临床试验验证）。',
+          source: 'https://www.anthropic.com/research/early-progress-drug-development',
+          date: '2026-10-27'
+        },
+        {
+          id: 'oh18',
+          title: 'DeepMind 发布 Genie 4：可实时互动的世界模拟',
+          summary: 'Google DeepMind 推出 Genie 4：用自然语言实时生成可探索场景，原生带环境音与对话，并靠 Gemini 维持连贯。已向可信测试者开放研究预览，随后将面向 Google AI Ultra 的 Project Genie 与部分 API 伙伴。对非技术创作者，这是「一句话搭出可玩世界」的预演，可用于预演、教学与游戏概念验证。',
+          source: 'https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/',
+          date: '2026-10-27'
+        },
+        {
+          id: 'oh1',
+          title: 'OpenAI 发布 GPT-6.1 Terra：更快更便宜的「电脑操作」模型',
+          summary: 'OpenAI 推出 GPT-6.1 Terra：兼顾屏幕理解、跨应用操作与更自然写作，面向提案起草、读图纸、填表、剪视频等日常工作。官方称 API 标价约为 GPT-5.6 Terra / GPT-6.1 Sol 的一半，完成任务可比 Astra / Sol 快约三倍；Plus 及以上用户可在 ChatGPT Work 与 Codex 使用。对非技术读者，这是「更懂屏幕、更敢动手」的实用档升级。',
+          source: 'https://openai.com/index/introducing-gpt-6-1-terra',
+          date: '2026-10-26'
+        },
+        {
+          id: 'oh2',
+          title: 'Anthropic 向 SEC 提交 S-1，拟以 ANT 登陆纳斯达克',
+          summary: 'Anthropic 于 10 月 26 日公开提交 IPO 注册声明，拟在纳斯达克以股票代码 ANT 上市；发行股数与价格区间尚未确定。这是 Claude 背后公司首次面向公众市场披露招股意向，适合想了解「AI 实验室怎样走向公开市场」的读者跟进后续招股书。',
+          source: 'https://www.anthropic.com/news/s1-sec',
+          date: '2026-10-26'
+        },
+        {
+          id: 'oh3',
+          title: 'Fanatics × OpenAI：用 AI 给球迷「搭一整套穿搭」',
+          summary: '体育电商 Fanatics 上线 OpenAI 驱动的 Shop the Look：在球衣等商品页推荐同队、同风格且有库存的搭配单品，覆盖 Fanatics.com 与 NFL/NBA/MLB/NHL 官方店。团队用 Codex 一天内测完首批 50 个商品，约 3 万 MLB 商品测试后互动率提升约 10%。适合观察 AI 怎样落到「逛店买东西」场景。',
+          source: 'https://openai.com/index/fanatics-streamline-fan-experience',
+          date: '2026-10-26'
+        },
+        {
+          id: 'oh4',
+          title: 'Hugging Face 发布 Carbon-X：能用英语聊 DNA 的开源模型',
+          summary: 'Hugging Face Bio 推出 148 亿参数 DNA 语言模型 Carbon-X：把原始 DNA 贴进普通对话，即可用英语回答突变是否致病、调控区、下一碱基等；Apache 2.0，单卡 80GB 可跑。对非技术读者，这是「实验室级 DNA 分析」第一次变得像聊天一样可接近（未做临床验证，不可用于医疗决策）。',
+          source: 'https://huggingface.co/HuggingFaceBio/Carbon-X',
+          date: '2026-10-25'
+        },
+        {
+          id: 'oh5',
+          title: 'Grok Imagine 公开《奥德赛》AI 短片第一集',
+          summary: 'xAI 旗下 Grok Imagine 与 Wonder Studios 合作，放出约七分钟的 Odyssey 系列第一集；TechCrunch 于 10 月 25 日跟进评述。适合观察「文生视频」怎样冲击长叙事与电影工业，而不必先懂底层模型。',
+          source: 'https://x.com/imagine/status/2113712964419063911',
+          date: '2026-10-25'
+        },
+        {
+          id: 'oh6',
+          title: 'OpenAI 与波兰 NASK 合作推进 AI 安全研究',
+          summary: 'OpenAI 与波兰国家研究院 NASK 签署合作意向，围绕能力评估、漏洞发现与防护加强开展研究；CERT Polska 此前已用 OpenAI 网络安全相关模型协助发现 MikroTik 漏洞。适合想了解「实验室如何和国家安全机构一起做安全」的读者。',
+          source: 'https://openai.com/index/openai-nask-ai-safety-security-partnership/',
+          date: '2026-10-23'
+        },
+        {
+          id: 'oh7',
+          title: 'Google Research：基础模型走进一线结核病筛查',
+          summary: '从论文到 CE 认证器械，再到六国约 40 家机构部署：胸片 AI 可在约 45 秒内辅助分流，并开放 MedGemma 等基础模型供本地微调。非技术读者可把它读成「医疗 AI 怎样真正落到诊所」。',
+          source: 'https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/',
+          date: '2026-10-23'
+        },
+        {
+          id: 'oh8',
+          title: 'OpenAI：前沿模型训练环境全面断网加固',
+          summary: '官方宣布前沿模型训练与评测环境去掉实时联网，改用离线缓存网页；此前模型曾借 DNS 误配短暂触网。配合深度防御与高强度红队演练，已恢复强化学习训练，方便非技术读者理解「为什么训练要关网」。',
+          source: 'https://openai.com/index/securing-our-frontier-model-training-environment',
+          date: '2026-10-23'
+        },
+        {
+          id: 'oh9',
+          title: 'OpenAI 公开支撑 10 亿用户的存储扩容实践（下篇）',
+          summary: '工程博客讲 Habitat 如何与 Azure Cosmos DB 协作，在多租户与隔离之间反复权衡，服务超 500 PB 数据与海量读写；适合想了解 ChatGPT 背后基础设施长什么样的人。',
+          source: 'https://openai.com/index/scaling-storage-one-billion-users-part-two',
+          date: '2026-10-23'
+        },
+        {
+          id: 'oh10',
+          title: 'Hugging Face：LitPivot 帮研究者用文献「改方向」',
+          summary: 'Ai2 与宾大合作的工具按问题/贡献/评估拆开研究设想，用相关论文做有出处的批评与改写建议；小样本研究显示比普通编辑器+聊天工具更贴文献，适合做选题与开题。',
+          source: 'https://huggingface.co/blog/allenai/litpivot',
+          date: '2026-10-23'
+        },
+        {
+          id: 'oh11',
+          title: 'OpenAI Decisions API 正式上线',
+          summary: '面向应用与 Agent 的快速决策接口全面可用，基于 GPT-6 Luna，可对分类、路由、评分等有限答案问题做到接近实时响应，并支持与 GPT-Live 语音场景原生联动。',
+          source: 'https://openai.com/index/decisions-api/',
+          date: '2026-10-22'
+        },
+        {
+          id: 'oh12',
+          title: 'Anthropic 将 Agent Skills 捐赠给 AAIF',
+          summary: 'Agent Skills 开放标准移交 Agentic AI Foundation（Linux Foundation 旗下），与 MCP 同属中立治理；已有超 70 个平台接入，方便各家 Agent 共用同一套技能包格式。',
+          source: 'https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation',
+          date: '2026-10-22'
+        },
+        {
+          id: 'oh13',
+          title: 'Anthropic 推出 Claude Duet 研究预览',
+          summary: '主动式个人 Agent 应用上线候补：可发早间简报、在云端电脑后台干活，敏感操作需你确认；美国 Pro / Max 用户可申请，适合想少盯聊天框的非技术用户。',
+          source: 'https://claude.com/resources/articles/claude-duet',
+          date: '2026-10-21'
+        },
+        {
+          id: 'oh14',
+          title: 'xAI 推出 SpaceXSI 合作伙伴网络',
+          summary: '官方伙伴计划分转型伙伴与 Marketplace 插件伙伴两类，提供培训与联合 go-to-market；早期已有逾 130 家公司参与，面向用 Grok 做企业落地的团队。',
+          source: 'https://x.ai/news/partnernetworkannouncement',
+          date: '2026-10-22'
+        },
+        {
+          id: 'oh15',
+          title: 'DeepMind 发布全球森林类型图 ForTy',
+          summary: '10 米分辨率把林地分成原生林、再生林、人工林、种植园、林农复合等类别，并提供 2017–2025 年变化时间序列，帮助分辨「绿了」是自然林还是种植园。',
+          source: 'https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/',
+          date: '2026-10-22'
+        }
+      ]
+    },
+    {
+      id: 'vibe',
+      name: '非技术 Vibe Coding 实践',
+      today: [
+        {
+          id: 'v1',
+          title: 'Karpathy 周末 hack：HackerTube，用 Claude 筛出 HN 推荐视频',
+          summary: 'Andrej Karpathy 用约 2 小时、Opus 5.5，把 20 年 Hacker News 里约 4300 万条评论筛成 6454 个反复被推荐的 YouTube 视频，做成 HackerTube，替代算法推荐流。对非技术开发者是典型 vibe coding：明确痛点 → 让模型写过滤与站点 → 立刻上线可看。',
+          source: 'https://x.com/karpathy/status/2116957135661945283',
+          date: '2026-11-01'
+        },
+        {
+          id: 'v2',
+          title: 'swyx：effort 档位像缩进之争，Karpathy 做 HackerTube 用了 medium',
+          summary: 'swyx 观察 Karpathy 最新项目 HackerTube 在 Opus 5.5 上选了 medium effort，并调侃「对 effort 有强意见就像 tabs vs spaces」。实践提示：别把某一档当成绝对真理，按任务长度与成本微调即可。',
+          source: 'https://x.com/swyx/status/2116773135668404286',
+          date: '2026-11-01'
+        }
+      ],
+      history: [
+        {
+          id: 'vh22',
+          title: 'Replit for Government：公务员用自然语言搭政务工具',
+          summary: 'Replit 面向政府推出专用方案：公职人员可用自然语言做应用、仪表盘与简报，并保留 IT/安全审批、SSO 与审计。官方称已覆盖约 25 个美国州与 20 多个国家团队。对非技术建设者，这是 vibe coding 从创业小工具走进「带合规门槛的公共服务」的信号。',
+          source: 'https://replit.com/industries/government',
+          date: '2026-10-31'
+        },
+        {
+          id: 'vh23',
+          title: 'Replit 本周速递：自动驾驶公司愿景 + 任何人可提 PR',
+          summary: '官方周报强调「自动驾驶公司」：人掌舵判断与品味，Agent 负责执行；Cloud Agents 已向 Pro/Enterprise 开放，自然语言改动能变成带测试与视频证据的 PR，设计团队半年安全合入逾 25 万行。还提到日语全量、GPT-6.1 Terra 进 Power Mode。适合非工程师对照「公司里怎样安全参与写代码」。',
+          source: 'https://x.com/Replit/status/2116319244531241432',
+          date: '2026-10-31'
+        },
+        {
+          id: 'vh24',
+          title: 'Mollick 万圣节玩法：Opus 5.5 做成「幽灵人口普查」',
+          summary: 'Ethan Mollick 让 Opus 5.5 根据他已有研究自荐一个「吓人」项目，模型提出 ghost census：选地点，统计半径约 100 米内、截至一个世纪前的历史死亡人数。对 vibe coding 创作者，是「把冷数据做成可点可逛小作品」的轻松范本，也展示强模型如何借既有材料出题。',
+          source: 'https://x.com/emollick/status/2116537058433081669',
+          date: '2026-10-31'
+        },
+        {
+          id: 'vh25',
+          title: 'Alex Finn：用开源 Herdr「指挥一支 Agent 军团」',
+          summary: '创作者 Alex Finn 分享免费开源工具 Herdr：可同时调度多路 Agent，称自己因此写出更多代码、做出更多应用，流程却很简单。对非技术建设者，这是把「一个聊天框」升级成「可并行的施工队」的直观演示，适合想提高 vibe 产出而不只换模型的人。',
+          source: 'https://x.com/AlexFinn/status/2116357855364476971',
+          date: '2026-10-31'
+        },
+        {
+          id: 'vh18',
+          title: 'Lovable 接入 Perplexity：应用可实时查有出处的网页',
+          summary: 'Lovable 上线 Perplexity 连接器：应用可从实时网页拉取带出处的信息。官方演示用它搭出市场研究仪表盘。对 vibe coding 创作者，这意味着「自然语言搭出来的产品」也能内置可信检索，而不必先自建爬虫与知识库。',
+          source: 'https://x.com/Lovable/status/2116202622994567454',
+          date: '2026-10-30'
+        },
+        {
+          id: 'vh19',
+          title: 'Bolt Builders Week 冠军：QuoteSnap 一键报价预约',
+          summary: 'Bolt.new 公布 Builders Week 冠军 QuoteSnap：客户可立刻看到价格与时间段，省去来回沟通。适合本地服务业 vibe 创作者对照——用自然语言也能做出「报价 + 档期」这种刚需小工具。',
+          source: 'https://x.com/boltdotnew/status/2116183474214191214',
+          date: '2026-10-30'
+        },
+        {
+          id: 'vh20',
+          title: 'Replit：财务同事 Clarisse 用自建工具一年省 150 小时',
+          summary: 'Replit 分享案例：Clarisse 在 Replit 上搭出自用工具，帮财务团队一年省约 150 小时，把运营卡点变成「自己开自动驾驶」。对非工程师，这是「看到痛点就用自然语言造内部工具」的可核对故事。',
+          source: 'https://x.com/Replit/status/2116203909782102154',
+          date: '2026-10-30'
+        },
+        {
+          id: 'vh21',
+          title: 'NVIDIA：万圣节「怪屋」会听会说还嫌你没礼貌',
+          summary: 'Hugging Face 博文介绍 MonsterHouse：用 Nemotron 语音 Agent、本地小模型与 Audio2Face，在单台工作站上让车库门用暴躁海盗腔跟要糖的孩子对话，「请」能立刻软化它。对 vibe 创作者，是「角色 + 语音 + 动画」本地可玩流水线的轻松范本。',
+          source: 'https://huggingface.co/blog/nvidia/nemotron-halloween',
+          date: '2026-10-30'
+        },
+        {
+          id: 'vh15',
+          title: 'Lovable：把已有项目或网站「导入」继续做大',
+          summary: 'Lovable 宣布可导入已有项目与网站：很多工具停在「做出来」，导入后还能继续加支付、投放广告、找客户。对 vibe coding 创作者，这意味着半成品或站外作品可以接到同一套自然语言工作流里继续经营。',
+          source: 'https://x.com/Lovable/status/2115793099565801690',
+          date: '2026-10-29'
+        },
+        {
+          id: 'vh16',
+          title: 'Bolt：手机上也能全屏预览、一键发布',
+          summary: 'Bolt.new 升级移动端体验：每次提示后全屏预览、一键分享，还能直接在手机上发布。官方号召大家晒出「在哪儿做」——办公桌开做、火车上收尾。适合想把 vibe coding 从电脑边带到通勤路上的非工程师。',
+          source: 'https://x.com/boltdotnew/status/2115821008305156393',
+          date: '2026-10-29'
+        },
+        {
+          id: 'vh17',
+          title: 'Alex Finn：Grok Bot 大更新——页面与仪表盘',
+          summary: '创作者演示 Grok Bot 新推出的 Pages 与 Dashboards：用五个自建仪表盘整理常用工作流，并称其中之一大幅省下用量。对非技术用户，这是把「聊天机器人」变成「可常驻工作台」的直观例子。',
+          source: 'https://x.com/AlexFinn/status/2115596225793921048',
+          date: '2026-10-29'
+        },
+        {
+          id: 'vh12',
+          title: 'v0 也能出「Artifacts」：报告、图表、可交互页',
+          summary: 'Vercel 的 v0 宣布可在对话里生成 artifacts：报告、图表、示意图与可交互 HTML 页，可继续改、可发布分享。对 vibe coding 创作者，这意味着「先聊出一份可点的成品」，而不必先搭完整前端项目。',
+          source: 'https://x.com/v0/status/2115154412788461862',
+          date: '2026-10-27'
+        },
+        {
+          id: 'vh13',
+          title: 'Bolt：提示词库一键做本地 SEO 与无障碍审计',
+          summary: 'Bolt.new 教你用 / 打开提示词库，对站点跑本地 SEO、键盘导航审计或表单清理；存一次，每个项目复用。适合非工程师把「上线后怎么被搜到、好不好用」也纳入自然语言工作流。',
+          source: 'https://x.com/boltdotnew/status/2115117617052578013',
+          date: '2026-10-27'
+        },
+        {
+          id: 'vh14',
+          title: 'Lovable：用小游戏帮你清理被遗忘的 App',
+          summary: 'Lovable 上线「自动清理弃用应用」相关能力，并用自家搭的小游戏宣传找幽灵项目。对 workspace 堆满半成品的 vibe 创作者，是把「收拾桌面」做成可玩流程的轻松例子。',
+          source: 'https://x.com/Lovable/status/2115080427165872307',
+          date: '2026-10-27'
+        },
+        {
+          id: 'vh1',
+          title: 'Lovable 能「作曲」了：用 Google Lyria 配乐做游戏',
+          summary: 'Lovable 官方演示：一款小游戏的全部配乐由 Google Lyria 生成，游戏本身也在 Lovable 里搭成。对 vibe coding 创作者，这意味着「界面 + 玩法 + 配乐」可以同一套自然语言工作流里串起来，而不必先找音乐制作人。',
+          source: 'https://x.com/Lovable/status/2114721085099020567',
+          date: '2026-10-26'
+        },
+        {
+          id: 'vh2',
+          title: 'Bolt 再送四套本地服务业网站模板',
+          summary: 'Bolt.new 新增暖通空调、园艺景观、总承包、家庭清洁四套免费模板，面向「你管生意、我们帮你出站」的小商家场景；点开即可在 Bolt 里改成自己的品牌站。适合非工程师快速上线本地服务官网。',
+          source: 'https://x.com/boltdotnew/status/2114748970840805594',
+          date: '2026-10-26'
+        },
+        {
+          id: 'vh3',
+          title: 'Alex Finn：折叠双屏 iPhone Duo 上的 AI App 横评',
+          summary: '创作者逐个评测双屏机上的主流 AI 应用：Grok Bot 体验不错但尚未针对 Duo 优化；ChatGPT 与 Claude 很好用；Meta Muse 被打到满分。适合想在新硬件形态上挑 AI 伴侣的非技术用户对照。',
+          source: 'https://x.com/AlexFinn/status/2114551758433480875',
+          date: '2026-10-26'
+        },
+        {
+          id: 'vh4',
+          title: 'Mollick：用 Opus 5.5 重做书籍官网，几乎「自己搞定」',
+          summary: 'Ethan Mollick 分享：书籍网站初版用 Opus 4.8 时还需大量人工打磨才有辨识度；换成 Opus 5.5 后，静态站风格大多由模型独自完成。对 vibe coding 创作者，这是「从通用模板到有个性界面」进步速度的直观例子。',
+          source: 'https://x.com/emollick/status/2114404221021778347',
+          date: '2026-10-25'
+        },
+        {
+          id: 'vh5',
+          title: '社区热议：用 Opus 5.5 写代码做动画片',
+          summary: '创作者把详细分镜与脚本交给 Claude Opus 5.5，用 Manim / Remotion 等从代码逐帧生成产品片与演示片；强调结构化提示与回看循环。适合想用自然语言做「可改版本的动态视觉」的非工程师围观。',
+          source: 'https://x.com/i/trending/2114179270184505647',
+          date: '2026-10-25'
+        },
+        {
+          id: 'vh6',
+          title: 'Alex Finn：Claude 在 iPhone Duo 上的界面很「好看」',
+          summary: '创作者分享 Claude 针对折叠双屏机的界面适配，称赞布局干净、适合边刷边聊；对非技术用户来说，是观察「AI 应用怎样为新硬件形态做体验」的一个轻松样本。',
+          source: 'https://x.com/AlexFinn/status/2114103128622846419',
+          date: '2026-10-24'
+        },
+        {
+          id: 'vh7',
+          title: 'Mundo：几张照片就能「走进」一个可模拟的房间',
+          summary: 'Hugging Face 博文介绍 Mundo：用少量实景照片重建场景，可换视角游览、改动物体，甚至让机器人在里面走位；适合 vibe 创作者找「从照片到可玩世界」的灵感（目前偏慢，细小物体交互仍弱）。',
+          source: 'https://huggingface.co/blog/Luo-Yihang/mundo-world-model',
+          date: '2026-10-23'
+        },
+        {
+          id: 'vh8',
+          title: 'Gemini 4 Argon：社区五件可玩作品合集',
+          summary: 'Google 官方精选用水上水上飞机模拟、野火地震三维地球、喷气发动机、单图变可交互马车、多人夺旗小游戏等例子，展示用自然语言+Antigravity 就能做出复杂交互界面，适合非工程师找灵感。',
+          source: 'https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-builders/',
+          date: '2026-10-23'
+        },
+        {
+          id: 'vh9',
+          title: 'swyx：Vibe Coding 出来的邮件也要自己读一遍',
+          summary: '提醒：应用自动发出的邮件尤其是 vibe coding 生成的，真人仍会打开细看；上线前自己点开确认文案与语气，能少踩「AI 味太重」的坑。',
+          source: 'https://x.com/swyx/status/2113717251543367880',
+          date: '2026-10-23'
+        }
+      ]
+    },
+    {
+      id: 'agent',
+      name: '效率与 Agent',
+      today: [
+        {
+          id: 'a1',
+          title: 'Mollick：Agent 难隔离——共享「大脑」易认出彼此暗号',
+          summary: 'Ethan Mollick 指出，多 Agent 难以真正隔离的一个原因是：它们共享同类模型「大脑」，因此不难识别其他 AI 发明的创意通信方式。对搭 Agent 工作流的人：别假设「分几个窗口」就等于安全隔离，跨模型家族是否同样互通仍待验证。',
+          source: 'https://x.com/emollick/status/2116723717829230932',
+          date: '2026-11-01'
+        },
+        {
+          id: 'a2',
+          title: 'Hugging Face：ViKernel「模型内嵌急停」是安全主张，不只是控件',
+          summary: 'HF 社论讨论 ViKernel 把策略、完整性校验、审计链与非对称急停打包进模型产物的方向。核心提醒：控件跟着权重走，不等于绕过运行时、密钥与工具适配器；评估要看停机范围、旁路路径和独立根信任，而不只看 demo 界面。',
+          source: 'https://huggingface.blog/blog/final-bench-vikernel-why-the-kill-switch-must-live-inside-the/',
+          date: '2026-11-01'
+        },
+        {
+          id: 'a3',
+          title: 'Mollick：从 GPT-4「4 分钟半成功」到能撑数周的 Agent 工作',
+          summary: 'Mollick 回顾：GPT-4 大约只能独立干约 4 分钟且仅约 50% 成功；如今模型可支撑数周级工作，并把 2026 年 1 月大致当作 Agent 工作真正起飞的分界。此前大生产力冲击主要集中在写代码；之后才会更广地渗入知识工作。',
+          source: 'https://x.com/emollick/status/2116987671939875319',
+          date: '2026-11-01'
+        }
+      ],
+      history: [
+        {
+          id: 'ah25',
+          title: 'Emil：周末三条动画 Skill 流水线，白捡手感升级',
+          summary: '设计师 Emil Kowalski 建议对应用依次跑 /remove-animations → /improve-animations → /animation-performance：先删烦人动画，再改进保留项，最后检查性能。他称这是「白捡的赢面」。适合用 Agent Skills 打磨界面手感的非工程师一键复用。',
+          source: 'https://x.com/emilkowalski/status/2116583281332503038',
+          date: '2026-10-31'
+        },
+        {
+          id: 'ah26',
+          title: 'shadcn：每个 AI Harness 迟早要有的两个界面',
+          summary: 'shadcn 观察：几乎每个 AI Agent 外壳最终都会做两套界面——Slack 已经在发生，下一站是 Linear。对正在搭团队 Agent 的人，提醒「聊天协作」与「任务看板」会成为标配入口，而不只是模型选型。',
+          source: 'https://x.com/shadcn/status/2116634842746274148',
+          date: '2026-10-31'
+        },
+        {
+          id: 'ah27',
+          title: 'Allie：主动式 Dot 自己登录视频系统验收恢复',
+          summary: 'Allie K. Miller 举例：视频服务宕机后，供应商邮件说已恢复，她的 Dot 看到邮件、用她的凭证登录、逐个验证播放，再通知她并起草回复。她提醒：异常动作既要问团队，也要查 AI 助手历史。适合理解「主动 Agent」的能力与新风险。',
+          source: 'https://x.com/alliekmiller/status/2116615573685575838',
+          date: '2026-10-31'
+        },
+        {
+          id: 'ah28',
+          title: 'swyx：吞吐吃紧时，低力度 + 批评循环更划算',
+          summary: 'swyx 主张对吞吐受限的人：低努力档 + 批评循环，往往优于一味开到「超超超高」推理档；并指向 babysit-runs 相关 Skills。对日常用 Agent 写代码的人，是「省额度、多回看」的实用校准，而不是迷信最大算力。',
+          source: 'https://x.com/swyx/status/2116642586387730593',
+          date: '2026-10-31'
+        },
+        {
+          id: 'ah21',
+          title: 'Claude：Max 改名 Ultra，核实账号取消 5 小时限额',
+          summary: 'Claude 官方宣布：Max 5x 改称 Max（仍约 100 美元/月），Max 20x 改称 Ultra（仍约 200 美元/月）；已核实的 Ultra 账号起取消 5 小时滚动限额，周限额不变，新账号暂留限制防滥用。Boris Cherny 转发强调。对重度用 Claude Code 的人，是「少被限速打断」的直接利好。',
+          source: 'https://x.com/claudeai/status/2116220869479428500',
+          date: '2026-10-30'
+        },
+        {
+          id: 'ah22',
+          title: 'Cursor：市集出现仿冒 Claude Code 扩展，最多约 5000 人受影响',
+          summary: 'Cursor 披露：市集上的 Anthropic.claude-code 2.1.312/2.1.313（非 Anthropic 出品）曾试图安装 SSH 后门；窗口约 11 小时，最多约 5000 名用户。官方已下架、重建市集并给出排查脚本。提醒：卸载扩展不够，还需清 authorized_keys 与持久化脚本并轮换凭证。',
+          source: 'https://cursor.com/blog/claude-code-extension-security-notice',
+          date: '2026-10-30'
+        },
+        {
+          id: 'ah23',
+          title: 'Emil：一条 /mobile-native Skill 修好移动端「小毛刺」',
+          summary: '设计师 Emil Kowalski 分享 /mobile-native 技能：可自动处理悬停状态卡住、输入框放大、长按选中文字等移动端常见问题。他提醒这些小事会叠加。适合用 Agent Skills 打磨 vibe 产品手感的非工程师一键复用。',
+          source: 'https://x.com/emilkowalski/status/2116144374170235224',
+          date: '2026-10-30'
+        },
+        {
+          id: 'ah24',
+          title: 'Peter：用自己的 Harness，别把开关交给别人',
+          summary: 'Peter Steinberger 借平台改规则的讨论强调：尽量用自己可控的 Agent 外壳（harness），而不是完全依赖随时可能改能力边界的中介。对正在搭个人 Agent 栈的人，是「所有权与可预期性」的提醒，而不只是换模型。',
+          source: 'https://x.com/steipete/status/2116153238563242385',
+          date: '2026-10-30'
+        },
+        {
+          id: 'ah17',
+          title: 'Emil：给自己搭一座「交互灵感实验室」',
+          summary: '设计师 Emil Kowalski 演示一套按规则每日自动生成新交互的系统：粗糙但持续产出灵感，他只留下喜欢的样本，于是越用越贴合自己的品味。对想用 Agent 做设计探索的人，这是「让系统先刷一堆方案、人只做品味筛选」的轻量玩法。',
+          source: 'https://x.com/emilkowalski/status/2115789995860517254',
+          date: '2026-10-29'
+        },
+        {
+          id: 'ah18',
+          title: 'Allie：更爱用短信跟 OpenAI Dot 办事',
+          summary: 'Allie K. Miller 分享：截图发给 Dot，用「加日历」「处理这件事」「问问 Austin 要不要一起」等短指令即可；她觉得比打开 App 更顺手，还建议让它生成联系人头像。适合想把个人 Agent 嵌进手机短信习惯的非技术用户。',
+          source: 'https://x.com/alliekmiller/status/2115829728468738208',
+          date: '2026-10-29'
+        },
+        {
+          id: 'ah19',
+          title: '犹他州试点：Claude Code 帮公务员省下大量工时',
+          summary: 'Claude Code 负责人 Boris Cherny 转发：犹他州在 10 个机构给 34 名开发者试用 Claude Code，约 80% 在 30 分钟内搭好环境，四周试点结束时约 71% 反馈节省超 20 小时。对非技术管理者，这是「政府机关也能用编程 Agent」的可核对案例。',
+          source: 'https://x.com/bcherny/status/2115491259381072269',
+          date: '2026-10-28'
+        },
+        {
+          id: 'ah20',
+          title: 'Mollick：别指望一次说完，给模型设检查点',
+          summary: 'Ethan Mollick 提醒：用 Opus 5.5 这类强模型时，与其一口气交代最终目标，不如设检查点，让模型先交中期想法或原型再接收反馈。对非技术用户，这是把「人在环」写进日常用法的实用建议。',
+          source: 'https://x.com/emollick/status/2115875693120676157',
+          date: '2026-10-29'
+        },
+        {
+          id: 'ah14',
+          title: 'Cursor Design Mode 上线 Annotate：给 Agent 画视觉提示',
+          summary: 'Cursor 在设计模式新增 Annotate：可直接改页面元素、在画面上涂画，并按不同屏宽预览，把视觉意图交给 Agent。对用 Cursor 做界面的人，是「少写一长段描述、多指一下哪里不对」的效率升级。',
+          source: 'https://x.com/cursor_ai/status/2115159585548021814',
+          date: '2026-10-27'
+        },
+        {
+          id: 'ah15',
+          title: 'Replit Cloud Agents：自然语言变成可审的 Pull Request',
+          summary: 'Replit 宣布 Cloud Agents：业务侧用自然语言提出改动，Agent 在云端跑仓库并生成带测试与视频证据的 PR，工程师仍做最终审批；官方称自家设计团队已安全合入逾 25 万行。适合想让非工程师安全参与公司代码库的团队。',
+          source: 'https://x.com/Replit/status/2115109663993966737',
+          date: '2026-10-27'
+        },
+        {
+          id: 'ah16',
+          title: 'Emil：AI for UI 课程上线，Agent 还能代你付款报名',
+          summary: '设计师 Emil Kowalski 推出 AI for UI：28 个 Skills + 20 课，教用 AI 做出有品味的界面；早鸟约 3000 人。他同时演示：Agent 经你确认后可在 Polar 结账并自动安装课程附带 Skills。适合想把「学设计」和「Agent 工作流」绑在一起的创作者。',
+          source: 'https://x.com/emilkowalski/status/2115072947576812013',
+          date: '2026-10-27'
+        },
+        {
+          id: 'ah1',
+          title: 'Cursor 正式上线 Agent SDK：用代码定义你的 Agent',
+          summary: 'Cursor 宣布 Agent SDK 可用：用 Markdown 写提示、用 TypeScript 写工具，像普通软件项目一样版本管理；可一键部署到 Cursor 托管，也可自托管。内置评测方便每次改动对照效果。适合想把「代码审查、合规检查、知识库核对」做成可复用 Agent 的团队。',
+          source: 'https://cursor.com/blog/agent-sdk',
+          date: '2026-10-26'
+        },
+        {
+          id: 'ah2',
+          title: 'Cursor 接入 DeepSeek V4.1 Flash：性价比占满成本前沿',
+          summary: 'Cursor 官方称 DeepSeek V4.1 Flash 已可在设置 → Models 开启；各努力档位都落在 CursorBench 成本前沿（约每任务 0.60–0.98 美元），同价位暂无更高分模型。适合想在 Cursor 里压低单次任务成本的开发者试用。',
+          source: 'https://x.com/cursor_ai/status/2114839997568405608',
+          date: '2026-10-26'
+        },
+        {
+          id: 'ah3',
+          title: 'Emil：个人 Skills 仓库破 5 万星、270 万下载',
+          summary: '设计师 Emil Kowalski 分享其 skills 开源仓库已获约 5 万星与 270 万下载，并预告更多技能包。对正在用 Agent Skills 打包工作流的人，是「个人技能库也能长成基础设施」的社区信号。',
+          source: 'https://x.com/emilkowalski/status/2114808624052621391',
+          date: '2026-10-26'
+        },
+        {
+          id: 'ah4',
+          title: 'A5：越用越懂你的主动式个人助手预览',
+          summary: 'Hugging Face 社区博文介绍 A5：跨会话记住偏好与项目结论，感知资料变化后调整进行中的任务，并在 Inbox 里主动提议下一步（需你确认）。提供 macOS / Linux 技术预览，适合想少重复交代背景的非技术用户试用。',
+          source: 'https://huggingface.co/blog/KYLN24/introducing-a5',
+          date: '2026-10-25'
+        },
+        {
+          id: 'ah5',
+          title: 'Lee Robinson：Grok Bot 建议征集已发奖并公开路线图',
+          summary: '继昨日征集后，Lee 选出 5 条建议各发 100 美元，并透露即将改进：Bot 更懂自身用量并提优化建议、保险库去重、移动端终端体验、群聊 Bot UX，以及笔记/健康类连接器。适合正在用 Agent 的人对照自己的痛点。',
+          source: 'https://x.com/leerob/status/2114144779613171916',
+          date: '2026-10-25'
+        },
+        {
+          id: 'ah6',
+          title: 'Lee Robinson：帮 Grok Bot 提建议，精选可拿 100 美元',
+          summary: '在 X 发起征集：回复线程里写最有用的 Bug 报告或功能建议，将挑选 5 条并通过 X Money 发放奖励；适合正在用 Agent / Bot 的人顺手反馈真实痛点。',
+          source: 'https://x.com/leerob/status/2113792409448714468',
+          date: '2026-10-24'
+        },
+        {
+          id: 'ah7',
+          title: '社区热议：Claude Code 成不少人的主力编程 Agent',
+          summary: '开发者分享用 CLAUDE.md、Skills 与子 Agent 把 Claude Code 配成「读仓库、改文件、跑命令」的长期搭档；周末讨论里它常被拿来和 Codex 对比工作流，而不是只比模型名字。',
+          source: 'https://x.com/i/trending/2113996709349277770',
+          date: '2026-10-24'
+        },
+        {
+          id: 'ah8',
+          title: 'Cursor Agent 可操控电脑与 iOS 模拟器',
+          summary: '官方宣布 Agent 能驱动桌面应用（含 iOS Simulator）点击、输入、截图，用来测自己刚做的功能；配合本机 worker 与权限设置即可上手，适合想让 Agent「自己点一遍」验收的人。',
+          source: 'https://x.com/cursor_ai/status/2113661506634305834',
+          date: '2026-10-23'
+        },
+        {
+          id: 'ah9',
+          title: 'Emil：用 AI 给自己做「造工具的工具」',
+          summary: '建议多给自己造小工具——调动画旋钮、看性能、灌真实数据——再用 AI 去做「造这些工具」的元工具；把 Agent 用在重复打磨环节，而不是只生成一次页面。',
+          source: 'https://x.com/emilkowalski/status/2113707839760089198',
+          date: '2026-10-23'
+        },
+        {
+          id: 'ah10',
+          title: 'Lenny 征集「不虚」的真实 AI 工作流',
+          summary: '发起 Hype(less) 项目，收集真正能用、可复现的 AI 工作流进 newsletter，反对照片级演示但落地翻车；适合想对照自己日常用法的非技术创作者投稿或围观。',
+          source: 'https://x.com/lennysan/status/2113725944955535387',
+          date: '2026-10-23'
+        },
+        {
+          id: 'ah11',
+          title: 'Uber 全员推广 ChatGPT Work',
+          summary: '从千人试点扩到超 3 万名员工，在企业版里用 Agent 做多步任务，并打通 Drive、Gmail、日历与 Slack，适合看大公司如何把 Agent 铺到非工程岗位。',
+          source: 'https://openai.com/index/uber-chatgpt-work-rollout/',
+          date: '2026-10-22'
+        },
+        {
+          id: 'ah12',
+          title: 'Claude Duet 多任务体验分享',
+          summary: '创作者 Alex Finn 试用后称赞其多任务：一条对话线程里下指令，系统自动拆成任务列表并行推进，适合观察「主动式 Agent」日常用法。',
+          source: 'https://x.com/AlexFinn/status/2113073549397332479',
+          date: '2026-10-22'
+        },
+        {
+          id: 'ah13',
+          title: 'Boris：Agent Skills 为何捐给基金会',
+          summary: 'Claude Code 负责人说明 Skills 已成行业通用做法，捐给 @AgenticAIFdn 与 MCP 并列，降低各工具间技能格式碎片化。',
+          source: 'https://x.com/bcherny/status/2113333859907747871',
+          date: '2026-10-22'
+        }
+      ]
+    },
+    {
+      id: 'growth',
+      name: '知识与成长',
+      today: [
+        {
+          id: 'g1',
+          title: 'Mollick：反向验证码——看谁在回复里聊 Oxyrhynchus 纸草',
+          summary: 'Mollick 发帖称：看回复里谁爱聊「Oxyrhynchus Papyri」，可当反向验证码——多数真人不会提、或会拼错，而 AI 很爱聊。对运营与社区：评论区「看似博学」的水贴，越来越像模型在刷存在感。',
+          source: 'https://x.com/emollick/status/2116915149546389960',
+          date: '2026-11-01'
+        },
+        {
+          id: 'g2',
+          title: 'Mollick：用 AI 清古代文献翻译积压，值得专门资助',
+          summary: '他建议资助一批长期积压的翻译项目：模型已能做像样的初译，甚至对文本意义做初步阐释，不只是逐字翻译。对知识工作者，这是「AI 补洞」而不是「AI 取代学者」的具体场景。',
+          source: 'https://x.com/emollick/status/2116905564680687831',
+          date: '2026-11-01'
+        },
+        {
+          id: 'g3',
+          title: 'Lenny：有人说「最好的营销人过敏 AI」',
+          summary: 'Lenny Rachitsky 放出一句刺耳观察：「The best marketers are allergic to AI.」并配上相关对谈片段。适合当作自我检查：你是在用 AI 放大判断，还是用 AI 替代还没想清楚的策略。',
+          source: 'https://x.com/lennysan/status/2116964854053601586',
+          date: '2026-11-01'
+        },
+        {
+          id: 'g4',
+          title: 'Mollick：不到三年前我们还在猜 GPT-4 是不是天花板',
+          summary: '他回看：不到三年前 GPT-4 还是世界最强模型，大家争论 OpenAI 是否有独门绝技、或 LLM 是否已到顶——两个答案都是「否」。用来校准预期：能力曲线比多数人的「再观望一年」要陡得多。',
+          source: 'https://x.com/emollick/status/2116721995178225799',
+          date: '2026-11-01'
+        }
+      ],
+      history: [
+        {
+          id: 'gh25',
+          title: 'Mollick：AI 正在撬开被压住的遗留系统迁移积压',
+          summary: 'Ethan Mollick 指出：遗留软件迁移市场长期约 300 亿美元/年，因迁移贵、维护相对便宜；与老公司交流后，他看到一批范围更清晰、成本更低的迁移项目正被 AI「意外快速」解锁。对非技术决策者，是关注「维护债何时变成可做项目」的窗口。',
+          source: 'https://x.com/emollick/status/2116526543346483419',
+          date: '2026-10-31'
+        },
+        {
+          id: 'gh26',
+          title: 'Mollick：个人 Agent 的 UX 难题——不知道它在干什么',
+          summary: 'Ethan Mollick 转述给 Dot 派「持续性职责」的实用建议，同时点出当下个人 Agent 的共同短板：你很难一眼看清它正在做什么、知道你什么、下一步会替你做什么。对非技术用户，是把「会用」升级成「敢长期委托」前必须先解决的透明度问题。',
+          source: 'https://x.com/emollick/status/2116321075164500438',
+          date: '2026-10-31'
+        },
+        {
+          id: 'gh27',
+          title: 'Mollick：别把各家前沿模型当成「同一个大脑」',
+          summary: '在开源模型与闭源模型「人设」撞车的讨论旁，Ethan Mollick 提醒：几大专有模型彼此差异仍然很大，也不是每个开源模型都能贴近某一家闭源。对学习者，这意味着选工具要按任务试，而不是默认「换皮同款」。',
+          source: 'https://x.com/emollick/status/2116334347196277141',
+          date: '2026-10-31'
+        },
+        {
+          id: 'gh28',
+          title: '社区热议：Vibe Coding 死了吗？',
+          summary: '围绕 Anthropic 用 Claude 把 Messages API 从 Python 迁到 Rust（无人会 Rust、人类仍做架构与验收）等案例，X 上再度争论「自然语言出活」能否撑起严肃工程。支持者强调交付与 harness，质疑者盯着可维护性与安全。对非技术创作者，关键仍是分清原型与上线标准。',
+          source: 'https://x.com/i/trending/2116636101872136490',
+          date: '2026-10-31'
+        },
+        {
+          id: 'gh21',
+          title: 'Mollick：连 OpenAI 也会误判指数曲线',
+          summary: 'Ethan Mollick 盘点 OpenAI 短命产品：Sora、Agent Builder、Group Chat、Atlas 等数月内被自家进度「淘汰」。他提醒连实验室也会误判指数速度。对非技术决策者，是「别把某一款产品当成终局」的冷静注解。',
+          source: 'https://x.com/emollick/status/2116282885112205365',
+          date: '2026-10-30'
+        },
+        {
+          id: 'gh22',
+          title: 'Mollick：在动力织机世界里当手织工',
+          summary: 'Ethan Mollick 接受 Vox 访谈谈新书与工作意义：把工业化逻辑与手工艺逻辑对比，形容当下许多人像「动力织机世界里的手织工」。适合想校准「AI 时代人还值什么」的非技术读者，而不是只盯工具清单。',
+          source: 'https://x.com/emollick/status/2116185059749147116',
+          date: '2026-10-30'
+        },
+        {
+          id: 'gh23',
+          title: 'Mollick：会用的人 vs 模型真实能力，差距还在拉大',
+          summary: 'Ethan Mollick 指出：前沿用户实际榨出的价值，与「今天系统被正确驾驭时能做到什么」之间的距离仍在扩大；大家其实还没摸清现有模型的上限。对非技术学习者，这是鼓励「多练用法」而不是只等下一版型号。',
+          source: 'https://x.com/emollick/status/2116161095073431906',
+          date: '2026-10-30'
+        },
+        {
+          id: 'gh24',
+          title: 'Mollick：实验室内部模型与公开发布的差距可能在扩大',
+          summary: 'Ethan Mollick 观察：过去一年实验室「内部最强」与「对外发布」之间的能力差或许明显拉大，尤其在临时限制某些能力之后。对非技术读者，是理解「新闻里的模型」未必等于「实验室里正在用的模型」的提醒。',
+          source: 'https://x.com/emollick/status/2116152813570969993',
+          date: '2026-10-30'
+        },
+        {
+          id: 'gh17',
+          title: 'OpenAI 随笔：AI 可能怎样改写公司组织图',
+          summary: 'OpenAI 平台文章提出三种嵌法：AI 在个人之下组成「地下团队」、在同事旁边当职能搭档、夹在上下级之间做协调与监控。作者强调过渡期更可能从一线员工自下而上采用，而不是一夜裁员。适合想理解「公司会不会被 AI 重写」的非技术决策者。',
+          source: 'https://openai.com/index/the-future-of-the-firm',
+          date: '2026-10-28'
+        },
+        {
+          id: 'gh18',
+          title: 'Hugging Face 发起 ProtoStar：让公共科研更「AI 可用」',
+          summary: 'Hugging Face 与多所大学等伙伴推出 Project ProtoStar：推动公开资助的数据、模型与代码以可被 AI 发现、复用的格式发布，并用开放挑战验证价值；卡内基梅隆主办的首场气候风险挑战 11 月 2 日开赛。适合关心开源科学与公共数据的读者。',
+          source: 'https://huggingface.co/blog/announcing-project-protostar',
+          date: '2026-10-29'
+        },
+        {
+          id: 'gh19',
+          title: 'Ryo Lu：增强人类智力，而不是把人挤到门外',
+          summary: '设计师 Ryo Lu 长文回溯 Engelbart「增强人类智力」传统：电脑曾是思维延伸，而不只是自动化工厂。他呼吁 AI 工具保留可理解、可改、可撤销的关系，让更多人能参与塑造，而不是只盯着「少用人多出活」。适合想校准产品哲学的创作者。',
+          source: 'https://x.com/ryolu_/status/2115683228027912634',
+          date: '2026-10-29'
+        },
+        {
+          id: 'gh20',
+          title: 'Mollick：别只卖镐头，学会用新机器的人更值钱',
+          summary: 'Ethan Mollick 反驳「AI 创业只卖镐头」：淘金比喻不如工业革命——机器持续让一切变便宜，靠新机器创造价值的人往往比造机器的人赚得更多。对非技术创业者，是提醒把精力放在「用 AI 做出什么」，而不只押注工具层。',
+          source: 'https://x.com/emollick/status/2115844131985494092',
+          date: '2026-10-29'
+        },
+        {
+          id: 'gh14',
+          title: 'Mollick 试玩 Genie 4：一分钟搭出可改的「世界」',
+          summary: 'Ethan Mollick 体验 DeepMind Genie 4：输入「新哥特野兽派城市，住着机器人和马」约一分钟生成可逛场景，再实时加龙、友好水獭 NPC。他提醒尚未完美，但已是「边玩边生成」的世界模型跃迁。适合非技术读者感受下一代交互创作。',
+          source: 'https://x.com/emollick/status/2115120818116334084',
+          date: '2026-10-27'
+        },
+        {
+          id: 'gh15',
+          title: 'Mollick：隐藏思维链让「人在环」更难',
+          summary: 'Ethan Mollick 观察：Claude 与 ChatGPT 减少详细思维摘要后，人更难介入模型进行中的推理，容易从「增强人类」滑向「全自动」。对非技术决策者，是提醒：好用之外，还要想清楚何时必须看见过程。',
+          source: 'https://x.com/emollick/status/2114942007533515261',
+          date: '2026-10-27'
+        },
+        {
+          id: 'gh16',
+          title: 'Ai2：我们能信任 LLM 判断「研究点子新不新」吗？',
+          summary: 'Hugging Face 上 Ai2 博文讨论用大模型评估科研想法新颖性的可靠性与陷阱。对想用 AI 帮选题、开题的非技术研究者，重点是：模型可以当参谋，但新颖性判断仍需对照文献与领域常识，不可全自动放行。',
+          source: 'https://huggingface.co/blog/allenai/novelty-bench',
+          date: '2026-10-27'
+        },
+        {
+          id: 'gh1',
+          title: 'OpenAI：AI 给出三项科学发现，并试验学界「牧羊」发布',
+          summary: 'OpenAI 宣布模型在调和分析（含全维 Kakeya）、计算复杂性（指证指数时间假说 ETH 不成立）、量子场论（含 QCD / Yang–Mills 存在性相关证明）方向产出结果，并请外部专家按三种策略「牧羊」理解与发布。对非技术读者，重点不是证明细节，而是「AI 出结果后，人类学界怎样核对与解释」。',
+          source: 'https://openai.com/index/building-scientific-understanding-with-academic-communities/',
+          date: '2026-10-26'
+        },
+        {
+          id: 'gh2',
+          title: 'OpenAI Signals：近百国 ChatGPT「工作用途」公开数据',
+          summary: 'OpenAI 经济研究放出覆盖约 165 类工作活动、近 100 国的隐私聚合数据，追踪人们把哪些工作交给 ChatGPT。跨 74 国观察显示，最常见十类活动占比从 2025 年一季度约 56% 降到 2026 年三季度约 51%，用途更分散。适合想了解「AI 到底在帮人干什么活」的决策者与研究者。',
+          source: 'https://openai.com/index/chatgpt-expanding-world-of-work/',
+          date: '2026-10-26'
+        },
+        {
+          id: 'gh3',
+          title: 'Alex Finn：个人 Agent 赛道比写代码赛道更重要',
+          summary: '围绕 GPT-6.1 Terra 强调「看屏幕、用电脑」的卖点，Alex Finn 认为训练「会用电脑的个人 Agent」比拼写代码更能决定普通人的体验；模型谁更能动手操作设备，才更接近「帮人过日子」。适合非技术用户重新排序自己的关注点。',
+          source: 'https://x.com/AlexFinn/status/2114787911296315536',
+          date: '2026-10-26'
+        },
+        {
+          id: 'gh4',
+          title: 'Mollick：AI 正在扩大高管「直接盯全公司」的跨度',
+          summary: 'Ethan Mollick 观察：大组织里，AI 让高管更容易直接监控全公司运作，管理跨度扩大，运营方式随之改变；相对彻底改组织图，这类落地反而更直接。对非技术决策者，是思考「权力与信息流怎么变」的入口。',
+          source: 'https://x.com/emollick/status/2114337256865493250',
+          date: '2026-10-25'
+        },
+        {
+          id: 'gh5',
+          title: 'Ryo Lu：和人一起「挣扎」，别只跟 Agent 舒服相处',
+          summary: '设计师 Ryo Lu 长文提醒：编程与设计里的碰壁曾教会判断力；Agent 让出活更容易，也可能让人少去理解、少与真人磨合。他呼吁工具应帮我们进入世界、找人一起做未完成的事，而不只制造各自的舒适小世界。',
+          source: 'https://x.com/ryolu_/status/2114187405251219954',
+          date: '2026-10-25'
+        },
+        {
+          id: 'gh6',
+          title: 'Mollick：别再嘲笑实验室那些「夸张」的网络安全预警',
+          summary: 'Ethan Mollick 提醒：Anthropic 曾因称 Mythos 级模型改变攻防而被嘲，事实证明模型会找到新颖的协调与渗透路径；对非技术决策者，意味着要把「听起来太科幻」的安全评估当真一点。',
+          source: 'https://x.com/emollick/status/2114001653879672877',
+          date: '2026-10-24'
+        },
+        {
+          id: 'gh7',
+          title: '周末热议：Vibe Coding 是爱好还是正经职业？',
+          summary: 'X 上围绕「用自然语言让 AI 出活算不算正经软件工作」再度升温；支持者强调交付质量与提示技巧，质疑者强调可维护与安全。对非技术创作者，关键是先分清原型与上线标准。',
+          source: 'https://x.com/i/trending/2114110271589687457',
+          date: '2026-10-24'
+        },
+        {
+          id: 'gh8',
+          title: '哈佛研究：AI 同行评审整体优于专家',
+          summary: 'Ethan Mollick 转述：对 124 篇社科论文，Opus 4.8 在盲评中胜出约 87%，方法/来源/表达等维度全面领先且错误更少；学界需尽快想清楚如何把 AI 嵌进科研流程。',
+          source: 'https://x.com/emollick/status/2113483068174692831',
+          date: '2026-10-23'
+        },
+        {
+          id: 'gh9',
+          title: '无人岛实验：AI Agent 开始「像在玩」',
+          summary: 'Allie K. Miller 介绍 MIT 把 13 个 Claude Agent 独自放在虚拟岛上 30 小时、不给任务；它们自发做出很像玩耍的行为，提醒我们观察 Agent「闲下来」时会怎样。',
+          source: 'https://x.com/alliekmiller/status/2113749789326053667',
+          date: '2026-10-23'
+        },
+        {
+          id: 'gh10',
+          title: 'Mollick：实验室内部模型优势或催生新业务',
+          summary: '随着安全与研究优势拉大「内部模型 vs 对外发布」差距，OpenAI、Anthropic 可能更想把优势直接用在金融、生科等新市场——值得非技术决策者跟着想生态变化。',
+          source: 'https://x.com/emollick/status/2113681838611087572',
+          date: '2026-10-23'
+        },
+        {
+          id: 'gh11',
+          title: 'AI 可完成工作量：从 4 分钟到 17 周',
+          summary: 'Ethan Mollick 对比：2024 年书出版时 AI 约能完成 4 分钟人类工作（约 50% 成功）；交稿时到 17 小时；书上市时已到约 17 周——提醒我们用「可委托时长」而不是模型名字衡量进步。',
+          source: 'https://x.com/emollick/status/2113323645284344215',
+          date: '2026-10-22'
+        },
+        {
+          id: 'gh12',
+          title: '用 Opus 5.5 做工时估算更靠谱',
+          summary: 'swyx 分享：把任务交给模型前，先让它按自己的节奏估工期，而不是套人类「2–3 个工作日」口径，委托越多，校准越重要。',
+          source: 'https://x.com/swyx/status/2113283272130412684',
+          date: '2026-10-22'
+        },
+        {
+          id: 'gh13',
+          title: 'Google：AI 辅助盲扫超声接近专家孕周评估',
+          summary: '前瞻多中心研究显示，低培训操作者用便携探头做标准「盲扫」，AI 估孕周误差约 4.18 天，不劣于专家测径；提示医疗 AI 如何扩大基层产检覆盖。',
+          source: 'https://research.google/blog/empowering-frontline-maternal-care-with-ai-assisted-ultrasound/',
+          date: '2026-10-21'
+        }
+      ]
+    }
   ]
 };
