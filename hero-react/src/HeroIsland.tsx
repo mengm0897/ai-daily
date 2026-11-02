@@ -98,6 +98,7 @@ export function TitleMount({ text = TITLE }: { text?: string }) {
       ease="power3.out"
       threshold={0.1}
       rootMargin="0px"
+      clip={false}
     />
   );
 }

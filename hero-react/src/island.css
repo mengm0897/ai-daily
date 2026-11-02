@@ -54,6 +54,9 @@
   margin: 0 0 12px;
   min-height: 1.15em;
   width: 100%;
+  padding-bottom: 0.18em;
+  overflow: visible;
+  transform: translateY(-0.1em);
 }
 
 .hero-split-title {
@@ -61,7 +64,9 @@
   font-size: clamp(140px, 26vw, 300px) !important;
   font-weight: 400 !important;
   letter-spacing: -0.03em !important;
-  line-height: 0.95 !important;
+  line-height: 1.15 !important;
+  padding-bottom: 0.18em !important;
+  overflow: visible !important;
   color: #6B4C9A !important;
   margin: 0 !important;
   max-width: 100%;

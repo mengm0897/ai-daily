@@ -232,7 +232,7 @@ h1{font-family:"Instrument Serif",Georgia,serif;font-size:40px;line-height:1.1;m
 
 /* —— Homepage hero —— */
 .hero{position:relative;margin:0 0 var(--space-header);
-  padding:clamp(48px, 8vh, 96px) 0 clamp(40px, 6vh, 72px);overflow:hidden;
+  padding:clamp(56px, 9vh, 104px) 0 clamp(56px, 8vh, 96px);overflow:visible;
   isolation:isolate;min-height:clamp(480px, 72vh, 820px);
   display:flex;align-items:center;justify-content:center}
 .hero-orbs{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
@@ -246,7 +246,7 @@ h1{font-family:"Instrument Serif",Georgia,serif;font-size:40px;line-height:1.1;m
 .hero-inner{position:relative;z-index:1;width:100%;max-width:min(1100px, 100%);margin-inline:auto;text-align:center}
 .hero-inner .badge{display:inline-block}
 .hero-inner .lead{margin-left:auto;margin-right:auto}
-.hero h1{font-size:clamp(140px, 26vw, 300px);margin:0 0 12px;letter-spacing:-.03em;text-align:center;line-height:.95}
+.hero h1{font-size:clamp(140px, 26vw, 300px);margin:0 0 12px;letter-spacing:-.03em;text-align:center;line-height:1.15;padding-bottom:.18em;overflow:visible}
 .lead{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:clamp(18px, 2vw, 24px);
   color:#57534E;margin:0 0 16px;font-weight:400;line-height:1.45}
 .hero .sub{margin-bottom:8px}
@@ -517,7 +517,7 @@ ul{list-style:none;margin:0;padding:0}
 }
 .hero-aurora .hero-bg-stack{position:absolute;inset:0}
 .hero-aurora .flux-lines-container{pointer-events:none}
-.hero-title-mount{display:block;margin:0 0 10px;min-height:1.15em}
+.hero-title-mount{display:block;margin:0 0 10px;min-height:1.2em;padding-bottom:.18em;overflow:visible;transform:translateY(-.1em)}
 .hero-title-mount .hero-title-fallback,
 .hero-title-mount h1{
   font-size:clamp(42px, 8vw, 56px);margin:0;letter-spacing:-.02em;color:var(--primary);

@@ -32,6 +32,8 @@ export interface SplitTextProps {
   hoverEffect?: 'none' | 'lift' | 'wave';
   color?: string;
   accentColor?: string;
+  /** When false, parent overflow is visible (needed for descenders). Default: auto. */
+  clip?: boolean;
   onLetterAnimationComplete?: () => void;
 }
 
@@ -107,6 +109,7 @@ const SplitText = ({
   hoverEffect = 'none',
   color,
   accentColor,
+  clip: clipProp,
   onLetterAnimationComplete
 }: SplitTextProps) => {
   const ref = useRef<HTMLParagraphElement>(null);
@@ -438,7 +441,9 @@ const SplitText = ({
 
   const Tag = tag || 'p';
   const clip =
-    hoverEffect === 'none' && (from !== undefined || to !== undefined || effect === 'rise' || effect === 'fade');
+    clipProp !== undefined
+      ? clipProp
+      : hoverEffect === 'none' && (from !== undefined || to !== undefined || effect === 'rise' || effect === 'fade');
 
   return (
     <Tag
