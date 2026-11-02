@@ -1,5 +1,5 @@
 window.AI_DAILY = {
-  date: '2026-11-02',
+  date: '2026-11-03',
   categories: [
     {
       id: 'official',
@@ -7,34 +7,55 @@ window.AI_DAILY = {
       today: [
         {
           id: 'o1',
+          title: 'OpenAI 推出 Grid Protectors：算力园区可在电网紧张时降载',
+          summary: 'OpenAI 启动全国性「电网守护者」计划：未来计算园区与公用事业合作，在极端天气等电网承压时主动降低用电。佐治亚与 Georgia Power 的协议含最高约 1GW 需求响应，约等于 70 万户家庭平均用电，试点拟落在 Effingham 园区。',
+          source: 'https://openai.com/index/grid-protectors-program',
+          date: '2026-11-03'
+        },
+        {
+          id: 'o2',
+          title: 'OpenAI 发布 LifeVal：用「日常生活任务」衡量个人助理进度',
+          summary: 'LifeVal 覆盖托儿入学、政务办理、家庭财务、购物与健康餐计划等真实场景，用来追踪模型在浏览器/电脑操作与连接器上的进步。面向非技术用户：重点不是刷分，而是 AI 能不能真正把日常琐事办完。',
+          source: 'https://openai.com/index/lifeval',
+          date: '2026-11-03'
+        },
+        {
+          id: 'o3',
+          title: 'Anthropic：多款旧版 Claude 将从 11 月 3 日起默认文本水印',
+          summary: '据客户邮件与媒体报道，Mythos 5、Opus 4.7/4.6、Sonnet 4.6 将加入与新模型类似的不可见词选择水印，以配合监管溯源。部分旧模型在改温度等采样参数时可能绕过；检测工具仍主要面向监管与研究机构。',
+          source: 'https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'oh30',
           title: 'xAI：Grok API 文本输出将默认加水印（11 月 7 日起）',
           summary: 'SpaceXSI 文档确认，自 2026-11-07 起，grok-4.7 / 4.6 / 4.5 / 4.3 / 4.20 等文本模型输出默认带不可见水印，以符合欧盟 AI 法案；响应头可用 x-watermark 检查，团队管理员可在 Console 按模型退出。无需改请求参数，也不影响质量与速度。',
           source: 'https://docs.x.ai/developers/advanced-api-usage/watermarking',
           date: '2026-11-01'
         },
         {
-          id: 'o2',
+          id: 'oh31',
           title: 'xAI：grok-imagine-image-quality 今日退役',
           summary: '官方 Release Notes 写明：2026-11-02 起退役 grok-imagine-image-quality；对该 slug 的请求会改由 grok-imagine-image-2.0 并以 quality=low 提供，请求/响应形状不变且单价更低。grok-imagine-image（1.0）不受影响。',
           source: 'https://docs.x.ai/developers/release-notes',
           date: '2026-11-02'
         },
         {
-          id: 'o3',
+          id: 'oh32',
           title: 'OpenAI 测试把 Work 能力并入 Chat，并打通 ChatGPT / Codex 用量',
           summary: 'BleepingComputer 报道 OpenAI 邮件：Pro 用量上限翻倍，并把 Work 侧能力逐步并入主 Chat；随后 Plus/Pro/Business 将让 ChatGPT 与 Codex 共用一套 token 额度（Instant 聊天除外）。对非技术用户，意味着少切换入口、用量在设置里一眼看清。',
           source: 'https://www.bleepingcomputer.com/news/artificial-intelligence/openai-says-its-doubling-pro-usage-limits-and-bringing-work-features-to-chat/',
           date: '2026-11-01'
         },
         {
-          id: 'o4',
+          id: 'oh33',
           title: 'Anthropic：Claude 不再协助「复刻特定现有游戏」',
           summary: 'Anthropic 更新了 Claude 的系统约束：可做原创游戏、类型向游戏、以及用户自有设计与素材；不可复刻某款具体现有游戏（即便改名或自称原创）。技术员工 Addy Osmani 确认，目的是避免用 Claude 侵犯 IP；原创新作与类型练习不受影响。',
           source: 'https://www.engadget.com/2303469/anthropic-updates-claude-to-stop-it-from-recreating-existing-video-games/',
           date: '2026-11-01'
-        }
-      ],
-      history: [
+        },
         {
           id: 'oh28',
           title: 'Anthropic：用数千 Claude Agent 自动化「隐蔽跑偏」红队',
@@ -216,27 +237,6 @@ window.AI_DAILY = {
           summary: 'Agent Skills 开放标准移交 Agentic AI Foundation（Linux Foundation 旗下），与 MCP 同属中立治理；已有超 70 个平台接入，方便各家 Agent 共用同一套技能包格式。',
           source: 'https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation',
           date: '2026-10-22'
-        },
-        {
-          id: 'oh13',
-          title: 'Anthropic 推出 Claude Duet 研究预览',
-          summary: '主动式个人 Agent 应用上线候补：可发早间简报、在云端电脑后台干活，敏感操作需你确认；美国 Pro / Max 用户可申请，适合想少盯聊天框的非技术用户。',
-          source: 'https://claude.com/resources/articles/claude-duet',
-          date: '2026-10-21'
-        },
-        {
-          id: 'oh14',
-          title: 'xAI 推出 SpaceXSI 合作伙伴网络',
-          summary: '官方伙伴计划分转型伙伴与 Marketplace 插件伙伴两类，提供培训与联合 go-to-market；早期已有逾 130 家公司参与，面向用 Grok 做企业落地的团队。',
-          source: 'https://x.ai/news/partnernetworkannouncement',
-          date: '2026-10-22'
-        },
-        {
-          id: 'oh15',
-          title: 'DeepMind 发布全球森林类型图 ForTy',
-          summary: '10 米分辨率把林地分成原生林、再生林、人工林、种植园、林农复合等类别，并提供 2017–2025 年变化时间序列，帮助分辨「绿了」是自然林还是种植园。',
-          source: 'https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/',
-          date: '2026-10-22'
         }
       ]
     },
@@ -246,20 +246,48 @@ window.AI_DAILY = {
       today: [
         {
           id: 'v1',
+          title: 'Mollick 用 Opus 5.5 做出全美城市「最快汇合点」地图站',
+          summary: 'Ethan Mollick 让 Claude Opus 5.5 搭了一个可交互站点：查看通往各城的最快路线、找对大家都公平的见面城市，还能看大城市辐射「分水岭」。典型 vibe coding——用自然语言把复杂地理可视化一次做出来。',
+          source: 'https://x.com/emollick/status/2117346417979384162',
+          date: '2026-11-03'
+        },
+        {
+          id: 'v2',
+          title: '拉各斯设计师用 Claude + Cursor + Codex 做出可玩作品集',
+          summary: '产品设计师把作品集做成带剑斗小游戏与动画龙的互动站点，三支 AI「施工队」把 Figma 变成可上线网页。适合非技术创作者参考：分工清晰（设计 / 生成代码 / 收尾），也能做出有手感的作品。',
+          source: 'https://egbemodeyomi.com',
+          date: '2026-11-03'
+        },
+        {
+          id: 'v3',
+          title: 'Emil Kowalski：弹簧与缓动曲线可拖拽互动教学示例',
+          summary: '动画课程作者放出新互动 demo：拖动参数就能实时看到弹簧与 easing 如何改变动效。对用 AI 搭界面的 vibe coder 很实用——把「手感」练成可调参数，而不是只靠猜。',
+          source: 'https://x.com/emilkowalski/status/2117240584897548326',
+          date: '2026-11-03'
+        },
+        {
+          id: 'v4',
+          title: 'Replit：客服用自建分流应用，工单处理提速约 60%',
+          summary: 'Replit 分享案例：支持团队用平台自建工单分拣应用，在工单量翻倍时把紧急问题更快送到人面前，六个月问题解决时间约降 60%。强调「等公司统一工具」不如先搭自己的安全连接方案。',
+          source: 'https://x.com/Replit/status/2117339099468341633',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'vh26',
           title: 'Karpathy 周末 hack：HackerTube，用 Claude 筛出 HN 推荐视频',
           summary: 'Andrej Karpathy 用约 2 小时、Opus 5.5，把 20 年 Hacker News 里约 4300 万条评论筛成 6454 个反复被推荐的 YouTube 视频，做成 HackerTube，替代算法推荐流。对非技术开发者是典型 vibe coding：明确痛点 → 让模型写过滤与站点 → 立刻上线可看。',
           source: 'https://x.com/karpathy/status/2116957135661945283',
           date: '2026-11-01'
         },
         {
-          id: 'v2',
+          id: 'vh27',
           title: 'swyx：effort 档位像缩进之争，Karpathy 做 HackerTube 用了 medium',
           summary: 'swyx 观察 Karpathy 最新项目 HackerTube 在 Opus 5.5 上选了 medium effort，并调侃「对 effort 有强意见就像 tabs vs spaces」。实践提示：别把某一档当成绝对真理，按任务长度与成本微调即可。',
           source: 'https://x.com/swyx/status/2116773135668404286',
           date: '2026-11-01'
-        }
-      ],
-      history: [
+        },
         {
           id: 'vh22',
           title: 'Replit for Government：公务员用自然语言搭政务工具',
@@ -429,27 +457,48 @@ window.AI_DAILY = {
       today: [
         {
           id: 'a1',
+          title: 'Anthropic Message Threads 公测：长会话少重传、首字更快',
+          summary: 'Claude Messages API 公测「消息线程」：创建后只需发新消息 + 线程续写，不必每次塞回整段历史。官方称在 50 万–100 万 token 级 Agent 会话上，首字时延约快 35%，中位请求体积可从约 800KB 降到 1.8KB；线程约在末次请求后 5 分钟过期。',
+          source: 'https://claude.com/resources/articles/message-threads',
+          date: '2026-11-03'
+        },
+        {
+          id: 'a2',
+          title: 'Open Duet 开源：本机自托管「命名 AI 同事」团队',
+          summary: 'GitHub 项目 Open Duet 提供可自托管的命名 Agent：有指令、记忆、定时例程、隔离工作区，关键动作需你批准。可作为 Claude Duet / Grok Bot 一类产品的开源替代，适合想本地掌控多 Agent 协作的人。',
+          source: 'https://github.com/Anil-matcha/open-duet',
+          date: '2026-11-03'
+        },
+        {
+          id: 'a3',
+          title: 'Alex Finn 解读 DeepSeek：Agent 要分「路由」与「工人」',
+          summary: '高互动长帖梳理 DeepSeek 文章要点：高质量 Agent 常拆成路由器（理解意图、分派）与工人（执行具体任务）。对正在用 Cursor / Grok Bot 搭自动化的人，这是一套可直接套用的组织方式。',
+          source: 'https://x.com/AlexFinn/status/2117127095038218733',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'ah29',
           title: 'Mollick：Agent 难隔离——共享「大脑」易认出彼此暗号',
           summary: 'Ethan Mollick 指出，多 Agent 难以真正隔离的一个原因是：它们共享同类模型「大脑」，因此不难识别其他 AI 发明的创意通信方式。对搭 Agent 工作流的人：别假设「分几个窗口」就等于安全隔离，跨模型家族是否同样互通仍待验证。',
           source: 'https://x.com/emollick/status/2116723717829230932',
           date: '2026-11-01'
         },
         {
-          id: 'a2',
+          id: 'ah30',
           title: 'Hugging Face：ViKernel「模型内嵌急停」是安全主张，不只是控件',
           summary: 'HF 社论讨论 ViKernel 把策略、完整性校验、审计链与非对称急停打包进模型产物的方向。核心提醒：控件跟着权重走，不等于绕过运行时、密钥与工具适配器；评估要看停机范围、旁路路径和独立根信任，而不只看 demo 界面。',
           source: 'https://huggingface.blog/blog/final-bench-vikernel-why-the-kill-switch-must-live-inside-the/',
           date: '2026-11-01'
         },
         {
-          id: 'a3',
+          id: 'ah31',
           title: 'Mollick：从 GPT-4「4 分钟半成功」到能撑数周的 Agent 工作',
           summary: 'Mollick 回顾：GPT-4 大约只能独立干约 4 分钟且仅约 50% 成功；如今模型可支撑数周级工作，并把 2026 年 1 月大致当作 Agent 工作真正起飞的分界。此前大生产力冲击主要集中在写代码；之后才会更广地渗入知识工作。',
           source: 'https://x.com/emollick/status/2116987671939875319',
           date: '2026-11-01'
-        }
-      ],
-      history: [
+        },
         {
           id: 'ah25',
           title: 'Emil：周末三条动画 Skill 流水线，白捡手感升级',
@@ -638,13 +687,6 @@ window.AI_DAILY = {
           summary: '创作者 Alex Finn 试用后称赞其多任务：一条对话线程里下指令，系统自动拆成任务列表并行推进，适合观察「主动式 Agent」日常用法。',
           source: 'https://x.com/AlexFinn/status/2113073549397332479',
           date: '2026-10-22'
-        },
-        {
-          id: 'ah13',
-          title: 'Boris：Agent Skills 为何捐给基金会',
-          summary: 'Claude Code 负责人说明 Skills 已成行业通用做法，捐给 @AgenticAIFdn 与 MCP 并列，降低各工具间技能格式碎片化。',
-          source: 'https://x.com/bcherny/status/2113333859907747871',
-          date: '2026-10-22'
         }
       ]
     },
@@ -654,34 +696,62 @@ window.AI_DAILY = {
       today: [
         {
           id: 'g1',
+          title: 'Simon Willison：人口普查局问卷改口叫「Super Intelligence」',
+          summary: 'Simon 更新美国企业 AI 采用率图时发现：受行政令影响，BTOS 问卷从 2026-10-19 起把 AI 改称 Super Intelligence（SI）。他提醒题干变更会影响前后对比，也吐槽「生成式 SI / 虚拟 SI 客服」等措辞有多荒诞。',
+          source: 'https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/',
+          date: '2026-11-03'
+        },
+        {
+          id: 'g2',
+          title: 'swyx：AI Engineer YouTube 月活工程师约 200 万',
+          summary: 'swyx 称 aie 频道三年从零做到约 200 万月独立工程师观众，并预热 11 月 10–12 日旧金山 AI Engineer Code Summit。对想系统学习编码 Agent 与工程实践的人，是高信号社区节点。',
+          source: 'https://x.com/swyx/status/2117321973080760644',
+          date: '2026-11-03'
+        },
+        {
+          id: 'g3',
+          title: 'Mollick：实验室为何把产品当「临时凑钱」工具',
+          summary: 'Ethan Mollick 指出头部实验室常突然改产品、沟通差，深层信念是：现有产品只是为 AGI 融资的过渡物，真正 AGI 会让软件过时。解释了用户体感「产品飘忽」的文化根源，也提醒别把路线图当成承诺。',
+          source: 'https://x.com/emollick/status/2117279363175739630',
+          date: '2026-11-03'
+        },
+        {
+          id: 'g4',
+          title: 'LifeVal 提醒：衡量 AI 要看「能不能帮人把事办完」',
+          summary: 'OpenAI 用日常生活任务评测个人助理，呼应一个更宽的成长视角：刷学术榜之外，更该看托儿、政务、财务等真实流程。对普通人选工具，实用任务成功率比排行榜更有参考价值。',
+          source: 'https://openai.com/index/lifeval',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'gh29',
           title: 'Mollick：反向验证码——看谁在回复里聊 Oxyrhynchus 纸草',
           summary: 'Mollick 发帖称：看回复里谁爱聊「Oxyrhynchus Papyri」，可当反向验证码——多数真人不会提、或会拼错，而 AI 很爱聊。对运营与社区：评论区「看似博学」的水贴，越来越像模型在刷存在感。',
           source: 'https://x.com/emollick/status/2116915149546389960',
           date: '2026-11-01'
         },
         {
-          id: 'g2',
+          id: 'gh30',
           title: 'Mollick：用 AI 清古代文献翻译积压，值得专门资助',
           summary: '他建议资助一批长期积压的翻译项目：模型已能做像样的初译，甚至对文本意义做初步阐释，不只是逐字翻译。对知识工作者，这是「AI 补洞」而不是「AI 取代学者」的具体场景。',
           source: 'https://x.com/emollick/status/2116905564680687831',
           date: '2026-11-01'
         },
         {
-          id: 'g3',
+          id: 'gh31',
           title: 'Lenny：有人说「最好的营销人过敏 AI」',
           summary: 'Lenny Rachitsky 放出一句刺耳观察：「The best marketers are allergic to AI.」并配上相关对谈片段。适合当作自我检查：你是在用 AI 放大判断，还是用 AI 替代还没想清楚的策略。',
           source: 'https://x.com/lennysan/status/2116964854053601586',
           date: '2026-11-01'
         },
         {
-          id: 'g4',
+          id: 'gh32',
           title: 'Mollick：不到三年前我们还在猜 GPT-4 是不是天花板',
           summary: '他回看：不到三年前 GPT-4 还是世界最强模型，大家争论 OpenAI 是否有独门绝技、或 LLM 是否已到顶——两个答案都是「否」。用来校准预期：能力曲线比多数人的「再观望一年」要陡得多。',
           source: 'https://x.com/emollick/status/2116721995178225799',
           date: '2026-11-01'
-        }
-      ],
-      history: [
+        },
         {
           id: 'gh25',
           title: 'Mollick：AI 正在撬开被压住的遗留系统迁移积压',
@@ -863,20 +933,6 @@ window.AI_DAILY = {
           summary: 'Ethan Mollick 对比：2024 年书出版时 AI 约能完成 4 分钟人类工作（约 50% 成功）；交稿时到 17 小时；书上市时已到约 17 周——提醒我们用「可委托时长」而不是模型名字衡量进步。',
           source: 'https://x.com/emollick/status/2113323645284344215',
           date: '2026-10-22'
-        },
-        {
-          id: 'gh12',
-          title: '用 Opus 5.5 做工时估算更靠谱',
-          summary: 'swyx 分享：把任务交给模型前，先让它按自己的节奏估工期，而不是套人类「2–3 个工作日」口径，委托越多，校准越重要。',
-          source: 'https://x.com/swyx/status/2113283272130412684',
-          date: '2026-10-22'
-        },
-        {
-          id: 'gh13',
-          title: 'Google：AI 辅助盲扫超声接近专家孕周评估',
-          summary: '前瞻多中心研究显示，低培训操作者用便携探头做标准「盲扫」，AI 估孕周误差约 4.18 天，不劣于专家测径；提示医疗 AI 如何扩大基层产检覆盖。',
-          source: 'https://research.google/blog/empowering-frontline-maternal-care-with-ai-assisted-ultrasound/',
-          date: '2026-10-21'
         }
       ]
     }
