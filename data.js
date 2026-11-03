@@ -1,5 +1,5 @@
 window.AI_DAILY = {
-  date: '2026-11-03',
+  date: '2026-11-04',
   categories: [
     {
       id: 'official',
@@ -7,27 +7,55 @@ window.AI_DAILY = {
       today: [
         {
           id: 'o1',
+          title: 'OpenAI：用 AI 加速实体工程——CAD、PCB 到原型制造',
+          summary: 'OpenAI 展示 GPT-6 Astra / Codex 如何协助机械、电气与系统设计：从外观、外壳、PCB 到固件，内部硬件团队用量一年增约 23 倍。与 Chip Ganassi Racing、马自达等合作，把扫描件转成可编辑 CAD、探索气动外形；仍需工程师审阅制造公差。对非技术读者，这是「聊天式助手开始摸进真实硬件」的信号。',
+          source: 'https://openai.com/index/accelerating-engineering-for-the-physical-world',
+          date: '2026-11-03'
+        },
+        {
+          id: 'o2',
+          title: 'DeepMind：Antigravity + 化学信息学技能，一小时走完数日药物发现流程',
+          summary: 'Google DeepMind 为 Antigravity 推出 Cheminformatics Skills：Agent 可从文献抽取化合物、做匹配分子对分析、训练效力模型并提议刚性化大环与合成路线。肺癌靶点案例约一小时完成过去需数天的迭代；设计仍须实验验证。面向非技术读者：科研「工作台」正在变成可对话的协作面。',
+          source: 'https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/',
+          date: '2026-11-03'
+        },
+        {
+          id: 'o3',
+          title: 'OpenAI 任命 Jill Hazelbaker 为首席企业事务官',
+          summary: '前 Uber 总裁兼首席企业事务官 Jill Hazelbaker 加盟 OpenAI，负责全球沟通与企业定位，强化公众对 AI 的理解与信任。她曾主导 Uber 从创业公司走向全球平台期间的传播与政策事务，此前还在 Snap、Google 任职。对关注「大模型公司怎样对外说话」的读者，这是治理与公关能力扩编的信号。',
+          source: 'https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer/',
+          date: '2026-11-03'
+        },
+        {
+          id: 'o4',
+          title: 'OpenAI 大幅上调安全漏洞赏金，优质报告可叠加奖金',
+          summary: 'OpenAI 安全赏金计划把中高危与核心产品关键漏洞的奖励中值平均提高四倍以上：ChatGPT / Codex / API 关键最高约 3 万美元，含质量、忠诚与优先活动加成最高约 17.2 万美元；近 30 天已发奖金将补差。对非技术读者，这是「请外人帮忙找洞」的投入加码。',
+          source: 'https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties',
+          date: '2026-11-02'
+        }
+      ],
+      history: [
+        {
+          id: 'oh34',
           title: 'OpenAI 推出 Grid Protectors：算力园区可在电网紧张时降载',
           summary: 'OpenAI 启动全国性「电网守护者」计划：未来计算园区与公用事业合作，在极端天气等电网承压时主动降低用电。佐治亚与 Georgia Power 的协议含最高约 1GW 需求响应，约等于 70 万户家庭平均用电，试点拟落在 Effingham 园区。',
           source: 'https://openai.com/index/grid-protectors-program',
           date: '2026-11-03'
         },
         {
-          id: 'o2',
+          id: 'oh35',
           title: 'OpenAI 发布 LifeVal：用「日常生活任务」衡量个人助理进度',
           summary: 'LifeVal 覆盖托儿入学、政务办理、家庭财务、购物与健康餐计划等真实场景，用来追踪模型在浏览器/电脑操作与连接器上的进步。面向非技术用户：重点不是刷分，而是 AI 能不能真正把日常琐事办完。',
           source: 'https://openai.com/index/lifeval',
           date: '2026-11-03'
         },
         {
-          id: 'o3',
+          id: 'oh36',
           title: 'Anthropic：多款旧版 Claude 将从 11 月 3 日起默认文本水印',
           summary: '据客户邮件与媒体报道，Mythos 5、Opus 4.7/4.6、Sonnet 4.6 将加入与新模型类似的不可见词选择水印，以配合监管溯源。部分旧模型在改温度等采样参数时可能绕过；检测工具仍主要面向监管与研究机构。',
           source: 'https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/',
           date: '2026-11-03'
-        }
-      ],
-      history: [
+        },
         {
           id: 'oh30',
           title: 'xAI：Grok API 文本输出将默认加水印（11 月 7 日起）',
@@ -246,34 +274,62 @@ window.AI_DAILY = {
       today: [
         {
           id: 'v1',
+          title: 'IBM Research Palette：小模型按你的设计语言自动做幻灯片',
+          summary: 'Hugging Face 上的 Palette 把 20B 开源模型训成「设计师写简报 + 程序员画页」流水线，跟 IBM Design Language，并可在自有环境跑。用 [[指令]] 可要求时间轴、董事会语气等；生成后经几何检查与修复，PresentBench 多项领先闭源。适合想「自己的模板、数据不出门」的 vibe 建站者。',
+          source: 'https://huggingface.co/blog/ibm-research/palette-deck-building',
+          date: '2026-11-03'
+        },
+        {
+          id: 'v2',
+          title: 'Bolt：用 UTM 让落地页按来源自动换文案',
+          summary: 'Bolt 示范：LinkedIn 来客看 ROI 标题、通讯订阅看早鸟优惠、医疗线索看医疗证言——用 UTM 标签在同一落地页切换内容。对不会写复杂分流代码的创作者，这是「描述意图 → 生成个性化页面」的典型 vibe coding 招式。',
+          source: 'https://x.com/boltdotnew/status/2117722403983831451',
+          date: '2026-11-03'
+        },
+        {
+          id: 'v3',
+          title: 'Replit Agent 进入 Slack：频道里改项目、连工具、直接提问',
+          summary: 'Replit 宣布可把 Agent 拉进 Slack：在频道里继续推进项目、关联已连接工具并当场答疑，减少「回电脑再处理」。对非技术团队，协作聊天与搭应用开始在同一窗口完成。',
+          source: 'https://x.com/Replit/status/2117689305019887899',
+          date: '2026-11-03'
+        },
+        {
+          id: 'v4',
+          title: 'Emil Kowalski 公开 Interaction Lab：可玩的交互动效灵感库',
+          summary: '动画作者 Emil 放出自己最爱的交互实验合集，方便直接打开玩耍并找灵感，后续还会追加。对用 AI 搭界面的人，这是「手感参考」而不是干巴巴的组件文档。',
+          source: 'https://x.com/emilkowalski/status/2117651655680463347',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'vh28',
           title: 'Mollick 用 Opus 5.5 做出全美城市「最快汇合点」地图站',
           summary: 'Ethan Mollick 让 Claude Opus 5.5 搭了一个可交互站点：查看通往各城的最快路线、找对大家都公平的见面城市，还能看大城市辐射「分水岭」。典型 vibe coding——用自然语言把复杂地理可视化一次做出来。',
           source: 'https://x.com/emollick/status/2117346417979384162',
           date: '2026-11-03'
         },
         {
-          id: 'v2',
+          id: 'vh29',
           title: '拉各斯设计师用 Claude + Cursor + Codex 做出可玩作品集',
           summary: '产品设计师把作品集做成带剑斗小游戏与动画龙的互动站点，三支 AI「施工队」把 Figma 变成可上线网页。适合非技术创作者参考：分工清晰（设计 / 生成代码 / 收尾），也能做出有手感的作品。',
           source: 'https://egbemodeyomi.com',
           date: '2026-11-03'
         },
         {
-          id: 'v3',
+          id: 'vh30',
           title: 'Emil Kowalski：弹簧与缓动曲线可拖拽互动教学示例',
           summary: '动画课程作者放出新互动 demo：拖动参数就能实时看到弹簧与 easing 如何改变动效。对用 AI 搭界面的 vibe coder 很实用——把「手感」练成可调参数，而不是只靠猜。',
           source: 'https://x.com/emilkowalski/status/2117240584897548326',
           date: '2026-11-03'
         },
         {
-          id: 'v4',
+          id: 'vh31',
           title: 'Replit：客服用自建分流应用，工单处理提速约 60%',
           summary: 'Replit 分享案例：支持团队用平台自建工单分拣应用，在工单量翻倍时把紧急问题更快送到人面前，六个月问题解决时间约降 60%。强调「等公司统一工具」不如先搭自己的安全连接方案。',
           source: 'https://x.com/Replit/status/2117339099468341633',
           date: '2026-11-03'
-        }
-      ],
-      history: [
+        },
         {
           id: 'vh26',
           title: 'Karpathy 周末 hack：HackerTube，用 Claude 筛出 HN 推荐视频',
@@ -457,27 +513,48 @@ window.AI_DAILY = {
       today: [
         {
           id: 'a1',
+          title: 'Boris Cherny：Claude 可为企业插件自动连通，少挨个登录',
+          summary: 'Anthropic 的 Boris 称：Team / Enterprise 管理员配好公司插件后，同事首次使用即可自动连接，不必逐个登录。对正在给团队铺 Claude / Agent 的人，这减少了「装好却用不了」的摩擦。',
+          source: 'https://x.com/bcherny/status/2117693181651542387',
+          date: '2026-11-03'
+        },
+        {
+          id: 'a2',
+          title: 'Lenny：建筑施工图从一年半压缩到约 8 分钟',
+          summary: 'Lenny Rachitsky 转述一位资深建筑师：过去约 1.5 年才能把方案做成可施工图纸，现在用 AI 约 8 分钟。数字来自个案对话，但直观说明「专业长流程」正在被 Agent 重写；关键审图与合规仍需人把关。',
+          source: 'https://x.com/lennysan/status/2117721820426355145',
+          date: '2026-11-03'
+        },
+        {
+          id: 'a3',
+          title: 'Bolt for Microsoft Teams 上架：在 Teams / Copilot 里描述即可开建',
+          summary: 'Bolt 已在 Microsoft Marketplace 上线 Teams 版：打开 Teams 或 Copilot，描述想要的应用，拿到构建计划后直接开工。把 vibe coding 嵌进日常办公聊天，适合不想另开一堆工具窗口的团队。',
+          source: 'https://x.com/boltdotnew/status/2117648022737682467',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'ah32',
           title: 'Anthropic Message Threads 公测：长会话少重传、首字更快',
           summary: 'Claude Messages API 公测「消息线程」：创建后只需发新消息 + 线程续写，不必每次塞回整段历史。官方称在 50 万–100 万 token 级 Agent 会话上，首字时延约快 35%，中位请求体积可从约 800KB 降到 1.8KB；线程约在末次请求后 5 分钟过期。',
           source: 'https://claude.com/resources/articles/message-threads',
           date: '2026-11-03'
         },
         {
-          id: 'a2',
+          id: 'ah33',
           title: 'Open Duet 开源：本机自托管「命名 AI 同事」团队',
           summary: 'GitHub 项目 Open Duet 提供可自托管的命名 Agent：有指令、记忆、定时例程、隔离工作区，关键动作需你批准。可作为 Claude Duet / Grok Bot 一类产品的开源替代，适合想本地掌控多 Agent 协作的人。',
           source: 'https://github.com/Anil-matcha/open-duet',
           date: '2026-11-03'
         },
         {
-          id: 'a3',
+          id: 'ah34',
           title: 'Alex Finn 解读 DeepSeek：Agent 要分「路由」与「工人」',
           summary: '高互动长帖梳理 DeepSeek 文章要点：高质量 Agent 常拆成路由器（理解意图、分派）与工人（执行具体任务）。对正在用 Cursor / Grok Bot 搭自动化的人，这是一套可直接套用的组织方式。',
           source: 'https://x.com/AlexFinn/status/2117127095038218733',
           date: '2026-11-03'
-        }
-      ],
-      history: [
+        },
         {
           id: 'ah29',
           title: 'Mollick：Agent 难隔离——共享「大脑」易认出彼此暗号',
@@ -696,34 +773,62 @@ window.AI_DAILY = {
       today: [
         {
           id: 'g1',
+          title: 'Lenny 公开热门科技岗位薪酬与股权基准，免费可查',
+          summary: 'Lenny 发布按角色与地点可查的公共薪酬基准：覆盖 base 与新员工股权，从初级 IC 到 Sr. Director，数据每月更新。对想转 AI / 产品岗或谈薪的人，是可直接打开对照的参考板。',
+          source: 'https://x.com/lennysan/status/2117731838760464398',
+          date: '2026-11-03'
+        },
+        {
+          id: 'g2',
+          title: 'Allie K. Miller：下班还剩的待办，就是下一步 AI 用例清单',
+          summary: 'Allie 提醒：收工时待办上还没勾掉的事，往往是「AI 还不够好 / 你还不信任它 / 或永远不该交给它」的清单。用这一条筛用例，比追热点功能更贴近真实工作流。',
+          source: 'https://x.com/alliekmiller/status/2117695342120735154',
+          date: '2026-11-03'
+        },
+        {
+          id: 'g3',
+          title: 'Mollick：用 GPT-6 Pro / Opus 5.5 认真批一篇自己的论文',
+          summary: 'Ethan Mollick 建议在「学术审稿该不该用 AI」争论中，先亲自试：让强模型对你自己的论文给有实质内容的反馈。重点是证明「用对了可以很有洞察」，而不是盲目站队。',
+          source: 'https://x.com/emollick/status/2117659011373756509',
+          date: '2026-11-03'
+        },
+        {
+          id: 'g4',
+          title: 'Simon Willison：笔记本上的 Qwen 3.8 也能「读权重」实验',
+          summary: '面对「GPT-6 Astra 能直接解读模型权重」的热帖，Simon 用本机 Qwen 3.8 27B 复现：跑 45 分钟以上也能做出类似事。提醒别把营销叙事当成唯一门槛——可复现的小实验往往更有学习价值。',
+          source: 'https://x.com/simonw/status/2117655816581071203',
+          date: '2026-11-03'
+        }
+      ],
+      history: [
+        {
+          id: 'gh33',
           title: 'Simon Willison：人口普查局问卷改口叫「Super Intelligence」',
           summary: 'Simon 更新美国企业 AI 采用率图时发现：受行政令影响，BTOS 问卷从 2026-10-19 起把 AI 改称 Super Intelligence（SI）。他提醒题干变更会影响前后对比，也吐槽「生成式 SI / 虚拟 SI 客服」等措辞有多荒诞。',
           source: 'https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/',
           date: '2026-11-03'
         },
         {
-          id: 'g2',
+          id: 'gh34',
           title: 'swyx：AI Engineer YouTube 月活工程师约 200 万',
           summary: 'swyx 称 aie 频道三年从零做到约 200 万月独立工程师观众，并预热 11 月 10–12 日旧金山 AI Engineer Code Summit。对想系统学习编码 Agent 与工程实践的人，是高信号社区节点。',
           source: 'https://x.com/swyx/status/2117321973080760644',
           date: '2026-11-03'
         },
         {
-          id: 'g3',
+          id: 'gh35',
           title: 'Mollick：实验室为何把产品当「临时凑钱」工具',
           summary: 'Ethan Mollick 指出头部实验室常突然改产品、沟通差，深层信念是：现有产品只是为 AGI 融资的过渡物，真正 AGI 会让软件过时。解释了用户体感「产品飘忽」的文化根源，也提醒别把路线图当成承诺。',
           source: 'https://x.com/emollick/status/2117279363175739630',
           date: '2026-11-03'
         },
         {
-          id: 'g4',
+          id: 'gh36',
           title: 'LifeVal 提醒：衡量 AI 要看「能不能帮人把事办完」',
           summary: 'OpenAI 用日常生活任务评测个人助理，呼应一个更宽的成长视角：刷学术榜之外，更该看托儿、政务、财务等真实流程。对普通人选工具，实用任务成功率比排行榜更有参考价值。',
           source: 'https://openai.com/index/lifeval',
           date: '2026-11-03'
-        }
-      ],
-      history: [
+        },
         {
           id: 'gh29',
           title: 'Mollick：反向验证码——看谁在回复里聊 Oxyrhynchus 纸草',
