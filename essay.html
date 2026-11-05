@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>长文导读 · AI Daily</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+  <script src="essays.js"></script>
+</head>
+<body>
+  <header class="site-chrome" role="banner">
+    <div class="site-chrome__inner">
+      <a class="wordmark" href="index.html">AI Daily</a>
+      <nav class="site-nav" aria-label="板块导航">
+        <a href="category.html?c=official" data-nav="official">官方 AI 动态</a>
+        <a href="category.html?c=vibe" data-nav="vibe">Vibe Coding</a>
+        <a href="category.html?c=agent" data-nav="agent">效率与 Agent</a>
+        <a href="category.html?c=growth" data-nav="growth">知识与成长</a>
+        <a href="essays.html" data-nav="essays" aria-current="page">精选长文</a>
+      </nav>
+      <span class="chrome-date" id="chrome-date"></span>
+    </div>
+  </header>
+
+  <div class="shell shell--detail">
+    <header class="page-head">
+      <a class="back" href="essays.html">← 精选长文</a>
+    </header>
+    <article class="card detail essay-detail band-purple" id="m"></article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__tag">面向非技术读者的 AI 日报 · Aurora Luxe Light</p>
+      <nav class="site-footer__nav" aria-label="页脚板块">
+        <a href="category.html?c=official">官方 AI 动态</a>
+        <a href="category.html?c=vibe">Vibe Coding</a>
+        <a href="category.html?c=agent">效率与 Agent</a>
+        <a href="category.html?c=growth">知识与成长</a>
+        <a href="essays.html">精选长文</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const q = new URLSearchParams(location.search);
+    const e = AI_ESSAYS.items.find(x => x.id === q.get("id")) || AI_ESSAYS.items[0];
+    document.getElementById("chrome-date").textContent = AI_DAILY.date;
+    document.title = (e ? e.title : "长文导读") + " · AI Daily";
+    m.className = "card detail essay-detail band-" + (e.band || "purple");
+    m.innerHTML = `
+      <div class="essay-detail__banner">
+        <img src="${e.cover}" alt="">
+      </div>
+      <div class="body">
+        <div class="tags">
+          <span class="pill">${e.sourceSite}</span>
+          <span class="pill">${e.publishedAt}</span>
+          <span class="pill">约 ${e.minutes} 分钟</span>
+        </div>
+        <h1>${e.title}</h1>
+        <p class="essay-detail__en">${e.titleEn}</p>
+        <p class="essay-detail__byline">
+          ${e.author} <span class="muted">${e.authorHandle}</span>
+        </p>
+        <p class="summary">${e.summary}</p>
+        <section class="essay-takeaways">
+          <h2 class="section-label">这篇在讲什么</h2>
+          <ul>${e.takeaways.map(t => `<li>${t}</li>`).join("")}</ul>
+        </section>
+        <p class="detail-cta">
+          <a class="btn btn--primary" href="${e.sourceUrl}" target="_blank" rel="noopener">阅读原文（${e.sourceSite}）</a>
+        </p>
+        <p class="muted essay-copyright">本站仅收录封面、导读与原文链接；正文请在原站阅读。</p>
+      </div>`;
+  </script>
+</body>
+</html>

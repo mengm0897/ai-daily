@@ -3,3 +3,5 @@ preview-shots/
 prototype/
 *.log
 .DS_Store
+_essays_work/
+local-only/

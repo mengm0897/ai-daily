@@ -527,3 +527,56 @@ html.hero-react-ready .hero-title-fallback{display:none}
 @media (prefers-reduced-motion: reduce){
   .hero-aurora{opacity:.85}
 }
+
+/* —— 精选长文（公开站：封面 + 导读 + 原文链接）—— */
+.essay-grid{
+  display:grid;grid-template-columns:1fr;gap:20px;
+}
+.essay-card{
+  display:flex;flex-direction:column;overflow:hidden;
+  background:color-mix(in srgb, var(--card) 92%, transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  border:1px solid rgba(28,25,23,.04);
+  text-decoration:none;color:inherit;
+  transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.essay-card:hover{box-shadow:0 10px 26px rgba(107,76,154,.07);transform:translateY(-1px);border-color:rgba(107,76,154,.10)}
+.essay-card:focus-visible{outline:1.5px solid rgba(107,76,154,.45);outline-offset:2px}
+.essay-card__cover{position:relative;aspect-ratio:16/9;background:color-mix(in srgb, var(--purple) 45%, transparent)}
+.essay-card__cover img{width:100%;height:100%;object-fit:cover;display:block}
+.essay-card__badge{
+  position:absolute;left:16px;bottom:14px;
+  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.04em;
+  color:var(--ink);background:rgba(255,253,249,.78);padding:5px 12px;border-radius:999px;
+}
+.essay-card__body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.essay-card__meta{
+  display:flex;flex-wrap:wrap;gap:8px 14px;
+  font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.02em;
+}
+.essay-card h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.2;margin:0}
+.essay-card__en{margin:0;font-size:13px;color:var(--muted);line-height:1.45}
+.essay-card__summary{margin:0;font-size:14px;line-height:1.75;color:var(--ink)}
+.essay-card__cta{margin-top:auto;font-size:13px;font-weight:600;color:var(--primary)}
+.essay-detail__banner{width:100%;max-height:340px;overflow:hidden;background:color-mix(in srgb, var(--purple) 35%, transparent)}
+.essay-detail__banner img{width:100%;height:auto;display:block;object-fit:cover}
+.essay-detail h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(30px,4vw,42px);line-height:1.15;margin:14px 0 8px}
+.essay-detail__en{margin:0 0 14px;font-size:15px;color:var(--muted);line-height:1.5}
+.essay-detail__byline{margin:0 0 18px;font-size:14px;font-weight:600}
+.essay-detail__byline .muted{font-weight:400;margin-left:8px}
+.essay-takeaways{margin:22px 0 0;padding-top:18px;border-top:1px solid rgba(28,25,23,.07)}
+.essay-takeaways ul{margin:12px 0 0;padding-left:1.2em;font-size:14px;line-height:1.85}
+.essay-copyright{font-size:12px;line-height:1.7;margin-top:18px}
+
+@media (min-width:640px){
+  .essay-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1100px){
+  .essay-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* 只有一篇时不要让卡片半幅悬空 */
+@media (min-width:640px){
+  .essay-grid:has(> :only-child){grid-template-columns:minmax(0, 720px)}
+}
