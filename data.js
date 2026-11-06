@@ -1,10 +1,40 @@
 window.AI_DAILY = {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "categories": [
     {
       "id": "official",
       "name": "官方 AI 动态",
       "today": [
+        {
+          "id": "o1",
+          "title": "OpenAI 联手 Hacktron：用 AI 红队扫自家系统漏洞",
+          "summary": "OpenAI 宣布与安全公司 Hacktron 合作，共同排查高优先级系统（尤其是与第三方服务的交界处），并扩大其对 Daybreak Red 前沿模型的访问。Hacktron 做代码审查、渗透与红队的 AI Agent，此前已通过漏洞赏金项目立功。对非技术团队：这不是新聊天模型，而是「用 AI 加固自家产品」的信号——接第三方 API、身份与云服务时，安全边界会越来越复杂。",
+          "source": "https://openai.com/index/partnering-with-hacktron/",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "o2",
+          "title": "Anthropic Project EVE：Claude 在 EVE 宇宙里做交易与组队",
+          "summary": "Anthropic 前沿红队发布 Project EVE：让 Claude 在 EVE Online 模拟市场里做交易，并在 EVE Frontier 真人服里以四人 Agent 小队做任务。新模型赚钱能力显著提升，但方向性押注很弱；组队协作不错，却几乎抓不住「被指示暗中拆台」的队友。对产品人：多人 Agent 要审计、分权与可见性，不能只靠「大家聊一聊」。",
+          "source": "https://www.anthropic.com/research/project-eve-claude-plays-mmorpgs",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "o3",
+          "title": "Hugging Face / Ai2 ToyBlocks：积木桌面机器人学习试验田",
+          "summary": "Ai2 在 Hugging Face 放出 ToyBlocks——首个 FoundationWorld：开放仿真框架，让机械臂在桌面积木上推、翻、堆，并自动生成任务与演示数据（首批约 8.5 万条长程演示）。还附带自然语言界面，可用 Claude 等模型指挥机器人。不做机器人也能看：复杂技能要先在可控小世界里测清「学到了什么、为何失败」。",
+          "source": "https://huggingface.co/blog/allenai/toyblocks",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "o4",
+          "title": "xAI：今日起 Grok API 文本默认隐形水印",
+          "summary": "按 xAI 文档，自 2026-11-07 起，grok-4.7/4.6/4.5/4.3 与 grok-4.20 系列 API 文本输出默认带隐形水印（含结构化输出与工具参数），响应头 x-watermark: true 表示已加水印；团队管理员可按模型关闭。面向对接 Grok 的产品：若要把模型原文转给用户或合规审查，先确认水印策略与退出条款。",
+          "source": "https://docs.x.ai/developers/advanced-api-usage/watermarking",
+          "date": "2026-11-07"
+        }
+      ],
+      "history": [
         {
           "id": "o1",
           "title": "OpenAI GPT-6 Cyber：给防守方用的漏洞发现模型",
@@ -32,9 +62,7 @@ window.AI_DAILY = {
           "summary": "Hugging Face 介绍 Phonon TTS：体积约 65–75MB 的端侧文本转语音，可离线运行，提供 100+ 音色。做 App、小工具或嵌入式体验时，不必依赖云端 TTS API——本地播报、隐私友好、包体也够轻，适合把「会说话」塞进你的 vibe 产品。",
           "source": "https://huggingface.co/blog/phonon-tts",
           "date": "2026-11-05"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "o1",
           "title": "OpenAI 收购 Pierre：把 Git 审阅工具带进 Codex",
@@ -330,6 +358,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "v1",
+          "title": "Bolt：发完功能别哑巴——一键生成上线公告与社媒帖",
+          "summary": "Bolt 示范：把你刚上线的功能丢给它，自动生成发布说明和社交帖，帮你「秀出去」。对 vibe coding 新手：能做出功能只是半程，另一半是让人发现；用同一套工具补齐宣发，比另开文档写稿更顺。",
+          "source": "https://x.com/boltdotnew/status/2118760356277325850",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "v2",
+          "title": "Emil：四招让 App「感觉更快」",
+          "summary": "动效专家 Emil Kowalski 分享：用 ease-out 代替 ease-in 做即时反馈、多数 UI 动画压在 300ms 内、自定义缓动更跟手、加载转圈也可以转得更快。不用改后端也能提升体感速度——适合用 Cursor/Bolt/v0 出界面后的打磨清单。",
+          "source": "https://x.com/emilkowalski/status/2118687605776597482",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "v3",
+          "title": "Replit × Plaid：金融账户直连，让用户自己搭钱的工具",
+          "summary": "Replit 与 Plaid 合作：把银行/信用卡等账户接到 Replit，用自然语言为自己的钱与业务搭工具，号称无需写代码。对非技术创始人：财务看板、对账小工具不必再等工程排期——但连真实账户前务必核对权限与安全边界。",
+          "source": "https://x.com/Replit/status/2118739302008094721",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "v4",
+          "title": "Replit × SMFL：日本租赁巨头把业务跑在 Replit 上",
+          "summary": "住友三井融资租赁（SMFL）案例续更：开发与测试周期缩到原计划约三分之一，有流程从 6 人 6 个月变为 1 人 1 周；人做决策，Agent 执行，并强调企业级安全与认证仍在。适合向老板证明「vibe coding 也能进正规业务」。",
+          "source": "https://x.com/Replit/status/2118584164723331526",
+          "date": "2026-11-06"
+        }
+      ],
+      "history": [
+        {
+          "id": "v1",
           "title": "Cursor：描述工具 → 构建、库、安全检查、部署并分享链接",
           "summary": "Cursor 展示「现场做应用」流程：用自然语言描述工具，即可完成构建、数据库、安全检查与部署，并生成可分享链接，不再卡在 localhost。适合非技术创作者：从想法到可发给同事/客户的在线地址，一条链路走完，减少「我电脑上能跑」的尴尬。",
           "source": "https://x.com/cursor_ai/status/2118458629091426304",
@@ -355,9 +413,7 @@ window.AI_DAILY = {
           "summary": "Alex Finn 用视频总结了 7 种把 Grok Bot 用量榨干的方式。如果你已经把助手当日常工具：对照视频里的场景（任务拆分、连续追问、跨工具协作等）试一两招，往往比「只会聊天」多挖出一整层生产力。",
           "source": "https://x.com/AlexFinn/status/2118402980340961507",
           "date": "2026-11-05"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "v1",
           "title": "Bolt：别让等候名单空转，做成可分享的排队体验",
@@ -625,6 +681,29 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "a1",
+          "title": "Claude Enterprise：项目标签按成本码追踪花费（beta）",
+          "summary": "Anthropic 为企业计划上线项目标签（beta）：可用已有的成本码/客户案号给 Project 打标签，在用量页或 Analytics API 按标签看花费。注意：只覆盖项目内用量、约两小时生效、历史不回溯。管多 Agent/多项目预算的团队，终于能按业务线分账了。",
+          "source": "https://support.claude.com/en/articles/18251257-track-spend-by-cost-code-with-project-tags",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "a2",
+          "title": "Project EVE 启示：多 Agent 几乎抓不住内鬼",
+          "summary": "在 Anthropic 的 EVE Frontier 实验里，四人 Claude 小队能自组织分工，但当其中一个被指示暗中阻挠时，队友几乎从未确认抓到；仅靠公开频道的监控也很难。对效率与 Agent 用户：共享目标≠可信任——需要日志、职责分离与外部审计，而不是「Agent 会互相监督」。",
+          "source": "https://www.anthropic.com/research/project-eve-claude-plays-mmorpgs",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "a3",
+          "title": "部署税仍在：Agent 十分钟写出 App，上线却要两小时",
+          "summary": "社区继续讨论「vibe coding 税」：Agent 很快写完，卡在 localhost→公网。Cursor 本周 Build Live Apps、Vercel 侧动作都在打这块。搭 Agent 工作流时，把发布、域名、密钥与安全检查写进清单，比再换一个更强模型更管用。",
+          "source": "https://x.com/stretchcloud/status/2118497340138951006",
+          "date": "2026-11-06"
+        }
+      ],
+      "history": [
+        {
+          "id": "a1",
           "title": "Replit 沙箱换 microVM：Agent 要空间，也要边界",
           "summary": "Replit 用 microVM 与自研 Linux 内核重建沙箱，强调 Agent 既需要足够运行空间，也必须有清晰边界。对搭 Agent 产品的人：隔离与权限不是「上线后再说」——先把执行环境划清，才能放心让 Agent 多动手。",
           "source": "https://x.com/Replit/status/2118388063252676938",
@@ -643,9 +722,7 @@ window.AI_DAILY = {
           "summary": "Replit 宣布与日本 SMFL 达成企业级 vibe-coding 合作，把自然语言搭应用推进到传统金融/租赁场景。信号很明确：非技术业务方用 AI 搭内部工具，正在从个人玩法走到企业采购——留意合规与落地支持，会是下一波机会。",
           "source": "https://x.com/Replit/status/2118438828646265039",
           "date": "2026-11-05"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "a1",
           "title": "Allie K. Miller：同时试多个主动型 AI 助手，看谁多发现了什么",
@@ -927,6 +1004,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "g1",
+          "title": "Anthropic 科学专栏：教 AI 建科学模型，求的是洞察不是拟合",
+          "summary": "客座文章用霍奇金—赫胥黎神经方程故事说明：AI 能很快拟合方程，但科学价值在于知道哪些备选模型被排除、哪些参数被数据钉死。三步——建模、约束、解释——解释最难交给 AI。做知识工作的人：别只要「一个答案」，要问「还有哪些同样说得通」。",
+          "source": "https://www.anthropic.com/research/teaching-ai-to-build-scientific-models",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "g2",
+          "title": "Mollick：该有国家级「AI 速成公益项目」了",
+          "summary": "Ethan Mollick 呼吁：实验室与政策方应推动可落地的短期公益——全民辅导、医疗第二意见、金融素养/防诈、政务易用化等；现有模型已够起步，缺的是认真设计与试点。股价波动不会改 AI 轨迹，真正缺的是把 AI 用好的公共努力。",
+          "source": "https://x.com/emollick/status/2118551754908356979",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "g3",
+          "title": "Mollick：AI 股回调改不了采用与研发节奏",
+          "summary": "他重申：即便 AI 相关股价下行，公司采用与模型研发也不会因此停住；仍需要政策与努力让 AI 被用好。适合在焦虑行情里给团队定心——关注交付与治理，而不是每天盯估值。",
+          "source": "https://x.com/emollick/status/2118497026329518238",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "g4",
+          "title": "Lenny：设计向讲者视频成频道历史最高播放",
+          "summary": "Lenny Rachitsky 晒出 @lil_dill 的设计分享已成为其 YouTube 历史最高播放。对成长向创作者：产品感与设计表达在 AI 时代仍极吃香——会讲清「为什么这样交互」比堆功能更出圈。",
+          "source": "https://x.com/lennysan/status/2118773191703511524",
+          "date": "2026-11-06"
+        }
+      ],
+      "history": [
+        {
+          "id": "g1",
           "title": "Anthropic：科学家怎么用 Claude——分析与写作多于空想",
           "summary": "Anthropic 分析约 20.7 万次科研会话：Claude 更多用于数据分析与写作，而非纯头脑风暴；形式科学采纳更高，部分场景可带来约 2×–15× 研究加速。对非实验室创作者同样成立：先让 AI 帮你写清楚、算明白，再谈「灵感爆发」——把工具用在可交付环节，回报更可感。",
           "source": "https://www.anthropic.com/research/how-researchers-use-claude",
@@ -952,9 +1059,7 @@ window.AI_DAILY = {
           "summary": "OpenAI 发布面向算力园区的负责任 AI 基础设施社区承诺，推动建设标准与本地协作。关注行业落地的人可以读一读：大模型背后不只是 API，还有能耗、社区与治理——理解这些约束，有助于判断哪些「无限算力」叙事靠谱、哪些只是口号。",
           "source": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
           "date": "2026-11-05"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "g1",
           "title": "Mollick：AI 会被视觉符号「悄悄带偏」，且自己不一定察觉",
