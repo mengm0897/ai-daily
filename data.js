@@ -1,10 +1,33 @@
 window.AI_DAILY = {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "categories": [
     {
       "id": "official",
       "name": "官方 AI 动态",
       "today": [
+        {
+          "id": "o1",
+          "title": "OpenAI BioBasicsBench：AI 能不能读懂「脏兮兮」的实验数据",
+          "summary": "OpenAI 与生物公司 Ligo 发布 BioBasicsBench：100 道真实湿实验室日常题，用凝胶图、菌落板、显微镜视频等生数据考 Agent——能不能读图、查对照、承认「证据不够」。GPT-6 Astra 在高推理力度下拿到约 66.7% 评分，明显好于上一代，但仍会选错克隆、漏看冲突证据。对普通人：别被论文精美配图骗了，真正落地要看 AI 能不能在糊图和翻车实验里帮你排错。",
+          "source": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "o2",
+          "title": "Anthropic：Claude 的 Agent 记忆靠「做梦」整理纠错",
+          "summary": "Anthropic 工程文拆解 Agent 记忆：会话里先记笔记，空闲时再用「dreaming」回看 transcript、改错笔记、建 wiki 链接，并把关键规则顶到下次开场。评测里，对约 35 万份内部文档做梦 128 轮后，问答得分从 13% 提到 48%；Pokémon 关卡里纠正错误地标笔记后才能过关。对产品人：长期 Agent 不只靠更长上下文，还要设计「闲时整理 + 纠错」的记忆流水线。",
+          "source": "https://www.anthropic.com/research/components-of-agent-memory",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "o3",
+          "title": "Hugging Face ASR 榜：埃及与尼日利亚英语口音入列",
+          "summary": "Open ASR Leaderboard 与 Liva AI 合作，加入埃及、尼日利亚英语私有会话测试集（约 1.34 / 1.55 小时），保留标点、大小写与口语停顿；榜单还按「美国 vs 非美」「Inner Circle vs Outer/Expanding」拆口音表现。对做语音产品的人：公开榜分数越来越好刷，私有口音集才更能暴露「只在某口音上好看」的虚高。",
+          "source": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+          "date": "2026-11-06"
+        }
+      ],
+      "history": [
         {
           "id": "o1",
           "title": "OpenAI 联手 Hacktron：用 AI 红队扫自家系统漏洞",
@@ -32,9 +55,7 @@ window.AI_DAILY = {
           "summary": "按 xAI 文档，自 2026-11-07 起，grok-4.7/4.6/4.5/4.3 与 grok-4.20 系列 API 文本输出默认带隐形水印（含结构化输出与工具参数），响应头 x-watermark: true 表示已加水印；团队管理员可按模型关闭。面向对接 Grok 的产品：若要把模型原文转给用户或合规审查，先确认水印策略与退出条款。",
           "source": "https://docs.x.ai/developers/advanced-api-usage/watermarking",
           "date": "2026-11-07"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "o1",
           "title": "OpenAI GPT-6 Cyber：给防守方用的漏洞发现模型",
@@ -342,13 +363,6 @@ window.AI_DAILY = {
           "summary": "面向应用与 Agent 的快速决策接口全面可用，基于 GPT-6 Luna，可对分类、路由、评分等有限答案问题做到接近实时响应，并支持与 GPT-Live 语音场景原生联动。",
           "source": "https://openai.com/index/decisions-api/",
           "date": "2026-10-22"
-        },
-        {
-          "id": "oh12",
-          "title": "Anthropic 将 Agent Skills 捐赠给 AAIF",
-          "summary": "Agent Skills 开放标准移交 Agentic AI Foundation（Linux Foundation 旗下），与 MCP 同属中立治理；已有超 70 个平台接入，方便各家 Agent 共用同一套技能包格式。",
-          "source": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
-          "date": "2026-10-22"
         }
       ]
     },
@@ -356,6 +370,36 @@ window.AI_DAILY = {
       "id": "vibe",
       "name": "非技术 Vibe Coding 实践",
       "today": [
+        {
+          "id": "v1",
+          "title": "Karpathy：Claude Code 三分钟做出 TristanTube",
+          "summary": "Andrej Karpathy 把 Tristan Hume 的 YouTube 频道分级清单一键做成 TristanTube：约 4.7 万条硬核视频、暗色模式、About 页，还有适合沙发刷的 TV 模式，自称用 Claude Code 三分钟 one-shot。后续回复里提示词极简——「给链接、做播放器、加 About/暗色/TV」。对 vibe 构建者：骨架一旦有了，下一版往往只是换数据源；真正贵的是品味与选题。",
+          "source": "https://x.com/karpathy/status/2119114537442189652",
+          "date": "2026-11-07"
+        },
+        {
+          "id": "v2",
+          "title": "levelsio：用 Claude Code 拆家具零件并生成采购清单",
+          "summary": "Pieter Levels 演示让 Claude Code 按零件设计家具，再吐出 BOM（物料清单）去下单原材料、自己组装——比大牌成品家具便宜得多。后续还提到木工/木匠可能迎来新市场：用户用 AI Agent 出设计，木工负责落地拼装。对非技术创作者：AI 不只写 App，也能把「家居改造」变成可下单的零件清单。",
+          "source": "https://x.com/levelsio/status/2119132202952798369",
+          "date": "2026-11-07"
+        },
+        {
+          "id": "v3",
+          "title": "Emil：AI 抬高设计地板，「像样」已成标配",
+          "summary": "动效设计师 Emil Kowalski 观察：很久没见到满是低级设计错误的项目了——AI 把「看起来还行」抬成了基线，像样的 UI 不再能证明你厉害。他也感慨：创作太容易，反而更难被真正惊艳到，像开了作弊码的游戏。对 vibe 产品：别再只比「漂不漂亮」，要比交互细节、信息架构与独特观点。",
+          "source": "https://x.com/emilkowalski/status/2119031260404183158",
+          "date": "2026-11-07"
+        },
+        {
+          "id": "v4",
+          "title": "levelsio：AI 设计 + 木工落地，或打开新市场",
+          "summary": "顺着家具演示，levelsio 判断：普通人用 AI Agent 自己画设计、再找木工/木匠按图拼装并采购原料，可能打开很大一块市场。核心分工变成「你出设计与清单，手艺人负责实体交付」。对想做本地服务的 vibe 创业者：把 Agent 接到报价、BOM 与本地工匠撮合，会比再做一个纯聊天家具 App 更落地。",
+          "source": "https://x.com/levelsio/status/2119134858534416596",
+          "date": "2026-11-07"
+        }
+      ],
+      "history": [
         {
           "id": "v1",
           "title": "Bolt：发完功能别哑巴——一键生成上线公告与社媒帖",
@@ -383,9 +427,7 @@ window.AI_DAILY = {
           "summary": "住友三井融资租赁（SMFL）案例续更：开发与测试周期缩到原计划约三分之一，有流程从 6 人 6 个月变为 1 人 1 周；人做决策，Agent 执行，并强调企业级安全与认证仍在。适合向老板证明「vibe coding 也能进正规业务」。",
           "source": "https://x.com/Replit/status/2118584164723331526",
           "date": "2026-11-06"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "v1",
           "title": "Cursor：描述工具 → 构建、库、安全检查、部署并分享链接",
@@ -681,6 +723,29 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "a1",
+          "title": "Agent 记忆组件：Dreaming 如何纠错与建 Wiki",
+          "summary": "Anthropic 把 Agent 记忆拆成「当场记笔记 + 空闲做梦整理」：做梦可对照 transcript 改错、合并重复、建可导航 wiki，并把少量关键规则注入下次会话开头。文档库实验里多轮做梦后问答显著提升；也提醒注入层必须短，否则遵守率下降。动手搭 Agent 时：先做可持久化笔记目录，再加夜间整理任务，别指望一次会话写完美记忆。",
+          "source": "https://www.anthropic.com/research/components-of-agent-memory",
+          "date": "2026-11-06"
+        },
+        {
+          "id": "a2",
+          "title": "Alex Finn：Grok Bot 六招自动化「不想干」的工作",
+          "summary": "Alex Finn 总结自己用 Grok Bot 几个月的真实用法：每 15 分钟盯 AI 公司账号、自主维护赚钱小站、日夜点点测 App 并写 PR、社媒发帖后自动改写成 newsletter、进社区 24/7 答疑、盯 PostHog 流失用户并起草触达。他强调能力别人也有，差别在体验把这些流程「解绑」得更顺手。可抄作业：把监控、测试、内容改写、客服值班拆成可审批的 Agent 流水线。",
+          "source": "https://x.com/AlexFinn/status/2118882927610360204",
+          "date": "2026-11-07"
+        },
+        {
+          "id": "a3",
+          "title": "swyx：开源读卡硬件客户端，API「对 Agent 友好」",
+          "summary": "swyx 收到一款可插物理端口的读卡客户端后惊喜发现开源——对往实体端口塞东西很关键，并称 API 很对 Agent 胃口，还预告下周活动上的彩蛋。硬件 + 开源 + 清晰 API，意味着本地 Agent 更容易读写实体介质、做自动化测试或边缘采集。关注本地 Agent 的人：留意那些「文档写给人机都能调」的小硬件，往往比又一个聊天壳更有杠杆。",
+          "source": "https://x.com/swyx/status/2118996445936361933",
+          "date": "2026-11-07"
+        }
+      ],
+      "history": [
+        {
+          "id": "a1",
           "title": "Claude Enterprise：项目标签按成本码追踪花费（beta）",
           "summary": "Anthropic 为企业计划上线项目标签（beta）：可用已有的成本码/客户案号给 Project 打标签，在用量页或 Analytics API 按标签看花费。注意：只覆盖项目内用量、约两小时生效、历史不回溯。管多 Agent/多项目预算的团队，终于能按业务线分账了。",
           "source": "https://support.claude.com/en/articles/18251257-track-spend-by-cost-code-with-project-tags",
@@ -699,9 +764,7 @@ window.AI_DAILY = {
           "summary": "社区继续讨论「vibe coding 税」：Agent 很快写完，卡在 localhost→公网。Cursor 本周 Build Live Apps、Vercel 侧动作都在打这块。搭 Agent 工作流时，把发布、域名、密钥与安全检查写进清单，比再换一个更强模型更管用。",
           "source": "https://x.com/stretchcloud/status/2118497340138951006",
           "date": "2026-11-06"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "a1",
           "title": "Replit 沙箱换 microVM：Agent 要空间，也要边界",
@@ -1004,6 +1067,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "g1",
+          "title": "Mollick：别再把「人工核验事实」当成默认岗位",
+          "summary": "Ethan Mollick 认为，日常工作里过度担心「AI 会编事实、所以人要专职核对」已经过时：新模型在找事实、查主张上常能打过包括博士在内的人类专家。人仍要审视角、立场与路径，但把岗位定义成「挑错机器」可能既低效又过时。对团队分工：把精力从逐句对错，转到目标设定、价值判断与例外处理。",
+          "source": "https://x.com/emollick/status/2119140502746308674",
+          "date": "2026-11-07"
+        },
+        {
+          "id": "g2",
+          "title": "Mollick：调查报道或迎来「金时代」",
+          "summary": "Mollick 指出：挖公司与政府的公开材料、报表与数据，过去要记者团队长时间投入，因此很少做；现在 LLM 能把这类调查研究放大约 10 倍。但他也提醒：AI 可做更多研究，真正稀缺的仍是「什么故事值得讲」的品味。对内容与研究型创作者：用 AI 把资料战打穿，把时间留给选题与叙事。",
+          "source": "https://x.com/emollick/status/2119083280381383072",
+          "date": "2026-11-07"
+        },
+        {
+          "id": "g3",
+          "title": "Anthropic：若广泛采用，AI 可承担约 38% 科研工时",
+          "summary": "Anthropic 分析约 20.7 万次科研相关 Claude 会话：科学家多用它做数据分析与写作，少用它做采数与出题；若现有能力被广泛采用，AI 可承担完成一项研究约 27–52% 的研究者时间（中位约 38%），对应约 1.35–2 倍加速。对学习者：先把 AI 用在「可验证、可反馈」的分析与写作环节，再谈全自动科研。",
+          "source": "https://www.anthropic.com/research/how-researchers-use-claude",
+          "date": "2026-11-05"
+        },
+        {
+          "id": "g4",
+          "title": "Mollick：组织 AI 能力的新测试——App 适配了 iPhone Duo 没",
+          "summary": "Mollick 抛出一个轻松但锋利的组织体检：如果你的 App 还没适配 iPhone Duo，可能说明团队 AI/产品迭代能力偏弱。玩笑背后是节奏问题——硬件形态一变，跟得上的组织往往也更擅长把新能力嵌进产品。对小团队：用「外部平台一变你多久能跟上」当镜子，比只看内部路线图更诚实。",
+          "source": "https://x.com/emollick/status/2119158887060283552",
+          "date": "2026-11-07"
+        }
+      ],
+      "history": [
+        {
+          "id": "g1",
           "title": "Anthropic 科学专栏：教 AI 建科学模型，求的是洞察不是拟合",
           "summary": "客座文章用霍奇金—赫胥黎神经方程故事说明：AI 能很快拟合方程，但科学价值在于知道哪些备选模型被排除、哪些参数被数据钉死。三步——建模、约束、解释——解释最难交给 AI。做知识工作的人：别只要「一个答案」，要问「还有哪些同样说得通」。",
           "source": "https://www.anthropic.com/research/teaching-ai-to-build-scientific-models",
@@ -1029,9 +1122,7 @@ window.AI_DAILY = {
           "summary": "Lenny Rachitsky 晒出 @lil_dill 的设计分享已成为其 YouTube 历史最高播放。对成长向创作者：产品感与设计表达在 AI 时代仍极吃香——会讲清「为什么这样交互」比堆功能更出圈。",
           "source": "https://x.com/lennysan/status/2118773191703511524",
           "date": "2026-11-06"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "g1",
           "title": "Anthropic：科学家怎么用 Claude——分析与写作多于空想",
@@ -1339,20 +1430,6 @@ window.AI_DAILY = {
           "summary": "Allie K. Miller 介绍 MIT 把 13 个 Claude Agent 独自放在虚拟岛上 30 小时、不给任务；它们自发做出很像玩耍的行为，提醒我们观察 Agent「闲下来」时会怎样。",
           "source": "https://x.com/alliekmiller/status/2113749789326053667",
           "date": "2026-10-23"
-        },
-        {
-          "id": "gh10",
-          "title": "Mollick：实验室内部模型优势或催生新业务",
-          "summary": "随着安全与研究优势拉大「内部模型 vs 对外发布」差距，OpenAI、Anthropic 可能更想把优势直接用在金融、生科等新市场——值得非技术决策者跟着想生态变化。",
-          "source": "https://x.com/emollick/status/2113681838611087572",
-          "date": "2026-10-23"
-        },
-        {
-          "id": "gh11",
-          "title": "AI 可完成工作量：从 4 分钟到 17 周",
-          "summary": "Ethan Mollick 对比：2024 年书出版时 AI 约能完成 4 分钟人类工作（约 50% 成功）；交稿时到 17 小时；书上市时已到约 17 周——提醒我们用「可委托时长」而不是模型名字衡量进步。",
-          "source": "https://x.com/emollick/status/2113323645284344215",
-          "date": "2026-10-22"
         }
       ]
     }
