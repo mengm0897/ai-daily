@@ -1,10 +1,47 @@
 window.AI_DAILY = {
-  "date": "2026-11-08",
+  "date": "2026-11-10",
   "categories": [
     {
       "id": "official",
       "name": "官方 AI 动态",
       "today": [
+        {
+          "id": "o1",
+          "title": "Anthropic 发布 Claude Fable 5.2 / Mythos 5.2：硬核技术活再上一级",
+          "summary": "Anthropic 升级面向「最难技术挑战」的 Fable / Mythos：编码、推理、视觉全面加强，输出最多约快 30%，价格降至约 $8/$40 每百万 token，还可开 2.5 倍速的 Fast 模式。预发布里它曾从零设计三台能用的电子硬件、带千个 Agent 在 30 小时内形式化费马大定理证明。Fable 对大众开放；Mythos 同底模、少护栏，需走生命科学/网络安全核验。日常任务仍建议先用 Opus 5.5，难活再上 Fable。",
+          "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "o2",
+          "title": "OpenAI：ChatGPT Enterprise 上架 AWS Marketplace",
+          "summary": "企业版 ChatGPT（含 Work、Codex、dots 等）现可在 AWS Marketplace 发现、采购与账单管理，并把符合条件的支出计入既有 AWS 承诺消费。模型与功能与直购一致、同步上新；医疗与金融服务版也对符合条件客户开放。对已在用 AWS 的团队：少一层采购摩擦，Bedrock 上的开发与企业侧日常助手可以各走各的治理路径。",
+          "source": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "o3",
+          "title": "OpenAI Control Room：研究侧模型输出最快约 35 秒急停",
+          "summary": "OpenAI 公布 Control Room：集中跟踪研究基础设施上的模型负载，安全/安保告警后可在约 35 秒内切断继续生成；服务自身故障时默认拒绝对话（fail closed）。它与错位监测联动，覆盖强化学习采样、评测与数据处理等推理任务。对普通人：这是「前沿模型出事时怎么拉闸」的工程答卷，不是聊天新功能——企业若关心内部实验管控，可对照自家有没有类似急停链路。",
+          "source": "https://openai.com/index/introducing-control-room/",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "o4",
+          "title": "Hugging Face：日本金融合成人设数据集 Nemotron-Personas-Finance-Japan",
+          "summary": "NVIDIA 与 Elith 在 HF 放出约 900 万条日语金融人设（100 万条记录 × 9 人设），对齐日本官方人口与家计统计，含资产、金融素养等约 50 字段，CC BY 4.0 可商用。配套还有同日发布的 Nemotron-PII-Japan 合成业务文档，方便测脱敏。做客服 Agent、对话评测或本地化金融 AI 时：用合成人设跑仿真，不必碰真实客户数据。",
+          "source": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "o5",
+          "title": "HF / AWS Labs HOPE：剪 MoE「专家」时别拆散搭档",
+          "summary": "Amazon 团队开源 HOPE：剪掉 Mixture-of-Experts 里闲置专家以省显存时，不只看单个专家重要度，还考虑常一起被选中的「搭档」。50% 剪枝时在智能体编程等任务上可比一阶方法高出约 6 个百分点。对部署大 MoE 的人：想塞更长上下文或更多工具调用，剪枝比反复卸载更稳——但要保住协作簇，别只删「分数最低」的那几个。",
+          "source": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
+          "date": "2026-11-09"
+        }
+      ],
+      "history": [
         {
           "id": "o1",
           "title": "OpenAI BioBasicsBench：AI 能不能读懂「脏兮兮」的实验数据",
@@ -25,9 +62,7 @@ window.AI_DAILY = {
           "summary": "Open ASR Leaderboard 与 Liva AI 合作，加入埃及、尼日利亚英语私有会话测试集（约 1.34 / 1.55 小时），保留标点、大小写与口语停顿；榜单还按「美国 vs 非美」「Inner Circle vs Outer/Expanding」拆口音表现。对做语音产品的人：公开榜分数越来越好刷，私有口音集才更能暴露「只在某口音上好看」的虚高。",
           "source": "https://huggingface.co/blog/open-asr-leaderboard-liva",
           "date": "2026-11-06"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "o1",
           "title": "OpenAI 联手 Hacktron：用 AI 红队扫自家系统漏洞",
@@ -372,6 +407,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "v1",
+          "title": "Mollick 用 Fable 5.2 做出「反向史酷比」整活游戏",
+          "summary": "Ethan Mollick 早鸟试用 Fable 5.2，顺手做出一款恶搞「反向史酷比」：你要吓跑那些多管闲事的小孩；预告片含配乐音效，游戏可玩。典型 vibe coding——一句话意图 + 强模型，就能出带声画的可分享 demo。想试新模型手感时：先拿娱乐小项目压测，比空谈榜单更直观。",
+          "source": "https://x.com/emollick/status/2119876449494540554",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "v2",
+          "title": "Allie Miller：Fable 5.2 一夜搭全美水质图与 ADHD 频道",
+          "summary": "Allie K. Miller 用早期 Fable 5.2：1）基于 FEMA/NOAA/USGS 数据做出覆盖约 3100 个美国城市的水质安全地图并配演示视频；2）从零搭一套 ADHD 主题 YouTube 人设与可变现频道。对非技术创作者：复杂公开数据可视化 + 内容矩阵，已能用对话式 Agent 一口气推进——上线前仍要核对数据与变现合规。",
+          "source": "https://x.com/alliekmiller/status/2119907692638605541",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "v3",
+          "title": "Google AI Studio：一句话接入 Google Maps 做地图 App",
+          "summary": "Google AI Studio 宣布可一键接入 Google Maps：描述想法即可生成带地图图块、地点、天气、路线、3D 等能力的应用预览，Gemini 帮忙选接口与密钥。对 vibe coder：地理类原型不必再手动抠 Maps SDK——从「附近找点什么」到天气路线，描述完就能看到可交互预览。",
+          "source": "https://x.com/GoogleAIStudio/status/2119837788937896234",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "v4",
+          "title": "Emil：17 个设计技能补上 before/after 文档与示例提示",
+          "summary": "动效作者 Emil Kowalski 为自己的技能库补齐文档：每个技能都有同一 UI 的 before/after、示例提示词、何时用、以及适合搭配的其他技能。用 Cursor 等 Agent 搭界面时，有「对照图 + 提示词」比干 README 好上手——想提升手感，先翻文档再调用技能。",
+          "source": "https://x.com/emilkowalski/status/2119780441658212842",
+          "date": "2026-11-09"
+        }
+      ],
+      "history": [
+        {
+          "id": "v1",
           "title": "Karpathy：Claude Code 三分钟做出 TristanTube",
           "summary": "Andrej Karpathy 把 Tristan Hume 的 YouTube 频道分级清单一键做成 TristanTube：约 4.7 万条硬核视频、暗色模式、About 页，还有适合沙发刷的 TV 模式，自称用 Claude Code 三分钟 one-shot。后续回复里提示词极简——「给链接、做播放器、加 About/暗色/TV」。对 vibe 构建者：骨架一旦有了，下一版往往只是换数据源；真正贵的是品味与选题。",
           "source": "https://x.com/karpathy/status/2119114537442189652",
@@ -397,9 +462,7 @@ window.AI_DAILY = {
           "summary": "顺着家具演示，levelsio 判断：普通人用 AI Agent 自己画设计、再找木工/木匠按图拼装并采购原料，可能打开很大一块市场。核心分工变成「你出设计与清单，手艺人负责实体交付」。对想做本地服务的 vibe 创业者：把 Agent 接到报价、BOM 与本地工匠撮合，会比再做一个纯聊天家具 App 更落地。",
           "source": "https://x.com/levelsio/status/2119134858534416596",
           "date": "2026-11-07"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "v1",
           "title": "Bolt：发完功能别哑巴——一键生成上线公告与社媒帖",
@@ -723,6 +786,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "a1",
+          "title": "Cursor：Claude Fable 5.2 已上线，CursorBench 登顶约 60%",
+          "summary": "Cursor 宣布 Fable 5.2 可用：默认力度 CursorBench 56.9%（5.1 为 49.2%），最大力度约 60% 登顶；价格约 $8/$40 每百万 token，比 5.1 低约 20%。提醒：力度档位与 5.1 不同，别直接沿用旧设置。在 Cursor 里写复杂重构或长程 Agent 任务时，可优先试默认档再按成本上调。",
+          "source": "https://x.com/cursor_ai/status/2119880829212172509",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "a2",
+          "title": "Simon Willison：把 AI 生成的超长 PR 说明塞进折叠块",
+          "summary": "Simon 开始把 AI 写的冗长 GitHub PR 描述藏进 `<details><summary>` 折叠标签（GitHub Markdown 支持），打开才看全文。对天天审 Agent 提交的人：减少「PR 垃圾」刷屏，关键摘要留在外面、细节可展开——一人改习惯，整队评审体验都会轻松一点。",
+          "source": "https://x.com/simonw/status/2119650353142747181",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "a3",
+          "title": "Alex Finn：Fable 5.2 工作流——先磨计划，再丢进任务管理器",
+          "summary": "Alex Finn 早鸟用法：所有规划与头脑风暴都用 Fable 5.2，来回改到「铁板一块」，再让它把超细任务写进你常用的任务管理器。对用 Agent 做事的人：别一上来就让模型改代码——先把意图谈透，执行质量往往直接翻倍。",
+          "source": "https://x.com/AlexFinn/status/2119891924316454975",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "a4",
+          "title": "shadcn：对 Fable 5.2 跑 /improve，能抓到 Opus 5.5 漏掉的点",
+          "summary": "组件库作者 shadcn 建议用 Fable 5.2 跑 /improve：他看到一些 Opus 5.5 没抓到的改进。对 Cursor/Claude Code 用户：换模型不是只比「写得快」，也可以专用来做第二轮审查与打磨——同一套技能提示，换更强顾问模型，常有意外收获。",
+          "source": "https://x.com/shadcn/status/2119879610724720702",
+          "date": "2026-11-09"
+        }
+      ],
+      "history": [
+        {
+          "id": "a1",
           "title": "Agent 记忆组件：Dreaming 如何纠错与建 Wiki",
           "summary": "Anthropic 把 Agent 记忆拆成「当场记笔记 + 空闲做梦整理」：做梦可对照 transcript 改错、合并重复、建可导航 wiki，并把少量关键规则注入下次会话开头。文档库实验里多轮做梦后问答显著提升；也提醒注入层必须短，否则遵守率下降。动手搭 Agent 时：先做可持久化笔记目录，再加夜间整理任务，别指望一次会话写完美记忆。",
           "source": "https://www.anthropic.com/research/components-of-agent-memory",
@@ -741,9 +834,7 @@ window.AI_DAILY = {
           "summary": "swyx 收到一款可插物理端口的读卡客户端后惊喜发现开源——对往实体端口塞东西很关键，并称 API 很对 Agent 胃口，还预告下周活动上的彩蛋。硬件 + 开源 + 清晰 API，意味着本地 Agent 更容易读写实体介质、做自动化测试或边缘采集。关注本地 Agent 的人：留意那些「文档写给人机都能调」的小硬件，往往比又一个聊天壳更有杠杆。",
           "source": "https://x.com/swyx/status/2118996445936361933",
           "date": "2026-11-07"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "a1",
           "title": "Claude Enterprise：项目标签按成本码追踪花费（beta）",
@@ -1067,6 +1158,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "g1",
+          "title": "Lenny × Google Gemini 产品负责人：能搭什么时，搭好什么更稀缺",
+          "summary": "Lenny 访谈 Google 前沿模型产品负责人 Tulsee Doshi：当「什么都能做出来」时，真正值钱的是做出「好的东西」；有主见的 PM 比以往更抢手。对想转产品/AI 协作的人：工具门槛在下降，品味、取舍与对用户的判断反而更贵——别只学提示词，练「为什么做这个」的肌肉。",
+          "source": "https://x.com/lennysan/status/2119823537666183440",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "g2",
+          "title": "Ryo Lu：什么都能做时，我们还知道自己想要什么吗？",
+          "summary": "设计师 Ryo Lu 放出 AI Engineer 上海演讲全文（Keynote 手做幻灯，中英字幕）：当能力边界被 AI 拉开，「想清楚要什么」比「能不能做出来」更难。适合所有 vibe coding 与 Agent 用户当作周末精读——技术加速后，选择与品味成了新瓶颈。",
+          "source": "https://x.com/ryolu_/status/2119586846657454152",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "g3",
+          "title": "Mollick：Fable 5.2 像「锯齿状 AGI」——强处与边界一起看",
+          "summary": "Ethan Mollick 早鸟体验后称 Fable 5.2 跨过某种「锯齿状 AGI」门槛：能开公司、做学术研究、折腾硬件与 3D，但也把能力边界暴露得很清楚。他的文章适合当「怎么试用新模型」的范本：别只看榜单，用真实跨域项目压测，同时记录翻车点。",
+          "source": "https://x.com/emollick/status/2119870150845599972",
+          "date": "2026-11-09"
+        },
+        {
+          "id": "g4",
+          "title": "观察：软件几乎免费做出来了，获客反而更难",
+          "summary": "一条被热议的观点：用 AI 搭软件成本趋近于零，但让陌生人付钱从没这么难；周末人人 vibe coding SaaS，却很少人学分发。对非技术创始人：产品原型不再是门槛，增长、渠道与信任才是——做完第一个 demo 就该问「谁会来、为什么留」。",
+          "source": "https://x.com/IlanNass/status/2119910596296532435",
+          "date": "2026-11-09"
+        }
+      ],
+      "history": [
+        {
+          "id": "g1",
           "title": "Mollick：别再把「人工核验事实」当成默认岗位",
           "summary": "Ethan Mollick 认为，日常工作里过度担心「AI 会编事实、所以人要专职核对」已经过时：新模型在找事实、查主张上常能打过包括博士在内的人类专家。人仍要审视角、立场与路径，但把岗位定义成「挑错机器」可能既低效又过时。对团队分工：把精力从逐句对错，转到目标设定、价值判断与例外处理。",
           "source": "https://x.com/emollick/status/2119140502746308674",
@@ -1092,9 +1213,7 @@ window.AI_DAILY = {
           "summary": "Mollick 抛出一个轻松但锋利的组织体检：如果你的 App 还没适配 iPhone Duo，可能说明团队 AI/产品迭代能力偏弱。玩笑背后是节奏问题——硬件形态一变，跟得上的组织往往也更擅长把新能力嵌进产品。对小团队：用「外部平台一变你多久能跟上」当镜子，比只看内部路线图更诚实。",
           "source": "https://x.com/emollick/status/2119158887060283552",
           "date": "2026-11-07"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "g1",
           "title": "Anthropic 科学专栏：教 AI 建科学模型，求的是洞察不是拟合",
