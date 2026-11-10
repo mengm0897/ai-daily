@@ -1,10 +1,47 @@
 window.AI_DAILY = {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "categories": [
     {
       "id": "official",
       "name": "官方 AI 动态",
       "today": [
+        {
+          "id": "o1",
+          "title": "Google DeepMind：Gemini 4 Carbon 现已开放",
+          "summary": "面向付费开发者、企业、科学家和 Google AI Ultra 用户开放。Carbon 是目前最强的 Gemini，擅长网络安全和长程 Agent 工作（复杂编码、开放式科研推理）；大多数日常软件与知识工作仍建议先用 Argon，难活再上 Carbon。官方称它在 CursorBench 4.0、Perplexity WANDR、Zapier AutomationBench 上均排第一，且单任务成本不到次优外部模型的一半。入门价与 Argon 相同（约 $2/$10 每百万 token），11 月 30 日后调整为 $4/$20。Antigravity 还预览了 /swarm：一条提示可拉起一组可追踪的 Agent 团队。",
+          "source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "o2",
+          "title": "DeepMind AlphaProof Code：形式化验证 Signal 加密实现",
+          "summary": "DeepMind 发布 AlphaProof Code：人机协作的形式化验证框架。研究者与模型一起把 Signal 的安全目标写成形式化规范（全部经人工审阅），再由 Gemini Carbon 驱动的 Agent 生成逾 600 万行 Lean 证明，覆盖的是真实编译后的代码，而不只停留在协议设计。全程约 4 周；Agent 自检后只需人工复核约 1% 代码。他们还把两个已修复的旧漏洞重新放回隔离版本，系统都能给出「这段代码不安全」的机器可检查证明。验证产物将开源。",
+          "source": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "o3",
+          "title": "OpenAI：ChatGPT 上线「商家主页」与 Business Agent",
+          "summary": "ChatGPT 推出 Businesses 测试版：企业可在 Business Hub 认领并核验主页、更新资料与商品信息（含价格与库存），并查看提及次数、网站点击和发现主题等汇总洞察（不向商家泄露用户对话）。符合条件的美国电商与在线服务商还可发布 Business Agent，在独立、带标识的对话里用商家自己的信息回答顾客问题。Shopify 商家能更方便地接入。对普通人：以后在 ChatGPT 里比较商品，可能直接跟品牌的 Agent 聊，而不只是看模型自己的回答。",
+          "source": "https://openai.com/index/introducing-businesses-chatgpt",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "o4",
+          "title": "Anthropic 启动拟议 IPO 路演，拟登陆纳斯达克 ANT",
+          "summary": "Anthropic 宣布启动拟议首次公开募股路演：计划发行 8.25 亿股 A 类普通股（其中约 8.01 亿股由公司发行，约 2365 万股由现有股东出售），定价预期在每股 70–78 美元，已申请在纳斯达克以代码 ANT 上市。注册声明尚未生效，路演公告本身不构成售股要约。对关注 AI 公司的读者：这是「Claude 背后的公司走向公开市场」的正式进度，而不是新模型发布。",
+          "source": "https://www.anthropic.com/news/roadshow-launch",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "o5",
+          "title": "Hugging Face：Hub 费用可记入 Google Cloud 账单",
+          "summary": "Hugging Face 组织现在可通过 Google Cloud Marketplace 关联 GCP 账号，把 Team/Enterprise 订阅以及 Jobs、Inference Endpoints、GPU Spaces、存储等按量费用记到已有的云账单上，不必再单独走一张公司信用卡或新供应商采购。订阅需经 HF 审核；通过后，已有卡的组织通常在下一账期切换。已经在用 GCP 的团队：少一层采购摩擦，开源模型托管和推理可以和云支出走同一套报销。",
+          "source": "https://huggingface.co/blog/hub-gcp-marketplace",
+          "date": "2026-11-10"
+        }
+      ],
+      "history": [
         {
           "id": "o1",
           "title": "Anthropic 发布 Claude Fable 5.2 / Mythos 5.2：硬核技术活再上一级",
@@ -39,9 +76,7 @@ window.AI_DAILY = {
           "summary": "Amazon 团队开源 HOPE：剪掉 Mixture-of-Experts 里闲置专家以省显存时，不只看单个专家重要度，还考虑常一起被选中的「搭档」。50% 剪枝时在智能体编程等任务上可比一阶方法高出约 6 个百分点。对部署大 MoE 的人：想塞更长上下文或更多工具调用，剪枝比反复卸载更稳——但要保住协作簇，别只删「分数最低」的那几个。",
           "source": "https://huggingface.co/blog/amazon/higher-order-pruning-experts",
           "date": "2026-11-09"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "o1",
           "title": "OpenAI BioBasicsBench：AI 能不能读懂「脏兮兮」的实验数据",
@@ -407,6 +442,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "v1",
+          "title": "Mollick 再用 Fable 5.2：Agent 吵出一款奇幻物流游戏",
+          "summary": "Ethan Mollick 只给 Claude Fable 5.2 一段很模糊的需求——要一款「有温度的奇幻交通模拟」——然后交给一群 Agent 去争论美术、世界观和笑话。结果是可玩的网页游戏 Dread & District：靠把物流做对来打败邪恶。继昨天的「反向史酷比」之后，又一次展示：非技术背景的人也可以用一句话加多智能体协作，快速做出完整小游戏。",
+          "source": "https://x.com/emollick/status/2120248525254742318",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "v2",
+          "title": "Emil：每天多次用 /prototype，别指望 Agent 一次做对 UI",
+          "summary": "设计师 Emil Kowalski 强调 /prototype 技能有多重要：他每天会用很多次。Agent 很少能一次给出满意的界面，先生成多个可选方案再挑，往往更快逼近想要的结果。他还分享了自己偏 UI 的原型技能（同事 Matt 也有更通用的版本）。对 vibe coding 的人：别把「一句话出成品」当成默认，把「多方案对比」写进技能里更稳。",
+          "source": "https://x.com/emilkowalski/status/2120236535228326252",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "v3",
+          "title": "Simon：房间里有神秘蜂鸣，用 vibe coding 定位它",
+          "summary": "Simon Willison 调侃家里未拆箱子里传来间歇蜂鸣：你是一箱箱打开找，还是 vibe coding 写个程序，用两台笔记本、两台 iPad 和一部手机一起听，三角定位声源？这正好点出非技术构建者的日常——用手头设备和 AI，把「有点烦的小问题」变成一个可玩的小工具。",
+          "source": "https://x.com/simonw/status/2119945524514328631",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "v4",
+          "title": "Bolt：别只让 Agent 搭页面，把它当成思考搭档",
+          "summary": "Bolt 提醒：Agent 不只会「帮我做这个页面」，也可以「像我从没见过一样讲解这套代码」「给这张卡片五个版本」「告诉我用户卡在哪」。他们分享了一批把 Agent 从施工队变成思考搭档的提示。对用 Lovable / Bolt / v0 的人：同一套工具，换一种问法，就能多做设计权衡和问题诊断，而不只是出界面。",
+          "source": "https://x.com/boltdotnew/status/2120275503361777962",
+          "date": "2026-11-10"
+        }
+      ],
+      "history": [
+        {
+          "id": "v1",
           "title": "Mollick 用 Fable 5.2 做出「反向史酷比」整活游戏",
           "summary": "Ethan Mollick 早鸟试用 Fable 5.2，顺手做出一款恶搞「反向史酷比」：你要吓跑那些多管闲事的小孩；预告片含配乐音效，游戏可玩。典型 vibe coding——一句话意图 + 强模型，就能出带声画的可分享 demo。想试新模型手感时：先拿娱乐小项目压测，比空谈榜单更直观。",
           "source": "https://x.com/emollick/status/2119876449494540554",
@@ -432,9 +497,7 @@ window.AI_DAILY = {
           "summary": "动效作者 Emil Kowalski 为自己的技能库补齐文档：每个技能都有同一 UI 的 before/after、示例提示词、何时用、以及适合搭配的其他技能。用 Cursor 等 Agent 搭界面时，有「对照图 + 提示词」比干 README 好上手——想提升手感，先翻文档再调用技能。",
           "source": "https://x.com/emilkowalski/status/2119780441658212842",
           "date": "2026-11-09"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "v1",
           "title": "Karpathy：Claude Code 三分钟做出 TristanTube",
@@ -786,6 +849,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "a1",
+          "title": "Cursor：Gemini 4 Carbon 已上线，CursorBench 约 60.4% 登顶",
+          "summary": "Cursor 宣布 Gemini 4 Carbon 现已可在产品里选用。官方数据显示，在高努力（high effort）设置下，它以 60.4% 登上 CursorBench 榜首。对已经在 Cursor 里写代码的人：又多了一个适合难活、长程任务的模型选项；日常任务仍可按成本与速度，在 Carbon 和其他模型之间切换。",
+          "source": "https://x.com/cursor_ai/status/2120193584670580857",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "a2",
+          "title": "Simon：让 Fable 5.2 少「缩手缩脚」，跟它说「这代码库是你的」",
+          "summary": "Anthropic 发布新模型时，Simon Willison 建议先看官方提示指南。针对 Fable 5.2，有一条很好玩的建议：如果你希望它更大胆地改进已有代码、少一些过度谨慎，就明确告诉它 “This codebase is yours”（这套代码归你负责）。指南里还有努力程度、提早停止、审批、子 Agent 等写法。对非技术构建者：换新模型时，旧提示不一定还适用，先看官方「怎么跟它说话」。",
+          "source": "https://x.com/simonw/status/2120029347948220500",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "a3",
+          "title": "swyx 记下现场观点：别再只在本地写，改用云端 Agent",
+          "summary": "在 AI Engineer Code 大会上，swyx 引用 Ryan Carson 等人的讨论：「如果你还在本地写代码，停下来。你真正该做的是带着云端 Agent 一起写。」这不是让所有人立刻扔掉本地环境，而是工作流正在从「一个人在自己电脑上敲」转向「在云端同时调度多个 Agent」。对已经在用 Cursor 等工具的人：可以试试把一部分任务放到云端并行跑，而不是全程守在本机终端前。",
+          "source": "https://x.com/swyx/status/2120241063193706960",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "a4",
+          "title": "swyx：为什么 Agent 总爱选 Resend？产品得为 Agent 而设计",
+          "summary": "swyx 问 Resend CEO Zeno Rocha：自己明明没指定，Agent 却总是选用 Resend 发邮件。这正好对上 2026 年很火的 Agent Experience（AX）讨论——开发工具和基础设施不能只考虑人怎么用，还要让 Agent 容易发现、愿意选用。对做产品的人：文档、默认配置和「技能」会决定 Agent 帮用户挑谁；被 Agent 选中，正在变成一种新的分发渠道。",
+          "source": "https://x.com/swyx/status/2120260228902264872",
+          "date": "2026-11-10"
+        }
+      ],
+      "history": [
+        {
+          "id": "a1",
           "title": "Cursor：Claude Fable 5.2 已上线，CursorBench 登顶约 60%",
           "summary": "Cursor 宣布 Fable 5.2 可用：默认力度 CursorBench 56.9%（5.1 为 49.2%），最大力度约 60% 登顶；价格约 $8/$40 每百万 token，比 5.1 低约 20%。提醒：力度档位与 5.1 不同，别直接沿用旧设置。在 Cursor 里写复杂重构或长程 Agent 任务时，可优先试默认档再按成本上调。",
           "source": "https://x.com/cursor_ai/status/2119880829212172509",
@@ -811,9 +904,7 @@ window.AI_DAILY = {
           "summary": "组件库作者 shadcn 建议用 Fable 5.2 跑 /improve：他看到一些 Opus 5.5 没抓到的改进。对 Cursor/Claude Code 用户：换模型不是只比「写得快」，也可以专用来做第二轮审查与打磨——同一套技能提示，换更强顾问模型，常有意外收获。",
           "source": "https://x.com/shadcn/status/2119879610724720702",
           "date": "2026-11-09"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "a1",
           "title": "Agent 记忆组件：Dreaming 如何纠错与建 Wiki",
@@ -1158,6 +1249,36 @@ window.AI_DAILY = {
       "today": [
         {
           "id": "g1",
+          "title": "Lenny：2026 科技就业报告——PM 受益，工程岗位增速几乎停摆",
+          "summary": "Lenny Rachitsky 第 5 份半年就业报告出炉：产品经理岗位是近四年最多；工程岗位同比只增约 2.5%，今年 3 月以来不增反降；设计岗位处在记录低位；几乎所有职位都开始要求 AI 技能；机会更向湾区集中，远程岗位也处在低位；整体科技就业仍在增长，但主要不在传统软件岗。他另外提到 Forward Deployed Engineering（驻场/一线部署工程师）需求爆发，移动和前端岗位一年内几乎减半。",
+          "source": "https://www.lennysnewsletter.com/p/state-of-the-tech-job-market-late",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "g2",
+          "title": "Lenny：设计师招聘里，Claude 已是第二常被提到的技能",
+          "summary": "同一份报告里的反直觉发现：过去三年，招聘启事里对 Figma 经验的需求其实还在增长；但从今春起，Claude 已成为设计师职位描述里第二常被提到的技能。设计师并没有丢掉 Figma，不过「会用 AI」已经和设计工具本身几乎平起平坐。对转行或做产品设计的人：工具账还在，但作品之外，能不能和 Claude 等模型一起干活，正在变成默认要求。",
+          "source": "https://x.com/lennysan/status/2120259172902256711",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "g3",
+          "title": "Lee Robinson：现在学做软件，先打磨「想法机器」",
+          "summary": "Lee Robinson 分享他会怎么教对编程感兴趣的孩子：今天大部分代码已不再手写，悲观者担心岗位消失，更可取的是看到——有行动力的人，从未有过更好的时代去实现想法。他的建议是打磨「idea machine」：多产想法、练品味、先做自己真正想做的东西，再在卡点时补计算机基础；也可以把教学技能放进 Agent，让它按最佳实践来教你。他还提醒：今天的模型是它们「最差的一天」，对它们的野心可以再大一点。",
+          "source": "https://x.com/leerob/status/2120182450416500819",
+          "date": "2026-11-10"
+        },
+        {
+          "id": "g4",
+          "title": "Mollick：Carbon 的意义是 Google 重新回到前沿模型竞赛",
+          "summary": "Ethan Mollick 认为 Gemini 4 Carbon 最重要的一点，不只是又一个强模型，而是表明 Google 重新回到了前沿模型、快速发布和快速迭代的竞赛里。对使用者的实际好处是：除了 Claude 和 GPT，又多了一个「思路不同、仍然很强」的选择，可以按任务切换。模型格局重新变成三强紧咬，对做产品和学习的人都更有余地。",
+          "source": "https://x.com/emollick/status/2120233659793854926",
+          "date": "2026-11-10"
+        }
+      ],
+      "history": [
+        {
+          "id": "g1",
           "title": "Lenny × Google Gemini 产品负责人：能搭什么时，搭好什么更稀缺",
           "summary": "Lenny 访谈 Google 前沿模型产品负责人 Tulsee Doshi：当「什么都能做出来」时，真正值钱的是做出「好的东西」；有主见的 PM 比以往更抢手。对想转产品/AI 协作的人：工具门槛在下降，品味、取舍与对用户的判断反而更贵——别只学提示词，练「为什么做这个」的肌肉。",
           "source": "https://x.com/lennysan/status/2119823537666183440",
@@ -1183,9 +1304,7 @@ window.AI_DAILY = {
           "summary": "一条被热议的观点：用 AI 搭软件成本趋近于零，但让陌生人付钱从没这么难；周末人人 vibe coding SaaS，却很少人学分发。对非技术创始人：产品原型不再是门槛，增长、渠道与信任才是——做完第一个 demo 就该问「谁会来、为什么留」。",
           "source": "https://x.com/IlanNass/status/2119910596296532435",
           "date": "2026-11-09"
-        }
-      ],
-      "history": [
+        },
         {
           "id": "g1",
           "title": "Mollick：别再把「人工核验事实」当成默认岗位",
@@ -1553,4 +1672,4 @@ window.AI_DAILY = {
       ]
     }
   ]
-};
+}
